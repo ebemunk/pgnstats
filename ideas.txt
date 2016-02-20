@@ -1,0 +1,29 @@
+first blood (first exchanged piece)
+
+common endgames
+
+number of different players
+
+min/max date
+
+min/max elo
+
+DONE
+----
+	Results:
+		White
+		Black
+		Draw
+		NA
+
+	Game Length Histogram
+
+	games ending in check / mate
+
+	material count by move
+	material difference by move
+
+	Castling stats:
+		White KS QS
+		Black KS QS
+	Same/opposite side castling?

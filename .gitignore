@@ -1,0 +1,5 @@
+pgnstats
+pgn/
+prof/
+.atom-build.json
+data.json
