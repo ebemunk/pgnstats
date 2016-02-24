@@ -1,11 +1,15 @@
 package main
 
-import "github.com/malbrecht/chess"
+import (
+	"sync/atomic"
+
+	"github.com/malbrecht/chess"
+)
 
 //WB is White/Black counts
 type WB struct {
-	W int `json:"w"`
-	B int `json:"b"`
+	W uint32 `json:"w"`
+	B uint32 `json:"b"`
 }
 
 //Heatsquare is a square in the Heatmap
@@ -30,35 +34,35 @@ func (hm *Heatmap) Count(piece chess.Piece, sq chess.Sq) {
 
 	switch piece {
 	case chess.WP:
-		hmPtr.P.W++
+		atomic.AddUint32(&hmPtr.P.W, 1)
 	case chess.BP:
-		hmPtr.P.B++
+		atomic.AddUint32(&hmPtr.P.B, 1)
 	case chess.WN:
-		hmPtr.N.W++
+		atomic.AddUint32(&hmPtr.N.W, 1)
 	case chess.BN:
-		hmPtr.N.B++
+		atomic.AddUint32(&hmPtr.N.B, 1)
 	case chess.WB:
-		hmPtr.B.W++
+		atomic.AddUint32(&hmPtr.B.W, 1)
 	case chess.BB:
-		hmPtr.B.B++
+		atomic.AddUint32(&hmPtr.B.B, 1)
 	case chess.WR:
-		hmPtr.R.W++
+		atomic.AddUint32(&hmPtr.R.W, 1)
 	case chess.BR:
-		hmPtr.R.B++
+		atomic.AddUint32(&hmPtr.R.B, 1)
 	case chess.WQ:
-		hmPtr.Q.W++
+		atomic.AddUint32(&hmPtr.Q.W, 1)
 	case chess.BQ:
-		hmPtr.Q.B++
+		atomic.AddUint32(&hmPtr.Q.B, 1)
 	case chess.WK:
-		hmPtr.K.W++
+		atomic.AddUint32(&hmPtr.K.W, 1)
 	case chess.BK:
-		hmPtr.K.B++
+		atomic.AddUint32(&hmPtr.K.B, 1)
 	}
 
 	switch piece.Color() {
 	case chess.White:
-		hmPtr.All.W++
+		atomic.AddUint32(&hmPtr.All.W, 1)
 	case chess.Black:
-		hmPtr.All.B++
+		atomic.AddUint32(&hmPtr.All.B, 1)
 	}
 }
