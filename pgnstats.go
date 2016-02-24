@@ -217,6 +217,7 @@ var concurrencyLevel = flag.Int("c", 10, "concurrency level for parsing")
 var outputPath = flag.String("o", "./data.json", "output path for JSON file")
 var perf = flag.Bool("p", false, "write profile to ./prof/")
 var verbose = flag.Bool("v", false, "verbose mode")
+var indent = flag.Bool("i", false, "indent json output")
 
 func main() {
 	flag.Parse()
@@ -283,8 +284,12 @@ func main() {
 
 	stats.Openings.Prune(pruneThreshold)
 
-	// js, err := json.Marshal(stats)
-	js, err := json.MarshalIndent(stats, "", "  ")
+	var js []byte
+	if *indent {
+		js, err = json.MarshalIndent(stats, "", "  ")
+	} else {
+		js, err = json.Marshal(stats)
+	}
 	if err != nil {
 		log.Fatalf("error converting to json: %s\n", err)
 	}
