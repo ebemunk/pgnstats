@@ -17,6 +17,12 @@ import (
 	"github.com/pkg/profile"
 )
 
+//MinMax is a min and max uint32
+type MinMax struct {
+	Min uint32
+	Max uint32
+}
+
 //Stats is what we'll write in as JSON
 type Stats struct {
 	TotalGames uint32       `json:"totalGames"`
@@ -54,6 +60,8 @@ type Stats struct {
 			Opposite uint32
 		}
 	}
+	Ratings MinMax
+	Dates   MinMax
 }
 
 //Game sure
@@ -185,6 +193,47 @@ func GetStats(c <-chan *Game, data *Stats) {
 			atomic.AddUint32(&data.Results.NA, 1)
 		}
 
+		//ratings
+		if elo, ok := Game.PgnGame.Tags["WhiteElo"]; ok {
+			eloNum64, _ := strconv.Atoi(elo)
+			eloNum := uint32(eloNum64)
+
+			if eloNum < atomic.LoadUint32(&data.Ratings.Min) {
+				atomic.StoreUint32(&data.Ratings.Min, eloNum)
+			}
+
+			if eloNum > atomic.LoadUint32(&data.Ratings.Max) {
+				atomic.StoreUint32(&data.Ratings.Max, eloNum)
+			}
+		}
+
+		if elo, ok := Game.PgnGame.Tags["BlackElo"]; ok {
+			eloNum64, _ := strconv.Atoi(elo)
+			eloNum := uint32(eloNum64)
+
+			if eloNum < atomic.LoadUint32(&data.Ratings.Min) {
+				atomic.StoreUint32(&data.Ratings.Min, eloNum)
+			}
+
+			if eloNum > atomic.LoadUint32(&data.Ratings.Max) {
+				atomic.StoreUint32(&data.Ratings.Max, eloNum)
+			}
+		}
+
+		//dates
+		if date, ok := Game.PgnGame.Tags["Date"]; ok {
+			year64, _ := strconv.Atoi(date[:4])
+			year := uint32(year64)
+
+			if year < atomic.LoadUint32(&data.Dates.Min) {
+				atomic.StoreUint32(&data.Dates.Min, year)
+			}
+
+			if year > atomic.LoadUint32(&data.Dates.Max) {
+				atomic.StoreUint32(&data.Dates.Max, year)
+			}
+		}
+
 		//game lengths histogram
 		gamePlyStr := strconv.Itoa(len(Game.Moves) - 1)
 
@@ -243,6 +292,14 @@ func main() {
 		GameLengths:   NewCmap(),
 		MaterialCount: NewCmap(),
 		MaterialDiff:  NewCmap(),
+		Ratings: MinMax{
+			Min: 3000,
+			Max: 0,
+		},
+		Dates: MinMax{
+			Min: 3000,
+			Max: 0,
+		},
 	}
 
 	readC := Read(f)
