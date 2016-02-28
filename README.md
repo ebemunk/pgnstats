@@ -20,3 +20,5 @@ parses [PGN](https://en.wikipedia.org/wiki/Portable_Game_Notation) files and ext
 * material count histogram (using standard values)
 * material difference histogram
 * castling (black/white, same/opposite)
+* min/max ELO
+* min/max year
