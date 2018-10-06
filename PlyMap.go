@@ -6,11 +6,11 @@ import (
 	"sync"
 )
 
-type FloatMap struct {
+type PlyMap struct {
 	sync.Map
 }
 
-func (f FloatMap) MarshalJSON() ([]byte, error) {
+func (f PlyMap) MarshalJSON() ([]byte, error) {
 	tmpMap := make(map[int]float64)
 	keys := make([]int, 0)
 
@@ -21,7 +21,9 @@ func (f FloatMap) MarshalJSON() ([]byte, error) {
 	})
 
 	sort.Ints(keys)
-	sortedValues := make([]float64, len(keys))
+	sortedValues := make([]float64, keys[len(keys)-1]+1)
+
+	// log.Println("yo", max)
 
 	for _, k := range keys {
 		sortedValues[k] = tmpMap[k]

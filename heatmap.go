@@ -8,19 +8,19 @@ import (
 
 //WB is White/Black counts
 type WB struct {
-	W uint32 `json:"w"`
-	B uint32 `json:"b"`
+	W uint32
+	B uint32
 }
 
 //Heatsquare is a square in the Heatmap
 type Heatsquare struct {
-	All WB `json:"all"`
-	K   WB `json:"k"`
-	Q   WB `json:"q"`
-	R   WB `json:"r"`
-	B   WB `json:"b"`
-	N   WB `json:"n"`
-	P   WB `json:"p"`
+	All WB
+	K   WB
+	Q   WB
+	R   WB
+	B   WB
+	N   WB
+	P   WB
 }
 
 //Heatmap is a collection of HeatSquares in the shape of a chess board
@@ -29,7 +29,6 @@ type Heatmap [64]Heatsquare
 //Count increments the counts of HeatSquares depending on piece and square
 func (hm *Heatmap) Count(piece chess.Piece, sq chess.Sq) {
 	index := (7-sq.Rank())*8 + sq.File()
-
 	hmPtr := &hm[index]
 
 	switch piece {

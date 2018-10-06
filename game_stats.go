@@ -8,57 +8,8 @@ import (
 	"github.com/dylhunn/dragontoothmg"
 )
 
-//MinMax is a min and max uint32
-type MinMax struct {
-	Min uint32
-	Max uint32
-}
-
-//Stats is what we'll write in as JSON
-type Stats struct {
-	TotalGames uint32       `json:"totalGames"`
-	Openings   *OpeningMove `json:"openings"`
-	Heatmaps   struct {
-		SquareUtilization Heatmap `json:"squareUtilization"`
-		MoveSquares       Heatmap `json:"moveSquares"`
-		CaptureSquares    Heatmap `json:"captureSquares"`
-		CheckSquares      Heatmap `json:"checkSquares"`
-	} `json:"heatmaps"`
-	Results struct {
-		White uint32
-		Black uint32
-		Draw  uint32
-		NA    uint32
-	}
-	GamesEndingWith struct {
-		Check uint32
-		Mate  uint32
-	}
-	GameLengths   ConcurrentMap
-	MaterialCount ConcurrentMap
-	MaterialDiff  ConcurrentMap
-	Castling      struct {
-		White struct {
-			Kingside  uint32
-			Queenside uint32
-		}
-		Black struct {
-			Kingside  uint32
-			Queenside uint32
-		}
-		Side struct {
-			Same     uint32
-			Opposite uint32
-		}
-	}
-	Ratings MinMax
-	Dates   MinMax
-
-	BranchingFactor FloatMap
-}
-
-// GetStats collects statistics from games
-func GetStats(c <-chan *Game, data *Stats) {
+// GameStats collects statistics from games
+func GameStats(c <-chan *Game, data *Result) {
 	for Game := range c {
 		gamePtr := Game.PgnGame.Root
 		openingPtr := data.Openings
@@ -74,7 +25,6 @@ func GetStats(c <-chan *Game, data *Stats) {
 			piece := gamePtr.Board.Piece[move.To]
 
 			HeatmapStats(data, move, piece, rawMove)
-			MaterialCountStats(data, gamePtr.Board, i)
 
 			if rawMove == "O-O" || rawMove == "O-O-O" {
 				CastlingStats(data, rawMove, gamePtr.Board.SideToMove)
@@ -94,6 +44,7 @@ func GetStats(c <-chan *Game, data *Stats) {
 				openingPtr = OpeningStats(openingPtr, rawMove)
 			}
 
+			//BranchingFactor
 			bd := dragontoothmg.ParseFen(gamePtr.Board.Fen())
 			branchingFactor := float64(len(bd.GenerateLegalMoves()))
 
@@ -102,6 +53,18 @@ func GetStats(c <-chan *Game, data *Stats) {
 				data.BranchingFactor.Store(i, ((val.(float64)*float64(data.TotalGames))+branchingFactor)/(float64(data.TotalGames)+1))
 			}
 
+			//MaterialCount
+			count, diff := MaterialCount(gamePtr.Board)
+			val, loaded = data.MaterialCount.LoadOrStore(i, float64(count))
+			if loaded {
+				data.MaterialCount.Store(i, ((val.(float64)*float64(data.TotalGames))+float64(count))/(float64(data.TotalGames)+1))
+			}
+
+			//MaterialDiff
+			val, loaded = data.MaterialDiff.LoadOrStore(i, float64(diff))
+			if loaded {
+				data.MaterialDiff.Store(i, ((val.(float64)*float64(data.TotalGames))+float64(diff))/(float64(data.TotalGames)+1))
+			}
 		}
 
 		//results
@@ -157,13 +120,11 @@ func GetStats(c <-chan *Game, data *Stats) {
 			}
 		}
 
-		//game lengths histogram
-		gamePlyStr := strconv.Itoa(len(Game.Moves) - 1)
-
-		if val, ok := data.GameLengths.Get(gamePlyStr); ok {
-			data.GameLengths.Set(gamePlyStr, val+1)
-		} else {
-			data.GameLengths.Set(gamePlyStr, 1)
+		//game lengths
+		totalPlies := len(Game.Moves) - 1
+		val, loaded := data.GameLengths.LoadOrStore(totalPlies, float64(1))
+		if loaded {
+			data.GameLengths.Store(totalPlies, val.(float64)+1)
 		}
 
 		if len(Game.Moves) < 2 {

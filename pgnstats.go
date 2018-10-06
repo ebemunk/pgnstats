@@ -14,7 +14,7 @@ import (
 //flags
 var pgnPath = flag.String("f", "./pgn/a.pgn", "path of the PGN file")
 var concurrencyLevel = flag.Int("c", 10, "concurrency level for parsing")
-var outputPath = flag.String("o", "./data.json", "output path for JSON file")
+var outputPath = flag.String("o", "./data/data.json", "output path for JSON file")
 var perf = flag.Bool("p", false, "write profile to ./prof/")
 var verbose = flag.Bool("v", false, "verbose mode")
 var indent = flag.Bool("i", false, "indent json output")
@@ -35,32 +35,13 @@ func main() {
 	log.Printf("starting")
 
 	//init data
-	stats := &Stats{
-		Openings: &OpeningMove{
-			San:      "start",
-			Children: make([]*OpeningMove, 0),
-		},
-		GameLengths:   NewCmap(),
-		MaterialCount: NewCmap(),
-		MaterialDiff:  NewCmap(),
-		Ratings: MinMax{
-			Min: 3000,
-			Max: 0,
-		},
-		Dates: MinMax{
-			Min: 3000,
-			Max: 0,
-		},
-		BranchingFactor: FloatMap{},
-	}
-
+	stats := NewResult()
 	readC := Read(f)
 	parsedC := make(chan *Game)
 
 	var wg sync.WaitGroup
 	wg.Add(*concurrencyLevel)
 	for i := 0; i < *concurrencyLevel; i++ {
-		// log.Printf("parse worker %d\n", i)
 		go func() {
 			Parse(readC, parsedC)
 			wg.Done()
@@ -70,21 +51,13 @@ func main() {
 	go func() {
 		wg.Wait()
 		close(parsedC)
-		// log.Println("closed ")
 	}()
-
-	// var i = 0
-	// for game := range parsedC {
-	// 	i += game.Kek
-	// }
-	// log.Printf("analyzed %d games\n", i)
 
 	var wg2 sync.WaitGroup
 	wg2.Add(*concurrencyLevel)
 	for i := 0; i < *concurrencyLevel; i++ {
-		// log.Printf("stats worker %d\n", i)
 		go func() {
-			GetStats(parsedC, stats)
+			GameStats(parsedC, stats)
 			wg2.Done()
 		}()
 	}
@@ -93,13 +66,13 @@ func main() {
 
 	log.Printf("analyzed %d games\n", stats.TotalGames)
 
-	// pruneThreshold := int(float32(stats.TotalGames) * 0.001)
+	pruneThreshold := int(float32(stats.TotalGames) * 0.001)
 
-	// if *verbose {
-	// 	log.Printf("prune param %d\n", pruneThreshold)
-	// }
+	if *verbose {
+		log.Printf("prune param %d\n", pruneThreshold)
+	}
 
-	// stats.Openings.Prune(pruneThreshold)
+	stats.Openings.Prune(pruneThreshold)
 
 	var js []byte
 	if *indent {

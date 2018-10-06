@@ -1,7 +1,6 @@
 package main
 
 import (
-	"strconv"
 	"strings"
 	"sync/atomic"
 
@@ -9,7 +8,7 @@ import (
 )
 
 //HeatmapStats collects stats for Heatmaps
-func HeatmapStats(data *Stats, move chess.Move, piece chess.Piece, rawMove string) {
+func HeatmapStats(data *Result, move chess.Move, piece chess.Piece, rawMove string) {
 	if move.From == chess.E1 && move.To == chess.A1 ||
 		move.From == chess.E1 && move.To == chess.H1 ||
 		move.From == chess.E8 && move.To == chess.A8 ||
@@ -86,54 +85,8 @@ func OpeningStats(ptr *OpeningMove, rawMove string) *OpeningMove {
 	return ptr
 }
 
-//MaterialCountStats counts material and difference for every move of the game
-func MaterialCountStats(data *Stats, board *chess.Board, ply int) {
-	//material count
-	materialCountW := 0
-	materialCountB := 0
-	var materialCountPtr *int
-
-	for _, p := range board.Piece {
-		switch chess.Piece(p).Color() {
-		case chess.White:
-			materialCountPtr = &materialCountW
-		case chess.Black:
-			materialCountPtr = &materialCountB
-		}
-
-		switch chess.Piece(p).Type() {
-		case chess.Pawn:
-			*materialCountPtr++
-		case chess.Knight:
-			*materialCountPtr += 3
-		case chess.Bishop:
-			*materialCountPtr += 3
-		case chess.Rook:
-			*materialCountPtr += 5
-		case chess.Queen:
-			*materialCountPtr += 9
-		}
-	}
-
-	materialCount := materialCountW + materialCountB
-	materialDiff := materialCountW - materialCountB
-
-	plyStr := strconv.Itoa(ply)
-
-	if val, ok := data.MaterialCount.Get(plyStr); ok {
-		data.MaterialCount.Set(plyStr, val+materialCount)
-	} else {
-		data.MaterialCount.Set(plyStr, materialCount)
-	}
-	if val, ok := data.MaterialDiff.Get(plyStr); ok {
-		data.MaterialDiff.Set(plyStr, val+materialDiff)
-	} else {
-		data.MaterialDiff.Set(plyStr, materialDiff)
-	}
-}
-
 //CastlingStats counts the number of kingside and queenside castles by both colors
-func CastlingStats(data *Stats, rawMove string, sideToMove int) {
+func CastlingStats(data *Result, rawMove string, sideToMove int) {
 	if rawMove == "O-O" {
 		if sideToMove == chess.White {
 			atomic.AddUint32(&data.Castling.White.Kingside, 1)
@@ -147,4 +100,37 @@ func CastlingStats(data *Stats, rawMove string, sideToMove int) {
 			atomic.AddUint32(&data.Castling.Black.Queenside, 1)
 		}
 	}
+}
+
+func MaterialCount(board *chess.Board) (int, int) {
+	countW := 0
+	countB := 0
+	var countPtr *int
+
+	for _, p := range board.Piece {
+		switch chess.Piece(p).Color() {
+		case chess.White:
+			countPtr = &countW
+		case chess.Black:
+			countPtr = &countB
+		}
+
+		switch chess.Piece(p).Type() {
+		case chess.Pawn:
+			*countPtr++
+		case chess.Knight:
+			*countPtr += 3
+		case chess.Bishop:
+			*countPtr += 3
+		case chess.Rook:
+			*countPtr += 5
+		case chess.Queen:
+			*countPtr += 9
+		}
+	}
+
+	count := countW + countB
+	diff := countW - countB
+
+	return count, diff
 }
