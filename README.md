@@ -1,24 +1,27 @@
-pgnstats
---------
+# pgnstats
 
-parses [PGN](https://en.wikipedia.org/wiki/Portable_Game_Notation) files and extract statistics from them. handles huge files like a champ! mostly a companion to [chess-dataviz](https://github.com/ebemunk/chess-dataviz)
+parses [PGN](https://en.wikipedia.org/wiki/Portable_Game_Notation) files and extract statistics from them. handles huge files like a champ!
 
-### usage
-`./pgnstats -h` for help
-`./pgnstats -f=myFile.pgn -o=stats.json`
+## usage
 
-### statistics
-* openings tree
-* heatmaps
-	* square utilization
-	* move squares
-	* checking squares
-	* capture squares
-* results (white win / black win / draw / na)
-* games ending with check / mate
-* game length histogram
-* material count histogram (using standard values)
-* material difference histogram
-* castling (black/white, same/opposite)
-* min/max ELO
-* min/max year
+example: `pgnstats -f myFile.pgn -o stats.json`
+
+help: `pgnstats -h`
+
+## statistics
+
+- openings tree
+- heatmaps
+  _ square utilization
+  _ move squares
+  _ checking squares
+  _ capture squares
+- results (white win / black win / draw / na)
+- games ending with check / mate
+- game length histogram
+- material count histogram (using standard values)
+- material difference histogram
+- castling (black/white, same/opposite)
+- min/max ELO
+- min/max year
+- branching factor per ply
