@@ -102,6 +102,7 @@ func CastlingStats(data *Result, rawMove string, sideToMove int) {
 	}
 }
 
+//MaterialCount returns sum of material and difference (white - black)
 func MaterialCount(board *chess.Board) (int, int) {
 	countW := 0
 	countB := 0

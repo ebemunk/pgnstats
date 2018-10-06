@@ -6,6 +6,7 @@ type MinMax struct {
 	Max uint32
 }
 
+//Result is all the data collected from pgn files
 type Result struct {
 	TotalGames uint32
 	Ratings    MinMax
@@ -47,6 +48,7 @@ type Result struct {
 	Openings *OpeningMove
 }
 
+//NewResult constructs a new Result object
 func NewResult() *Result {
 	return &Result{
 		Openings: &OpeningMove{

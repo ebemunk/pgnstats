@@ -6,10 +6,12 @@ import (
 	"sync"
 )
 
+//PlyMap is an marshal-able sync.Map
 type PlyMap struct {
 	sync.Map
 }
 
+//MarshalJSON marshals sync.Map to json, where data is sorted by key
 func (f PlyMap) MarshalJSON() ([]byte, error) {
 	tmpMap := make(map[int]float64)
 	keys := make([]int, 0)

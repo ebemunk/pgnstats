@@ -18,10 +18,10 @@ func GameStats(c <-chan *Game, data *Result) {
 		atomic.AddUint32(&data.TotalGames, 1)
 		atomic.AddUint32(&data.Openings.Count, 1)
 
-		for i := 0; i < len(Game.Moves)-1; i++ {
+		for ply := 0; ply < len(Game.Moves)-1; ply++ {
 			gamePtr = gamePtr.Next
 			move := gamePtr.Move
-			rawMove := Game.Moves[i]
+			rawMove := Game.Moves[ply]
 			piece := gamePtr.Board.Piece[move.To]
 
 			HeatmapStats(data, move, piece, rawMove)
@@ -40,7 +40,7 @@ func GameStats(c <-chan *Game, data *Result) {
 				}
 			}
 
-			if i < 10 {
+			if ply < 10 {
 				openingPtr = OpeningStats(openingPtr, rawMove)
 			}
 
@@ -48,22 +48,22 @@ func GameStats(c <-chan *Game, data *Result) {
 			bd := dragontoothmg.ParseFen(gamePtr.Board.Fen())
 			branchingFactor := float64(len(bd.GenerateLegalMoves()))
 
-			val, loaded := data.BranchingFactor.LoadOrStore(i, branchingFactor)
+			val, loaded := data.BranchingFactor.LoadOrStore(ply, branchingFactor)
 			if loaded {
-				data.BranchingFactor.Store(i, ((val.(float64)*float64(data.TotalGames))+branchingFactor)/(float64(data.TotalGames)+1))
+				data.BranchingFactor.Store(ply, ((val.(float64)*float64(data.TotalGames))+branchingFactor)/(float64(data.TotalGames)+1))
 			}
 
 			//MaterialCount
 			count, diff := MaterialCount(gamePtr.Board)
-			val, loaded = data.MaterialCount.LoadOrStore(i, float64(count))
+			val, loaded = data.MaterialCount.LoadOrStore(ply, float64(count))
 			if loaded {
-				data.MaterialCount.Store(i, ((val.(float64)*float64(data.TotalGames))+float64(count))/(float64(data.TotalGames)+1))
+				data.MaterialCount.Store(ply, ((val.(float64)*float64(data.TotalGames))+float64(count))/(float64(data.TotalGames)+1))
 			}
 
 			//MaterialDiff
-			val, loaded = data.MaterialDiff.LoadOrStore(i, float64(diff))
+			val, loaded = data.MaterialDiff.LoadOrStore(ply, float64(diff))
 			if loaded {
-				data.MaterialDiff.Store(i, ((val.(float64)*float64(data.TotalGames))+float64(diff))/(float64(data.TotalGames)+1))
+				data.MaterialDiff.Store(ply, ((val.(float64)*float64(data.TotalGames))+float64(diff))/(float64(data.TotalGames)+1))
 			}
 		}
 
