@@ -22,10 +22,12 @@ func (f PlyMap) MarshalJSON() ([]byte, error) {
 		return true
 	})
 
+	if len(keys) < 1 {
+		return json.Marshal(keys)
+	}
+
 	sort.Ints(keys)
 	sortedValues := make([]float64, keys[len(keys)-1]+1)
-
-	// log.Println("yo", max)
 
 	for _, k := range keys {
 		sortedValues[k] = tmpMap[k]

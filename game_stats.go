@@ -29,6 +29,19 @@ func GameStats(c <-chan *Game, data *Result) {
 				firstCapture = FirstBlood(&data.Heatmaps.FirstBlood, gamePtr)
 			}
 
+			if ply == len(Game.Moves)-2 {
+				mcount, mdiff := MaterialCount(gamePtr.Board)
+				val, loaded := data.GameEndMaterial.LoadOrStore(ply, float64(mcount))
+				if loaded {
+					data.GameEndMaterial.Store(ply, ((val.(float64)*float64(data.TotalGames))+float64(mcount))/(float64(data.TotalGames)+1))
+				}
+
+				val, loaded = data.GameEndMaterialDiff.LoadOrStore(ply, float64(mdiff))
+				if loaded {
+					data.GameEndMaterialDiff.Store(ply, ((val.(float64)*float64(data.TotalGames))+float64(mdiff))/(float64(data.TotalGames)+1))
+				}
+			}
+
 			HeatmapStats(data, move, piece, rawMove)
 
 			if rawMove == "O-O" || rawMove == "O-O-O" {

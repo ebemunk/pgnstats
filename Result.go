@@ -8,10 +8,12 @@ type MinMax struct {
 
 //Result is all the data collected from pgn files
 type Result struct {
-	TotalGames uint32
-	Ratings    MinMax
-	Dates      MinMax
-	Results    struct {
+	GameEndMaterial     PlyMap
+	GameEndMaterialDiff PlyMap
+	TotalGames          uint32
+	Ratings             MinMax
+	Dates               MinMax
+	Results             struct {
 		White uint32
 		Black uint32
 		Draw  uint32
