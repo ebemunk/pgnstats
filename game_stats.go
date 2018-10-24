@@ -8,12 +8,13 @@ import (
 	"github.com/dylhunn/dragontoothmg"
 )
 
-// GameStats collects statistics from games
+// GameStats collects statistics from a game
 func GameStats(c <-chan *Game, data *Result) {
 	for Game := range c {
 		gamePtr := Game.PgnGame.Root
 		openingPtr := data.Openings
 		castle := ""
+		var firstCapture = false
 
 		atomic.AddUint32(&data.TotalGames, 1)
 		atomic.AddUint32(&data.Openings.Count, 1)
@@ -23,6 +24,10 @@ func GameStats(c <-chan *Game, data *Result) {
 			move := gamePtr.Move
 			rawMove := Game.Moves[ply]
 			piece := gamePtr.Board.Piece[move.To]
+
+			if !firstCapture {
+				firstCapture = FirstBlood(&data.Heatmaps.FirstBlood, gamePtr)
+			}
 
 			HeatmapStats(data, move, piece, rawMove)
 
@@ -45,8 +50,8 @@ func GameStats(c <-chan *Game, data *Result) {
 			}
 
 			//BranchingFactor
-			bd := dragontoothmg.ParseFen(gamePtr.Board.Fen())
-			branchingFactor := float64(len(bd.GenerateLegalMoves()))
+			board := dragontoothmg.ParseFen(gamePtr.Board.Fen())
+			branchingFactor := float64(len(board.GenerateLegalMoves()))
 
 			val, loaded := data.BranchingFactor.LoadOrStore(ply, branchingFactor)
 			if loaded {

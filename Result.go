@@ -44,6 +44,7 @@ type Result struct {
 		MoveSquares       Heatmap
 		CaptureSquares    Heatmap
 		CheckSquares      Heatmap
+		FirstBlood        Heatmap
 	}
 	Openings *OpeningMove
 }

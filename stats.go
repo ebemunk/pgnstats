@@ -5,7 +5,23 @@ import (
 	"sync/atomic"
 
 	"github.com/malbrecht/chess"
+	"github.com/malbrecht/chess/pgn"
 )
+
+//FirstBlood counts captures and returns True if one occurred
+func FirstBlood(hm *Heatmap, node *pgn.Node) bool {
+	piece := node.Board.Piece[node.Move.To]
+	targetPiece := node.Parent.Board.Piece[node.Move.To]
+
+	// this avoids castling moves as king's Move.To is always chess.NoPiece
+	if piece == chess.NoPiece || targetPiece == chess.NoPiece {
+		return false
+	}
+
+	hm.Count(node.Board.Piece[node.Move.To], node.Move.To)
+
+	return true
+}
 
 //HeatmapStats collects stats for Heatmaps
 func HeatmapStats(data *Result, move chess.Move, piece chess.Piece, rawMove string) {
