@@ -12,11 +12,11 @@ type PlyMap struct {
 }
 
 //MarshalJSON marshals sync.Map to json, where data is sorted by key
-func (f PlyMap) MarshalJSON() ([]byte, error) {
+func (plyMap PlyMap) MarshalJSON() ([]byte, error) {
 	tmpMap := make(map[int]float64)
 	keys := make([]int, 0)
 
-	f.Range(func(k, v interface{}) bool {
+	plyMap.Range(func(k, v interface{}) bool {
 		tmpMap[k.(int)] = v.(float64)
 		keys = append(keys, k.(int))
 		return true
@@ -34,4 +34,13 @@ func (f PlyMap) MarshalJSON() ([]byte, error) {
 	}
 
 	return json.Marshal(sortedValues)
+}
+
+//StoreOrAdd stores the value in the plymap, or adds value to stored value
+func (plyMap *PlyMap) StoreOrAdd(key, value interface{}) {
+	val, loaded := plyMap.LoadOrStore(key, value)
+	if loaded {
+		// plyMap.Store(ply, ((val.(float64)*float64(data.TotalGames))+branchingFactor)/(float64(data.TotalGames)+1))
+		plyMap.Store(key, val.(float64)+value.(float64))
+	}
 }

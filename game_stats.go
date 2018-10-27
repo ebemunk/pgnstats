@@ -2,16 +2,16 @@ package main
 
 import (
 	"strconv"
-	"strings"
 	"sync/atomic"
 
 	"github.com/dylhunn/dragontoothmg"
+	"github.com/malbrecht/chess"
+	"github.com/malbrecht/chess/pgn"
 )
 
 // GameStats collects statistics from a game
 func GameStats(c <-chan *Game, data *Result) {
 	for Game := range c {
-		gamePtr := Game.PgnGame.Root
 		openingPtr := data.Openings
 		castle := ""
 		var firstCapture = false
@@ -19,27 +19,18 @@ func GameStats(c <-chan *Game, data *Result) {
 		atomic.AddUint32(&data.TotalGames, 1)
 		atomic.AddUint32(&data.Openings.Count, 1)
 
-		for ply := 0; ply < len(Game.Moves)-1; ply++ {
-			gamePtr = gamePtr.Next
+		ply := -1
+		var lastPosition *pgn.Node
+		for gamePtr := Game.PgnGame.Root; gamePtr != nil; gamePtr = gamePtr.Next {
+			ply++
+			lastPosition = gamePtr
+
 			move := gamePtr.Move
 			rawMove := Game.Moves[ply]
 			piece := gamePtr.Board.Piece[move.To]
 
-			if !firstCapture {
-				firstCapture = FirstBlood(&data.Heatmaps.FirstBlood, gamePtr)
-			}
-
-			if ply == len(Game.Moves)-2 {
-				mcount, mdiff := MaterialCount(gamePtr.Board)
-				val, loaded := data.GameEndMaterial.LoadOrStore(ply, float64(mcount))
-				if loaded {
-					data.GameEndMaterial.Store(ply, ((val.(float64)*float64(data.TotalGames))+float64(mcount))/(float64(data.TotalGames)+1))
-				}
-
-				val, loaded = data.GameEndMaterialDiff.LoadOrStore(ply, float64(mdiff))
-				if loaded {
-					data.GameEndMaterialDiff.Store(ply, ((val.(float64)*float64(data.TotalGames))+float64(mdiff))/(float64(data.TotalGames)+1))
-				}
+			if ply > 1 && !firstCapture {
+				firstCapture = FirstBlood(&data.Heatmaps.FirstBlood, gamePtr, Game.PgnGame.Tags)
 			}
 
 			HeatmapStats(data, move, piece, rawMove)
@@ -65,23 +56,25 @@ func GameStats(c <-chan *Game, data *Result) {
 			//BranchingFactor
 			board := dragontoothmg.ParseFen(gamePtr.Board.Fen())
 			branchingFactor := float64(len(board.GenerateLegalMoves()))
-
-			val, loaded := data.BranchingFactor.LoadOrStore(ply, branchingFactor)
-			if loaded {
-				data.BranchingFactor.Store(ply, ((val.(float64)*float64(data.TotalGames))+branchingFactor)/(float64(data.TotalGames)+1))
-			}
+			data.BranchingFactor.StoreOrAdd(ply, branchingFactor)
 
 			//MaterialCount
 			count, diff := MaterialCount(gamePtr.Board)
-			val, loaded = data.MaterialCount.LoadOrStore(ply, float64(count))
-			if loaded {
-				data.MaterialCount.Store(ply, ((val.(float64)*float64(data.TotalGames))+float64(count))/(float64(data.TotalGames)+1))
+			data.MaterialCount.StoreOrAdd(ply, float64(count))
+			data.MaterialDiff.StoreOrAdd(ply, float64(diff))
+			if ply == len(Game.Moves)-2 {
+				data.GameEndMaterialCount.StoreOrAdd(ply, float64(count))
+				data.GameEndMaterialDiff.StoreOrAdd(ply, float64(diff))
 			}
 
-			//MaterialDiff
-			val, loaded = data.MaterialDiff.LoadOrStore(ply, float64(diff))
-			if loaded {
-				data.MaterialDiff.Store(ply, ((val.(float64)*float64(data.TotalGames))+float64(diff))/(float64(data.TotalGames)+1))
+			//PromotionSquares
+			if move.Promotion != chess.NoPiece {
+				data.Heatmaps.PromotionSquares.Count(move.Promotion, move.To)
+			}
+
+			//EnPassantSquares
+			if gamePtr.Board.EpSquare != chess.NoSquare {
+				data.Heatmaps.EnPassantSquares.Count(gamePtr.Parent.Board.Piece[move.From], gamePtr.Board.EpSquare)
 			}
 		}
 
@@ -138,26 +131,22 @@ func GameStats(c <-chan *Game, data *Result) {
 			}
 		}
 
-		//game lengths
-		totalPlies := len(Game.Moves) - 1
-		val, loaded := data.GameLengths.LoadOrStore(totalPlies, float64(1))
-		if loaded {
-			data.GameLengths.Store(totalPlies, val.(float64)+1)
-		}
+		//GameLengths
+		data.GameLengths.StoreOrAdd(ply, float64(1))
 
-		if len(Game.Moves) < 2 {
-			continue
-		}
-
-		//games ending with check/mate
-		lastMove := Game.Moves[len(Game.Moves)-2]
-
-		if strings.ContainsRune(lastMove, '+') {
+		//GamesEndingWith
+		check, mate := lastPosition.Board.IsCheckOrMate()
+		//check
+		if check && !mate {
 			atomic.AddUint32(&data.GamesEndingWith.Check, 1)
 		}
-
-		if strings.ContainsRune(lastMove, '#') {
+		//mate
+		if check && mate {
 			atomic.AddUint32(&data.GamesEndingWith.Mate, 1)
+		}
+		//stalemate
+		if !check && mate {
+			atomic.AddUint32(&data.GamesEndingWith.Stalemate, 1)
 		}
 	}
 }

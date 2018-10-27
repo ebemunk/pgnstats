@@ -8,12 +8,8 @@ import (
 	"github.com/malbrecht/chess/pgn"
 )
 
-func GameEndMaterial(wat *int, node *pgn.Node) {
-
-}
-
 //FirstBlood counts captures and returns True if one occurred
-func FirstBlood(hm *Heatmap, node *pgn.Node) bool {
+func FirstBlood(hm *Heatmap, node *pgn.Node, kek map[string]string) bool {
 	piece := node.Board.Piece[node.Move.To]
 	targetPiece := node.Parent.Board.Piece[node.Move.To]
 

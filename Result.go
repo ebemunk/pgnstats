@@ -8,12 +8,10 @@ type MinMax struct {
 
 //Result is all the data collected from pgn files
 type Result struct {
-	GameEndMaterial     PlyMap
-	GameEndMaterialDiff PlyMap
-	TotalGames          uint32
-	Ratings             MinMax
-	Dates               MinMax
-	Results             struct {
+	TotalGames uint32
+	Ratings    MinMax
+	Dates      MinMax
+	Results    struct {
 		White uint32
 		Black uint32
 		Draw  uint32
@@ -34,19 +32,24 @@ type Result struct {
 		}
 	}
 	GamesEndingWith struct {
-		Check uint32
-		Mate  uint32
+		Check     uint32
+		Mate      uint32
+		Stalemate uint32
 	}
-	GameLengths     PlyMap
-	MaterialCount   PlyMap
-	MaterialDiff    PlyMap
-	BranchingFactor PlyMap
-	Heatmaps        struct {
+	GameLengths          PlyMap
+	MaterialCount        PlyMap
+	MaterialDiff         PlyMap
+	GameEndMaterialCount PlyMap
+	GameEndMaterialDiff  PlyMap
+	BranchingFactor      PlyMap
+	Heatmaps             struct {
 		SquareUtilization Heatmap
 		MoveSquares       Heatmap
 		CaptureSquares    Heatmap
 		CheckSquares      Heatmap
 		FirstBlood        Heatmap
+		PromotionSquares  Heatmap
+		EnPassantSquares  Heatmap
 	}
 	Openings *OpeningMove
 }
