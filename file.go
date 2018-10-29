@@ -25,6 +25,7 @@ func Read(f *os.File) <-chan []byte {
 
 	go func() {
 		defer close(c)
+		defer log.Println("close read chan")
 		for scanner.Scan() {
 			line := scanner.Bytes()
 			lineStr := string(line)

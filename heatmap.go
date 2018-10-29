@@ -1,8 +1,6 @@
 package main
 
 import (
-	"sync/atomic"
-
 	"github.com/malbrecht/chess"
 )
 
@@ -13,7 +11,7 @@ type WB struct {
 }
 
 //Heatsquare is a square in the Heatmap
-type Heatsquare struct {
+type Heatsquare1 struct {
 	All WB
 	K   WB
 	Q   WB
@@ -24,44 +22,48 @@ type Heatsquare struct {
 }
 
 //Heatmap is a collection of HeatSquares in the shape of a chess board
-type Heatmap [64]Heatsquare
+type Heatmap2 [64]Heatsquare1
 
 //Count increments the counts of HeatSquares depending on piece and square
-func (hm *Heatmap) Count(piece chess.Piece, sq chess.Sq) {
+func (hm *Heatmap2) Count(piece chess.Piece, sq chess.Sq) {
 	index := (7-sq.Rank())*8 + sq.File()
 	hmPtr := &hm[index]
 
+	if piece == chess.NoPiece {
+		return
+	}
+
 	switch piece {
 	case chess.WP:
-		atomic.AddUint32(&hmPtr.P.W, 1)
+		hmPtr.P.W++
 	case chess.BP:
-		atomic.AddUint32(&hmPtr.P.B, 1)
+		hmPtr.P.B++
 	case chess.WN:
-		atomic.AddUint32(&hmPtr.N.W, 1)
+		hmPtr.N.W++
 	case chess.BN:
-		atomic.AddUint32(&hmPtr.N.B, 1)
+		hmPtr.N.B++
 	case chess.WB:
-		atomic.AddUint32(&hmPtr.B.W, 1)
+		hmPtr.B.W++
 	case chess.BB:
-		atomic.AddUint32(&hmPtr.B.B, 1)
+		hmPtr.B.B++
 	case chess.WR:
-		atomic.AddUint32(&hmPtr.R.W, 1)
+		hmPtr.R.W++
 	case chess.BR:
-		atomic.AddUint32(&hmPtr.R.B, 1)
+		hmPtr.R.B++
 	case chess.WQ:
-		atomic.AddUint32(&hmPtr.Q.W, 1)
+		hmPtr.Q.W++
 	case chess.BQ:
-		atomic.AddUint32(&hmPtr.Q.B, 1)
+		hmPtr.Q.B++
 	case chess.WK:
-		atomic.AddUint32(&hmPtr.K.W, 1)
+		hmPtr.K.W++
 	case chess.BK:
-		atomic.AddUint32(&hmPtr.K.B, 1)
+		hmPtr.K.B++
 	}
 
 	switch piece.Color() {
 	case chess.White:
-		atomic.AddUint32(&hmPtr.All.W, 1)
+		hmPtr.All.W++
 	case chess.Black:
-		atomic.AddUint32(&hmPtr.All.B, 1)
+		hmPtr.All.B++
 	}
 }

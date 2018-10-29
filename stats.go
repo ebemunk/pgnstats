@@ -1,122 +1,119 @@
 package main
 
 import (
-	"strings"
-	"sync/atomic"
-
 	"github.com/malbrecht/chess"
 	"github.com/malbrecht/chess/pgn"
 )
 
 //FirstBlood counts captures and returns True if one occurred
-func FirstBlood(hm *Heatmap, node *pgn.Node, kek map[string]string) bool {
-	piece := node.Board.Piece[node.Move.To]
-	targetPiece := node.Parent.Board.Piece[node.Move.To]
+func FirstBlood(hm *Heatmap, node *pgn.Node) bool {
+	to := node.Move.To
+	piece := node.Board.Piece[to]
+	targetPiece := node.Parent.Board.Piece[to]
 
 	// this avoids castling moves as king's Move.To is always chess.NoPiece
 	if piece == chess.NoPiece || targetPiece == chess.NoPiece {
 		return false
 	}
 
-	hm.Count(node.Board.Piece[node.Move.To], node.Move.To)
+	i := (7-to.Rank())*8 + to.File()
+
+	// hm[i][piece]++
+	hm[i].Add(piece)
 
 	return true
 }
 
-//HeatmapStats collects stats for Heatmaps
-func HeatmapStats(data *Result, move chess.Move, piece chess.Piece, rawMove string) {
-	if move.From == chess.E1 && move.To == chess.A1 ||
-		move.From == chess.E1 && move.To == chess.H1 ||
-		move.From == chess.E8 && move.To == chess.A8 ||
-		move.From == chess.E8 && move.To == chess.H8 {
-		var color uint8
-		var kingMove chess.Move
-		var rookMove chess.Move
+// //HeatmapStats collects stats for Heatmaps
+// func HeatmapStats(data *Result, node *pgn.Node) {
+// 	move := node.Move
+// 	piece := node.Board.Piece[node.Move.To]
 
-		if move.To-move.From == 3 {
-			kingMove = chess.Move{
-				From:      move.From,
-				To:        move.From + 2,
-				Promotion: chess.NoPiece,
-			}
-			rookMove = chess.Move{
-				From:      move.To,
-				To:        move.To - 2,
-				Promotion: chess.NoPiece,
-			}
-		} else {
-			kingMove = chess.Move{
-				From:      move.From,
-				To:        move.From - 2,
-				Promotion: chess.NoPiece,
-			}
-			rookMove = chess.Move{
-				From:      move.To,
-				To:        move.To + 3,
-				Promotion: chess.NoPiece,
-			}
-		}
+// 	if move.From == chess.E1 && move.To == chess.A1 ||
+// 		move.From == chess.E1 && move.To == chess.H1 ||
+// 		move.From == chess.E8 && move.To == chess.A8 ||
+// 		move.From == chess.E8 && move.To == chess.H8 {
+// 		var kingMove chess.Move
+// 		var rookMove chess.Move
 
-		if move.From == chess.E1 {
-			color = chess.White
-		} else {
-			color = chess.Black
-		}
+// 		if move.To-move.From == 3 {
+// 			kingMove = chess.Move{
+// 				From:      move.From,
+// 				To:        move.From + 2,
+// 				Promotion: chess.NoPiece,
+// 			}
+// 			rookMove = chess.Move{
+// 				From:      move.To,
+// 				To:        move.To - 2,
+// 				Promotion: chess.NoPiece,
+// 			}
+// 		} else {
+// 			kingMove = chess.Move{
+// 				From:      move.From,
+// 				To:        move.From - 2,
+// 				Promotion: chess.NoPiece,
+// 			}
+// 			rookMove = chess.Move{
+// 				From:      move.To,
+// 				To:        move.To + 3,
+// 				Promotion: chess.NoPiece,
+// 			}
+// 		}
 
-		king := chess.Piece(color | chess.King)
-		rook := chess.Piece(color | chess.Rook)
+// 		king := chess.Piece(node.Board.SideToMove | chess.King)
+// 		rook := chess.Piece(node.Board.SideToMove | chess.Rook)
 
-		data.Heatmaps.SquareUtilization.Count(king, kingMove.To)
-		data.Heatmaps.SquareUtilization.Count(rook, rookMove.To)
-		data.Heatmaps.MoveSquares.Count(king, kingMove.From)
-		data.Heatmaps.MoveSquares.Count(rook, rookMove.From)
-	} else {
-		data.Heatmaps.SquareUtilization.Count(piece, move.To)
-		data.Heatmaps.MoveSquares.Count(piece, move.From)
-	}
+// 		data.Heatmaps.SquareUtilization.Count(king, kingMove.To)
+// 		data.Heatmaps.SquareUtilization.Count(rook, rookMove.To)
+// 		data.Heatmaps.MoveSquares.Count(king, kingMove.From)
+// 		data.Heatmaps.MoveSquares.Count(rook, rookMove.From)
+// 	} else {
+// 		data.Heatmaps.SquareUtilization.Count(piece, move.To)
+// 		data.Heatmaps.MoveSquares.Count(piece, move.From)
+// 	}
 
-	if strings.ContainsRune(rawMove, '+') {
-		data.Heatmaps.CheckSquares.Count(piece, move.To)
-	}
+// 	if check, _ := node.Board.IsCheckOrMate(); check {
+// 		data.Heatmaps.CheckSquares.Count(piece, move.To)
+// 	}
 
-	if strings.ContainsRune(rawMove, 'x') {
-		data.Heatmaps.CaptureSquares.Count(piece, move.To)
-	}
-}
+// 	if node.Board.Piece[node.Move.To] != chess.NoPiece && node.Parent != nil && node.Parent.Board.Piece[node.Move.To] != chess.NoPiece {
+// 		data.Heatmaps.CaptureSquares.Count(piece, move.To)
+// 	}
+// }
 
-//OpeningStats collects stats for OpeningMoves
-func OpeningStats(ptr *OpeningMove, rawMove string) *OpeningMove {
-	openingMove := ptr.Find(rawMove)
-	if openingMove != nil {
-		atomic.AddUint32(&openingMove.Count, 1)
-		ptr = openingMove
-	} else {
-		openingMove = &OpeningMove{
-			1, rawMove, make([]*OpeningMove, 0),
-		}
-		ptr.Children = append(ptr.Children, openingMove)
-		ptr = ptr.Children[len(ptr.Children)-1]
-	}
+// //OpeningStats collects stats for OpeningMoves
+// func OpeningStats(ptr *OpeningMove, rawMove string) *OpeningMove {
+// 	openingMove := ptr.Find(rawMove)
+// 	if openingMove != nil {
+// 		atomic.AddUint32(&openingMove.Count, 1)
+// 		ptr = openingMove
+// 	} else {
+// 		openingMove = &OpeningMove{
+// 			1, rawMove, make([]*OpeningMove, 0),
+// 		}
+// 		ptr.Children = append(ptr.Children, openingMove)
+// 		ptr = ptr.Children[len(ptr.Children)-1]
+// 	}
 
-	return ptr
-}
+// 	return ptr
+// }
 
-//CastlingStats counts the number of kingside and queenside castles by both colors
-func CastlingStats(data *Result, rawMove string, sideToMove int) {
-	if rawMove == "O-O" {
-		if sideToMove == chess.White {
-			atomic.AddUint32(&data.Castling.White.Kingside, 1)
-		} else {
-			atomic.AddUint32(&data.Castling.Black.Kingside, 1)
-		}
-	} else {
-		if sideToMove == chess.White {
-			atomic.AddUint32(&data.Castling.White.Queenside, 1)
-		} else {
-			atomic.AddUint32(&data.Castling.Black.Queenside, 1)
-		}
-	}
-}
+// //CastlingStats counts the number of kingside and queenside castles by both colors
+// func CastlingStats(data *Result, rawMove string, sideToMove int) {
+// 	if rawMove == "O-O" {
+// 		if sideToMove == chess.White {
+// 			atomic.AddUint32(&data.Castling.White.Kingside, 1)
+// 		} else {
+// 			atomic.AddUint32(&data.Castling.Black.Kingside, 1)
+// 		}
+// 	} else {
+// 		if sideToMove == chess.White {
+// 			atomic.AddUint32(&data.Castling.White.Queenside, 1)
+// 		} else {
+// 			atomic.AddUint32(&data.Castling.Black.Queenside, 1)
+// 		}
+// 	}
+// }
 
 //MaterialCount returns sum of material and difference (white - black)
 func MaterialCount(board *chess.Board) (int, int) {

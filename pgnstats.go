@@ -34,10 +34,9 @@ func main() {
 
 	log.Printf("starting")
 
-	//init data
-	stats := NewResult()
 	readC := Read(f)
 	parsedC := make(chan *Game)
+	gsC := make(chan *GameStats)
 
 	var wg sync.WaitGroup
 	wg.Add(*concurrencyLevel)
@@ -51,34 +50,64 @@ func main() {
 	go func() {
 		wg.Wait()
 		close(parsedC)
+		log.Println("close parsedC")
 	}()
 
 	var wg2 sync.WaitGroup
 	wg2.Add(*concurrencyLevel)
 	for i := 0; i < *concurrencyLevel; i++ {
 		go func() {
-			GameStats(parsedC, stats)
+			GetStats(parsedC, gsC)
 			wg2.Done()
 		}()
 	}
 
-	wg2.Wait()
+	go func() {
+		wg2.Wait()
+		close(gsC)
+		log.Println("close gsC")
+	}()
 
-	log.Printf("analyzed %d games\n", stats.TotalGames)
+	var viji sync.WaitGroup
+	viji.Add(1)
+	go func() {
+		fgs := NewGameStats()
 
-	pruneThreshold := int(float32(stats.TotalGames) * 0.001)
+		for gamst := range gsC {
+			fgs.Add(gamst)
+		}
 
-	if *verbose {
-		log.Printf("prune param %d\n", pruneThreshold)
-	}
+		fgs.Average()
 
-	stats.Openings.Prune(pruneThreshold)
+		WriteJson(fgs)
 
+		viji.Done()
+
+	}()
+
+	log.Println("before viji wait")
+	viji.Wait()
+	log.Println("after viji wait")
+
+	// log.Printf("analyzed %d games\n", stats.TotalGames)
+
+	// pruneThreshold := int(float32(stats.TotalGames) * 0.001)
+
+	// if *verbose {
+	// 	log.Printf("prune param %d\n", pruneThreshold)
+	// }
+
+	// stats.Openings.Prune(pruneThreshold)
+}
+
+func WriteJson(gs *GameStats) {
 	var js []byte
+	var err error
+
 	if *indent {
-		js, err = json.MarshalIndent(stats, "", "  ")
+		js, err = json.MarshalIndent(gs, "", "  ")
 	} else {
-		js, err = json.Marshal(stats)
+		js, err = json.Marshal(gs)
 	}
 	if err != nil {
 		log.Fatalf("error converting to json: %s\n", err)
