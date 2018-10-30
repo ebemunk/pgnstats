@@ -53,11 +53,13 @@ func main() {
 		log.Println("close parsedC")
 	}()
 
+	Openings := &OpeningMove{}
+
 	var wg2 sync.WaitGroup
 	wg2.Add(*concurrencyLevel)
 	for i := 0; i < *concurrencyLevel; i++ {
 		go func() {
-			GetStats(parsedC, gsC)
+			GetStats(parsedC, gsC, Openings)
 			wg2.Done()
 		}()
 	}
@@ -79,6 +81,16 @@ func main() {
 
 		fgs.Average()
 
+		log.Printf("analyzed %d games\n", fgs.Total)
+
+		pruneThreshold := int(float32(fgs.Total) * 0.001)
+		if *verbose {
+			log.Printf("prune param %d\n", pruneThreshold)
+		}
+
+		Openings.Prune(pruneThreshold)
+		fgs.Openings = Openings
+
 		WriteJson(fgs)
 
 		viji.Done()
@@ -89,15 +101,6 @@ func main() {
 	viji.Wait()
 	log.Println("after viji wait")
 
-	// log.Printf("analyzed %d games\n", stats.TotalGames)
-
-	// pruneThreshold := int(float32(stats.TotalGames) * 0.001)
-
-	// if *verbose {
-	// 	log.Printf("prune param %d\n", pruneThreshold)
-	// }
-
-	// stats.Openings.Prune(pruneThreshold)
 }
 
 func WriteJson(gs *GameStats) {

@@ -2,11 +2,13 @@ package main
 
 import (
 	"github.com/dylhunn/dragontoothmg"
+	"github.com/malbrecht/chess"
 )
 
 // GetStats collects statistics from a game
-func GetStats(c <-chan *Game, gs chan<- *GameStats) {
+func GetStats(c <-chan *Game, gs chan<- *GameStats, openingsPtr *OpeningMove) {
 	for Game := range c {
+		oPtr := openingsPtr
 		// openingPtr := data.Openings
 		// castle := ""
 
@@ -23,7 +25,7 @@ func GetStats(c <-chan *Game, gs chan<- *GameStats) {
 			ply++
 			// lastPosition = gamePtr
 
-			// move := gamePtr.Move
+			move := gamePtr.Move
 			// rawMove := Game.Moves[ply]
 			// piece := gamePtr.Board.Piece[move.To]
 
@@ -31,7 +33,7 @@ func GetStats(c <-chan *Game, gs chan<- *GameStats) {
 				firstCapture = FirstBlood(&stats.Heatmaps.FirstBlood, gamePtr)
 			}
 
-			// HeatmapStats(data, gamePtr)
+			HeatmapStats(stats, gamePtr, Game)
 
 			// if rawMove == "O-O" || rawMove == "O-O-O" {
 			// 	CastlingStats(data, rawMove, gamePtr.Board.SideToMove)
@@ -47,9 +49,12 @@ func GetStats(c <-chan *Game, gs chan<- *GameStats) {
 			// 	}
 			// }
 
-			// if ply < 10 {
-			// 	openingPtr = OpeningStats(openingPtr, rawMove)
-			// }
+			if ply > 0 && ply < 10 {
+				oPtr = OpeningStats(oPtr, gamePtr.Move.San(gamePtr.Parent.Board))
+				// if gamePtr.Parent == nil {
+				// 	log.Println("move", gamePtr.Move, gamePtr.Move.San(gamePtr.Board))
+				// }
+			}
 
 			//BranchingFactor
 			board := dragontoothmg.ParseFen(gamePtr.Board.Fen())
@@ -66,14 +71,14 @@ func GetStats(c <-chan *Game, gs chan<- *GameStats) {
 			}
 
 			//PromotionSquares
-			// if move.Promotion != chess.NoPiece {
-			// 	data.Heatmaps.PromotionSquares.Count(move.Promotion, move.To)
-			// }
+			if move.Promotion != chess.NoPiece {
+				stats.Heatmaps.PromotionSquares.Count(move.Promotion, move.To)
+			}
 
-			// //EnPassantSquares
-			// if gamePtr.Board.EpSquare != chess.NoSquare {
-			// 	data.Heatmaps.EnPassantSquares.Count(gamePtr.Parent.Board.Piece[move.From], gamePtr.Board.EpSquare)
-			// }
+			//EnPassantSquares
+			if gamePtr.Board.EpSquare != chess.NoSquare {
+				stats.Heatmaps.EnPassantSquares.Count(gamePtr.Parent.Board.Piece[move.From], gamePtr.Board.EpSquare)
+			}
 		}
 
 		//results

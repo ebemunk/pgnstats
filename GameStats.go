@@ -8,6 +8,19 @@ import (
 //PlyMap is a map[int]float64
 type PlyMap map[int]float64
 
+type Heatmaps struct {
+	SquareUtilization   Heatmap
+	MoveSquares         Heatmap
+	CaptureSquares      Heatmap
+	CheckSquares        Heatmap
+	FirstBlood          Heatmap
+	PromotionSquares    Heatmap
+	EnPassantSquares    Heatmap
+	MateSquares         Heatmap
+	MateDeliverySquares Heatmap
+	StalemateSquares    Heatmap
+}
+
 //GameStats is the statistics for games
 type GameStats struct {
 	Total                uint64
@@ -17,15 +30,8 @@ type GameStats struct {
 	MaterialDiff         PlyMap
 	GameEndMaterialCount PlyMap
 	GameEndMaterialDiff  PlyMap
-	Heatmaps             struct {
-		// 		SquareUtilization Heatmap
-		// 		MoveSquares       Heatmap
-		// 		CaptureSquares    Heatmap
-		// 		CheckSquares      Heatmap
-		FirstBlood Heatmap
-		// 		PromotionSquares  Heatmap
-		// 		EnPassantSquares  Heatmap
-	}
+	Heatmaps             Heatmaps
+	Openings             *OpeningMove
 }
 
 //NewGameStats creates new GameStats
@@ -38,10 +44,17 @@ func NewGameStats() *GameStats {
 		MaterialDiff:         make(map[int]float64),
 		GameEndMaterialCount: make(map[int]float64),
 		GameEndMaterialDiff:  make(map[int]float64),
-		Heatmaps: struct {
-			FirstBlood Heatmap
-		}{
-			FirstBlood: *NewHeatmap(),
+		Heatmaps: Heatmaps{
+			SquareUtilization:   *NewHeatmap(),
+			MoveSquares:         *NewHeatmap(),
+			CaptureSquares:      *NewHeatmap(),
+			CheckSquares:        *NewHeatmap(),
+			FirstBlood:          *NewHeatmap(),
+			PromotionSquares:    *NewHeatmap(),
+			EnPassantSquares:    *NewHeatmap(),
+			MateSquares:         *NewHeatmap(),
+			MateDeliverySquares: *NewHeatmap(),
+			StalemateSquares:    *NewHeatmap(),
 		},
 	}
 }
@@ -72,7 +85,16 @@ func (gs *GameStats) Add(ad *GameStats) {
 		gs.GameEndMaterialDiff[k] += v
 	}
 
+	gs.Heatmaps.SquareUtilization.Add(&ad.Heatmaps.SquareUtilization)
+	gs.Heatmaps.MoveSquares.Add(&ad.Heatmaps.MoveSquares)
+	gs.Heatmaps.CaptureSquares.Add(&ad.Heatmaps.CaptureSquares)
+	gs.Heatmaps.CheckSquares.Add(&ad.Heatmaps.CheckSquares)
 	gs.Heatmaps.FirstBlood.Add(&ad.Heatmaps.FirstBlood)
+	gs.Heatmaps.PromotionSquares.Add(&ad.Heatmaps.PromotionSquares)
+	gs.Heatmaps.EnPassantSquares.Add(&ad.Heatmaps.EnPassantSquares)
+	gs.Heatmaps.MateSquares.Add(&ad.Heatmaps.MateSquares)
+	gs.Heatmaps.MateDeliverySquares.Add(&ad.Heatmaps.MateDeliverySquares)
+	gs.Heatmaps.StalemateSquares.Add(&ad.Heatmaps.StalemateSquares)
 
 	gs.Total++
 }
@@ -92,11 +114,11 @@ func (gs *GameStats) Average() {
 	}
 
 	for k, v := range gs.GameEndMaterialCount {
-		gs.GameEndMaterialCount[k] = v / float64(gs.Total)
+		gs.GameEndMaterialCount[k] = v / gs.GameLengths[k]
 	}
 
 	for k, v := range gs.GameEndMaterialDiff {
-		gs.GameEndMaterialDiff[k] = v / float64(gs.Total)
+		gs.GameEndMaterialDiff[k] = v / gs.GameLengths[k]
 	}
 }
 

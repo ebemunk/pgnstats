@@ -2,8 +2,10 @@ package main
 
 import "github.com/malbrecht/chess"
 
+//HeatSquare is a square on a chess board
 type HeatSquare map[string]uint64
 
+//Add increments the piece count of the square
 func (hs HeatSquare) Add(piece chess.Piece) {
 	var key string
 
@@ -37,8 +39,10 @@ func (hs HeatSquare) Add(piece chess.Piece) {
 	hs[key]++
 }
 
+//Heatmap is a chessboard made up of 64 HeatSquares
 type Heatmap [64]HeatSquare
 
+//NewHeatmap returns an initialized Heatmap
 func NewHeatmap() *Heatmap {
 	var hm Heatmap
 	for i := 0; i < 64; i++ {
@@ -47,10 +51,17 @@ func NewHeatmap() *Heatmap {
 	return &hm
 }
 
+//Add adds two Heatmaps together
 func (hm *Heatmap) Add(add *Heatmap) {
 	for i, square := range add {
 		for piece := range square {
 			hm[i][piece] += add[i][piece]
 		}
 	}
+}
+
+//Count increments the value for a given square and piece
+func (hm *Heatmap) Count(piece chess.Piece, square chess.Sq) {
+	i := (7-square.Rank())*8 + square.File()
+	hm[i].Add(piece)
 }
