@@ -24,7 +24,7 @@ func FirstBlood(hm *Heatmap, node *pgn.Node) bool {
 }
 
 //HeatmapStats collects stats for Heatmaps
-func HeatmapStats(data *GameStats, node *pgn.Node, gg *Game) {
+func HeatmapStats(data *GameStats, node *pgn.Node, lastmove bool) {
 	move := node.Move
 	piece := node.Board.Piece[node.Move.To]
 
@@ -71,17 +71,20 @@ func HeatmapStats(data *GameStats, node *pgn.Node, gg *Game) {
 		data.Heatmaps.MoveSquares.Count(piece, move.From)
 	}
 
-	check, mate := node.Board.IsCheckOrMate()
+	if lastmove {
+		check, mate := node.Board.IsCheckOrMate()
 
-	if check {
-		//if chess.noPiece, it's check by castling - count it as rook check
-		if piece == chess.NoPiece {
-			data.Heatmaps.CheckSquares.Count(rook, move.To)
-		} else {
-			data.Heatmaps.CheckSquares.Count(piece, move.To)
+		if check {
+			//if chess.noPiece, it's check by castling - count it as rook check
+			if piece == chess.NoPiece {
+				data.Heatmaps.CheckSquares.Count(rook, move.To)
+			} else {
+				data.Heatmaps.CheckSquares.Count(piece, move.To)
+			}
 		}
 
-		if mate {
+		//checkmate
+		if check && mate {
 			//if chess.noPiece, it's check by castling - count it as rook check
 			if piece == chess.NoPiece {
 				data.Heatmaps.MateDeliverySquares.Count(rook, move.To)
@@ -97,9 +100,9 @@ func HeatmapStats(data *GameStats, node *pgn.Node, gg *Game) {
 				}
 			}
 		}
-	} else {
+
 		//stalemate
-		if mate {
+		if !check && mate {
 			enemyKing := chess.Piece(1 - node.Board.SideToMove | chess.King)
 			//locate enemy king on the board
 			for i := 0; i < 64; i++ {

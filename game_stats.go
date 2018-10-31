@@ -1,6 +1,8 @@
 package main
 
 import (
+	"strconv"
+
 	"github.com/dylhunn/dragontoothmg"
 	"github.com/malbrecht/chess"
 )
@@ -29,12 +31,6 @@ func GetStats(c <-chan *Game, gs chan<- *GameStats, openingsPtr *OpeningMove) {
 			// rawMove := Game.Moves[ply]
 			// piece := gamePtr.Board.Piece[move.To]
 
-			if ply > 0 && !firstCapture {
-				firstCapture = FirstBlood(&stats.Heatmaps.FirstBlood, gamePtr)
-			}
-
-			HeatmapStats(stats, gamePtr, Game)
-
 			// if rawMove == "O-O" || rawMove == "O-O-O" {
 			// 	CastlingStats(data, rawMove, gamePtr.Board.SideToMove)
 
@@ -50,16 +46,20 @@ func GetStats(c <-chan *Game, gs chan<- *GameStats, openingsPtr *OpeningMove) {
 			// }
 
 			if ply > 0 && ply < 10 {
+				oPtr.Count++
 				oPtr = OpeningStats(oPtr, gamePtr.Move.San(gamePtr.Parent.Board))
-				// if gamePtr.Parent == nil {
-				// 	log.Println("move", gamePtr.Move, gamePtr.Move.San(gamePtr.Board))
-				// }
 			}
 
 			//BranchingFactor
 			board := dragontoothmg.ParseFen(gamePtr.Board.Fen())
 			branchingFactor := float64(len(board.GenerateLegalMoves()))
 			stats.BranchingFactor[ply] += branchingFactor
+
+			HeatmapStats(stats, gamePtr, gamePtr.Next == nil)
+
+			if ply > 0 && !firstCapture {
+				firstCapture = FirstBlood(&stats.Heatmaps.FirstBlood, gamePtr)
+			}
 
 			//MaterialCount
 			count, diff := MaterialCount(gamePtr.Board)
@@ -121,18 +121,12 @@ func GetStats(c <-chan *Game, gs chan<- *GameStats, openingsPtr *OpeningMove) {
 		// }
 
 		//dates
-		// if date, ok := Game.PgnGame.Tags["Date"]; ok {
-		// 	year64, _ := strconv.Atoi(date[:4])
-		// 	year := uint32(year64)
+		if date, ok := Game.PgnGame.Tags["UTCDate"]; ok {
+			year64, _ := strconv.Atoi(date[:4])
+			year := strconv.Itoa(year64)
 
-		// 	if year < atomic.LoadUint32(&data.Dates.Min) {
-		// 		atomic.StoreUint32(&data.Dates.Min, year)
-		// 	}
-
-		// 	if year > atomic.LoadUint32(&data.Dates.Max) {
-		// 		atomic.StoreUint32(&data.Dates.Max, year)
-		// 	}
-		// }
+			stats.Years[year] = 1
+		}
 
 		//GameLengths
 		stats.GameLengths[ply] = 1

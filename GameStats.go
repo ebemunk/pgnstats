@@ -8,6 +8,29 @@ import (
 //PlyMap is a map[int]float64
 type PlyMap map[int]float64
 
+//MarshalJSON marshals to json
+func (m PlyMap) MarshalJSON() ([]byte, error) {
+	if len(m) < 1 {
+		return json.Marshal([]int{})
+	}
+
+	keys := make([]int, 0, len(m))
+	for k := range m {
+		keys = append(keys, k)
+	}
+	sort.Ints(keys)
+
+	max := keys[len(keys)-1]
+
+	sorted := make([]float64, 0, max)
+	for i := 0; i <= max; i++ {
+		sorted = append(sorted, m[i])
+	}
+
+	return json.Marshal(sorted)
+}
+
+//Heatmaps are all the Heatmaps we return
 type Heatmaps struct {
 	SquareUtilization   Heatmap
 	MoveSquares         Heatmap
@@ -30,6 +53,7 @@ type GameStats struct {
 	MaterialDiff         PlyMap
 	GameEndMaterialCount PlyMap
 	GameEndMaterialDiff  PlyMap
+	Years                map[string]int
 	Heatmaps             Heatmaps
 	Openings             *OpeningMove
 }
@@ -44,6 +68,7 @@ func NewGameStats() *GameStats {
 		MaterialDiff:         make(map[int]float64),
 		GameEndMaterialCount: make(map[int]float64),
 		GameEndMaterialDiff:  make(map[int]float64),
+		Years:                make(map[string]int),
 		Heatmaps: Heatmaps{
 			SquareUtilization:   *NewHeatmap(),
 			MoveSquares:         *NewHeatmap(),
@@ -85,6 +110,10 @@ func (gs *GameStats) Add(ad *GameStats) {
 		gs.GameEndMaterialDiff[k] += v
 	}
 
+	for k, v := range ad.Years {
+		gs.Years[k] += v
+	}
+
 	gs.Heatmaps.SquareUtilization.Add(&ad.Heatmaps.SquareUtilization)
 	gs.Heatmaps.MoveSquares.Add(&ad.Heatmaps.MoveSquares)
 	gs.Heatmaps.CaptureSquares.Add(&ad.Heatmaps.CaptureSquares)
@@ -120,22 +149,4 @@ func (gs *GameStats) Average() {
 	for k, v := range gs.GameEndMaterialDiff {
 		gs.GameEndMaterialDiff[k] = v / gs.GameLengths[k]
 	}
-}
-
-//MarshalJSON marshals to json
-func (m PlyMap) MarshalJSON() ([]byte, error) {
-	keys := make([]int, 0, len(m))
-	for k := range m {
-		keys = append(keys, k)
-	}
-	sort.Ints(keys)
-
-	max := keys[len(keys)-1]
-
-	sorted := make([]float64, 0, max)
-	for i := 0; i <= max; i++ {
-		sorted = append(sorted, m[i])
-	}
-
-	return json.Marshal(sorted)
 }
