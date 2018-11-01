@@ -135,23 +135,6 @@ func OpeningStats(ptr *OpeningMove, san string) *OpeningMove {
 	return ptr
 }
 
-// //CastlingStats counts the number of kingside and queenside castles by both colors
-// func CastlingStats(data *Result, rawMove string, sideToMove int) {
-// 	if rawMove == "O-O" {
-// 		if sideToMove == chess.White {
-// 			atomic.AddUint32(&data.Castling.White.Kingside, 1)
-// 		} else {
-// 			atomic.AddUint32(&data.Castling.Black.Kingside, 1)
-// 		}
-// 	} else {
-// 		if sideToMove == chess.White {
-// 			atomic.AddUint32(&data.Castling.White.Queenside, 1)
-// 		} else {
-// 			atomic.AddUint32(&data.Castling.Black.Queenside, 1)
-// 		}
-// 	}
-// }
-
 //MaterialCount returns sum of material and difference (white - black)
 func MaterialCount(board *chess.Board) (int, int) {
 	countW := 0

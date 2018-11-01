@@ -13,36 +13,17 @@ import (
 func GetStats(c <-chan *pgn.Game, gs chan<- *GameStats, openingsPtr *OpeningMove) {
 	for Game := range c {
 		oPtr := openingsPtr
-		// castle := ""
 
 		stats := NewGameStats()
 
 		ply := -1
-		// var lastPosition *pgn.Node
 		var firstCapture = false
 
 		for gamePtr := Game.Root; gamePtr != nil; gamePtr = gamePtr.Next {
 			ply++
-			// lastPosition = gamePtr
 
 			move := gamePtr.Move
 			isLastMove := gamePtr.Next == nil
-			// rawMove := Game.Moves[ply]
-			// piece := gamePtr.Board.Piece[move.To]
-
-			// if rawMove == "O-O" || rawMove == "O-O-O" {
-			// 	CastlingStats(data, rawMove, gamePtr.Board.SideToMove)
-
-			// 	if castle == "" {
-			// 		castle = rawMove
-			// 	} else {
-			// 		if rawMove == castle {
-			// 			atomic.AddUint32(&data.Castling.Side.Same, 1)
-			// 		} else {
-			// 			atomic.AddUint32(&data.Castling.Side.Opposite, 1)
-			// 		}
-			// 	}
-			// }
 
 			//Openings
 			if ply > 0 && ply < 10 {
@@ -55,6 +36,7 @@ func GetStats(c <-chan *pgn.Game, gs chan<- *GameStats, openingsPtr *OpeningMove
 			branchingFactor := float64(len(board.GenerateLegalMoves()))
 			stats.BranchingFactor[ply] += branchingFactor
 
+			//Heatmaps
 			HeatmapStats(stats, gamePtr, isLastMove)
 
 			if ply > 0 && !firstCapture {
@@ -81,19 +63,7 @@ func GetStats(c <-chan *pgn.Game, gs chan<- *GameStats, openingsPtr *OpeningMove
 			}
 		}
 
-		//results
-		// switch Game.Moves[len(Game.Moves)-1] {
-		// case "1-0":
-		// 	atomic.AddUint32(&data.Results.White, 1)
-		// case "0-1":
-		// 	atomic.AddUint32(&data.Results.Black, 1)
-		// case "1/2-1/2":
-		// 	atomic.AddUint32(&data.Results.Draw, 1)
-		// default:
-		// 	atomic.AddUint32(&data.Results.NA, 1)
-		// }
-
-		//ratings
+		//Ratings
 		if elo, ok := Game.Tags["WhiteElo"]; ok {
 			stats.Ratings[elo] = 1
 		}
@@ -102,7 +72,7 @@ func GetStats(c <-chan *pgn.Game, gs chan<- *GameStats, openingsPtr *OpeningMove
 			stats.Ratings[elo] = 1
 		}
 
-		//dates
+		//Years
 		if date, ok := Game.Tags["UTCDate"]; ok {
 			year64, _ := strconv.Atoi(date[:4])
 			year := strconv.Itoa(year64)
@@ -112,21 +82,6 @@ func GetStats(c <-chan *pgn.Game, gs chan<- *GameStats, openingsPtr *OpeningMove
 
 		//GameLengths
 		stats.GameLengths[ply] = 1
-
-		//GamesEndingWith
-		// check, mate := lastPosition.Board.IsCheckOrMate()
-		// //check
-		// if check && !mate {
-		// 	atomic.AddUint32(&data.GamesEndingWith.Check, 1)
-		// }
-		// //mate
-		// if check && mate {
-		// 	atomic.AddUint32(&data.GamesEndingWith.Mate, 1)
-		// }
-		// //stalemate
-		// if !check && mate {
-		// 	atomic.AddUint32(&data.GamesEndingWith.Stalemate, 1)
-		// }
 
 		gs <- stats
 	}
