@@ -8,6 +8,7 @@ import (
 	"os"
 	"sync"
 
+	"github.com/malbrecht/chess/pgn"
 	"github.com/pkg/profile"
 )
 
@@ -35,7 +36,7 @@ func main() {
 	log.Printf("starting")
 
 	readC := Read(f)
-	parsedC := make(chan *Game)
+	parsedC := make(chan *pgn.Game)
 	gsC := make(chan *GameStats)
 
 	var wg sync.WaitGroup
@@ -91,7 +92,7 @@ func main() {
 		Openings.Prune(pruneThreshold)
 		fgs.Openings = Openings
 
-		WriteJson(fgs)
+		writeJson(fgs)
 
 		viji.Done()
 
@@ -103,7 +104,7 @@ func main() {
 
 }
 
-func WriteJson(gs *GameStats) {
+func writeJson(gs *GameStats) {
 	var js []byte
 	var err error
 

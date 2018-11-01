@@ -119,14 +119,14 @@ func HeatmapStats(data *GameStats, node *pgn.Node, lastmove bool) {
 }
 
 //OpeningStats collects stats for OpeningMoves
-func OpeningStats(ptr *OpeningMove, rawMove string) *OpeningMove {
-	openingMove := ptr.Find(rawMove)
+func OpeningStats(ptr *OpeningMove, san string) *OpeningMove {
+	openingMove := ptr.Find(san)
 	if openingMove != nil {
 		atomic.AddUint32(&openingMove.Count, 1)
 		ptr = openingMove
 	} else {
 		openingMove = &OpeningMove{
-			1, rawMove, make([]*OpeningMove, 0),
+			1, san, make([]*OpeningMove, 0),
 		}
 		ptr.Children = append(ptr.Children, openingMove)
 		ptr = ptr.Children[len(ptr.Children)-1]

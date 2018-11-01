@@ -54,6 +54,7 @@ type GameStats struct {
 	GameEndMaterialCount PlyMap
 	GameEndMaterialDiff  PlyMap
 	Years                map[string]int
+	Ratings              map[string]int
 	Heatmaps             Heatmaps
 	Openings             *OpeningMove
 }
@@ -69,6 +70,7 @@ func NewGameStats() *GameStats {
 		GameEndMaterialCount: make(map[int]float64),
 		GameEndMaterialDiff:  make(map[int]float64),
 		Years:                make(map[string]int),
+		Ratings:              make(map[string]int),
 		Heatmaps: Heatmaps{
 			SquareUtilization:   *NewHeatmap(),
 			MoveSquares:         *NewHeatmap(),
@@ -112,6 +114,10 @@ func (gs *GameStats) Add(ad *GameStats) {
 
 	for k, v := range ad.Years {
 		gs.Years[k] += v
+	}
+
+	for k, v := range ad.Ratings {
+		gs.Ratings[k] += v
 	}
 
 	gs.Heatmaps.SquareUtilization.Add(&ad.Heatmaps.SquareUtilization)

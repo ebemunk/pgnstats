@@ -2,20 +2,18 @@ package main
 
 import (
 	"strconv"
+	"sync/atomic"
 
 	"github.com/dylhunn/dragontoothmg"
 	"github.com/malbrecht/chess"
+	"github.com/malbrecht/chess/pgn"
 )
 
-// GetStats collects statistics from a game
-func GetStats(c <-chan *Game, gs chan<- *GameStats, openingsPtr *OpeningMove) {
+//GetStats collects statistics from a game
+func GetStats(c <-chan *pgn.Game, gs chan<- *GameStats, openingsPtr *OpeningMove) {
 	for Game := range c {
 		oPtr := openingsPtr
-		// openingPtr := data.Openings
 		// castle := ""
-
-		// atomic.AddUint32(&data.TotalGames, 1)
-		// atomic.AddUint32(&data.Openings.Count, 1)
 
 		stats := NewGameStats()
 
@@ -23,11 +21,12 @@ func GetStats(c <-chan *Game, gs chan<- *GameStats, openingsPtr *OpeningMove) {
 		// var lastPosition *pgn.Node
 		var firstCapture = false
 
-		for gamePtr := Game.PgnGame.Root; gamePtr != nil; gamePtr = gamePtr.Next {
+		for gamePtr := Game.Root; gamePtr != nil; gamePtr = gamePtr.Next {
 			ply++
 			// lastPosition = gamePtr
 
 			move := gamePtr.Move
+			isLastMove := gamePtr.Next == nil
 			// rawMove := Game.Moves[ply]
 			// piece := gamePtr.Board.Piece[move.To]
 
@@ -45,8 +44,9 @@ func GetStats(c <-chan *Game, gs chan<- *GameStats, openingsPtr *OpeningMove) {
 			// 	}
 			// }
 
+			//Openings
 			if ply > 0 && ply < 10 {
-				oPtr.Count++
+				atomic.AddUint32(&oPtr.Count, 1)
 				oPtr = OpeningStats(oPtr, gamePtr.Move.San(gamePtr.Parent.Board))
 			}
 
@@ -55,7 +55,7 @@ func GetStats(c <-chan *Game, gs chan<- *GameStats, openingsPtr *OpeningMove) {
 			branchingFactor := float64(len(board.GenerateLegalMoves()))
 			stats.BranchingFactor[ply] += branchingFactor
 
-			HeatmapStats(stats, gamePtr, gamePtr.Next == nil)
+			HeatmapStats(stats, gamePtr, isLastMove)
 
 			if ply > 0 && !firstCapture {
 				firstCapture = FirstBlood(&stats.Heatmaps.FirstBlood, gamePtr)
@@ -65,7 +65,7 @@ func GetStats(c <-chan *Game, gs chan<- *GameStats, openingsPtr *OpeningMove) {
 			count, diff := MaterialCount(gamePtr.Board)
 			stats.MaterialCount[ply] = float64(count)
 			stats.MaterialDiff[ply] = float64(diff)
-			if ply == len(Game.Moves)-1 {
+			if isLastMove {
 				stats.GameEndMaterialCount[ply] = float64(count)
 				stats.GameEndMaterialDiff[ply] = float64(diff)
 			}
@@ -94,34 +94,16 @@ func GetStats(c <-chan *Game, gs chan<- *GameStats, openingsPtr *OpeningMove) {
 		// }
 
 		//ratings
-		// if elo, ok := Game.PgnGame.Tags["WhiteElo"]; ok {
-		// 	eloNum64, _ := strconv.Atoi(elo)
-		// 	eloNum := uint32(eloNum64)
+		if elo, ok := Game.Tags["WhiteElo"]; ok {
+			stats.Ratings[elo] = 1
+		}
 
-		// 	if eloNum < atomic.LoadUint32(&data.Ratings.Min) {
-		// 		atomic.StoreUint32(&data.Ratings.Min, eloNum)
-		// 	}
-
-		// 	if eloNum > atomic.LoadUint32(&data.Ratings.Max) {
-		// 		atomic.StoreUint32(&data.Ratings.Max, eloNum)
-		// 	}
-		// }
-
-		// if elo, ok := Game.PgnGame.Tags["BlackElo"]; ok {
-		// 	eloNum64, _ := strconv.Atoi(elo)
-		// 	eloNum := uint32(eloNum64)
-
-		// 	if eloNum < atomic.LoadUint32(&data.Ratings.Min) {
-		// 		atomic.StoreUint32(&data.Ratings.Min, eloNum)
-		// 	}
-
-		// 	if eloNum > atomic.LoadUint32(&data.Ratings.Max) {
-		// 		atomic.StoreUint32(&data.Ratings.Max, eloNum)
-		// 	}
-		// }
+		if elo, ok := Game.Tags["BlackElo"]; ok {
+			stats.Ratings[elo] = 1
+		}
 
 		//dates
-		if date, ok := Game.PgnGame.Tags["UTCDate"]; ok {
+		if date, ok := Game.Tags["UTCDate"]; ok {
 			year64, _ := strconv.Atoi(date[:4])
 			year := strconv.Itoa(year64)
 

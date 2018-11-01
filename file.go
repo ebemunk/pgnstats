@@ -4,17 +4,10 @@ import (
 	"bufio"
 	"log"
 	"os"
-	"regexp"
 	"strings"
 
 	"github.com/malbrecht/chess/pgn"
 )
-
-//Game sure
-type Game struct {
-	PgnGame *pgn.Game
-	Moves   []string
-}
 
 //Read reads a PGN file in chunks and constructs []byte with contents of a single game
 func Read(f *os.File) <-chan []byte {
@@ -50,10 +43,7 @@ func Read(f *os.File) <-chan []byte {
 }
 
 //Parse parses games coming from r and send them off to s
-func Parse(r <-chan []byte, s chan<- *Game) {
-	tagsRegex := regexp.MustCompile("\\[.+\\]")
-	movesRegex := regexp.MustCompile("\\d+\\.")
-
+func Parse(r <-chan []byte, s chan<- *pgn.Game) {
 	for game := range r {
 		db := pgn.DB{}
 		err := db.Parse(string(game))
@@ -78,14 +68,6 @@ func Parse(r <-chan []byte, s chan<- *Game) {
 
 		db.ParseMoves(db.Games[0])
 
-		movesBytes := tagsRegex.ReplaceAll(game, nil)
-		movesBytes = movesRegex.ReplaceAll(movesBytes, nil)
-		movesString := strings.Trim(string(movesBytes), "\n ")
-		moves := strings.Fields(movesString)
-
-		s <- &Game{
-			db.Games[0],
-			moves,
-		}
+		s <- db.Games[0]
 	}
 }
