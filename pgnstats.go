@@ -39,6 +39,7 @@ func main() {
 	parsedC := make(chan *pgn.Game)
 	gsC := make(chan *GameStats)
 
+	//read the file & parse
 	var wg sync.WaitGroup
 	wg.Add(*concurrencyLevel)
 	for i := 0; i < *concurrencyLevel; i++ {
@@ -48,14 +49,18 @@ func main() {
 		}()
 	}
 
+	//close parsedC when parsing is complete
 	go func() {
 		wg.Wait()
 		close(parsedC)
-		log.Println("close parsedC")
+		if *verbose {
+			log.Println("close parsedC")
+		}
 	}()
 
 	Openings := &OpeningMove{}
 
+	//collect stats
 	var wg2 sync.WaitGroup
 	wg2.Add(*concurrencyLevel)
 	for i := 0; i < *concurrencyLevel; i++ {
@@ -65,14 +70,18 @@ func main() {
 		}()
 	}
 
+	//close gsC when complete
 	go func() {
 		wg2.Wait()
 		close(gsC)
-		log.Println("close gsC")
+		if *verbose {
+			log.Println("close gsC")
+		}
 	}()
 
-	var viji sync.WaitGroup
-	viji.Add(1)
+	//combine stats
+	var wg3 sync.WaitGroup
+	wg3.Add(1)
 	go func() {
 		fgs := NewGameStats()
 
@@ -92,19 +101,15 @@ func main() {
 		Openings.Prune(pruneThreshold)
 		fgs.Openings = Openings
 
-		writeJson(fgs)
+		writeJSON(fgs)
 
-		viji.Done()
-
+		wg3.Done()
 	}()
 
-	log.Println("before viji wait")
-	viji.Wait()
-	log.Println("after viji wait")
-
+	wg3.Wait()
 }
 
-func writeJson(gs *GameStats) {
+func writeJSON(gs *GameStats) {
 	var js []byte
 	var err error
 
