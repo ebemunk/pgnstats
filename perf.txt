@@ -13,13 +13,8 @@ yes branch yes check - dragontoothmg
 yes branch yes check
   go run . -i -f pgn/200k.pgn  457.40s user 1.86s system 358% cpu 2:08.22 total
 
+mb
+  go run . -i -f ~/Downloads/millionbase-2.22.pgn -o data/mb.json  5067.40s user 21.67s system 346% cpu 24:29.18 total
 
-
-
--- lates
-castling
-  same side/opposite side
-  kingside/queenside
-results
-  white/black/draw/na
-  check/mate/stalemate
+mb
+  go run . -f ~/Downloads/millionbase-2.22.pgn  5374.82s user 28.11s system 296% cpu 30:20.38 total

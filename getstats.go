@@ -24,6 +24,7 @@ func GetStats(c <-chan *pgn.Game, gs chan<- *GameStats, openingsPtr *OpeningMove
 
 			move := gamePtr.Move
 			isLastMove := gamePtr.Next == nil
+			fen := gamePtr.Board.Fen()
 
 			//Openings
 			if ply > 0 && ply < 10 {
@@ -32,7 +33,7 @@ func GetStats(c <-chan *pgn.Game, gs chan<- *GameStats, openingsPtr *OpeningMove
 			}
 
 			//BranchingFactor
-			board := dragontoothmg.ParseFen(gamePtr.Board.Fen())
+			board := dragontoothmg.ParseFen(fen)
 			branchingFactor := float64(len(board.GenerateLegalMoves()))
 			stats.BranchingFactor[ply] += branchingFactor
 
@@ -61,6 +62,11 @@ func GetStats(c <-chan *pgn.Game, gs chan<- *GameStats, openingsPtr *OpeningMove
 			if gamePtr.Board.EpSquare != chess.NoSquare {
 				stats.Heatmaps.EnPassantSquares.Count(gamePtr.Parent.Board.Piece[move.From], gamePtr.Board.EpSquare)
 			}
+
+			//TrackMoves
+			stats.Trax.Track(gamePtr)
+
+			stats.Positions[fen]++
 		}
 
 		//Ratings
@@ -73,11 +79,18 @@ func GetStats(c <-chan *pgn.Game, gs chan<- *GameStats, openingsPtr *OpeningMove
 		}
 
 		//Years
-		if date, ok := Game.Tags["UTCDate"]; ok {
+		if date, ok := Game.Tags["Date"]; ok {
 			year64, _ := strconv.Atoi(date[:4])
 			year := strconv.Itoa(year64)
 
 			stats.Years[year] = 1
+		} else {
+			if date, ok := Game.Tags["UTCDate"]; ok {
+				year64, _ := strconv.Atoi(date[:4])
+				year := strconv.Itoa(year64)
+
+				stats.Years[year] = 1
+			}
 		}
 
 		//GameLengths

@@ -101,6 +101,15 @@ func main() {
 		Openings.Prune(pruneThreshold)
 		fgs.Openings = Openings
 
+		prunedPos := make(PosMap)
+
+		for k, v := range fgs.Positions {
+			if v > pruneThreshold {
+				prunedPos[k] = v
+			}
+		}
+		fgs.Positions = prunedPos
+
 		writeJSON(fgs)
 
 		wg3.Done()

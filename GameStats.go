@@ -5,6 +5,19 @@ import (
 	"sort"
 )
 
+type PosMap map[string]int
+
+// func (m PosMap) MarshalJSON() ([]byte, error) {
+// 	out := make(map[string]int)
+// 	for k, v := range m {
+// 		if v > 10000 {
+// 			out[k] = v
+// 		}
+// 	}
+
+// 	return json.Marshal(out)
+// }
+
 //PlyMap is a map[int]float64
 type PlyMap map[int]float64
 
@@ -57,6 +70,10 @@ type GameStats struct {
 	Ratings              map[string]int
 	Heatmaps             Heatmaps
 	Openings             *OpeningMove
+	Trax                 PieceTracker
+	Positions            PosMap
+	TotalPositions       int
+	UniquePositions      int
 }
 
 //NewGameStats creates new GameStats
@@ -83,6 +100,10 @@ func NewGameStats() *GameStats {
 			MateDeliverySquares: *NewHeatmap(),
 			StalemateSquares:    *NewHeatmap(),
 		},
+		Trax:            *NewPieceTracker(),
+		Positions:       make(PosMap),
+		TotalPositions:  0,
+		UniquePositions: 0,
 	}
 }
 
@@ -120,6 +141,11 @@ func (gs *GameStats) Add(ad *GameStats) {
 		gs.Ratings[k] += v
 	}
 
+	for k, v := range ad.Positions {
+		gs.Positions[k] += v
+		gs.TotalPositions += v
+	}
+
 	gs.Heatmaps.SquareUtilization.Add(&ad.Heatmaps.SquareUtilization)
 	gs.Heatmaps.MoveSquares.Add(&ad.Heatmaps.MoveSquares)
 	gs.Heatmaps.CaptureSquares.Add(&ad.Heatmaps.CaptureSquares)
@@ -130,6 +156,8 @@ func (gs *GameStats) Add(ad *GameStats) {
 	gs.Heatmaps.MateSquares.Add(&ad.Heatmaps.MateSquares)
 	gs.Heatmaps.MateDeliverySquares.Add(&ad.Heatmaps.MateDeliverySquares)
 	gs.Heatmaps.StalemateSquares.Add(&ad.Heatmaps.StalemateSquares)
+
+	gs.Trax.Add(&ad.Trax)
 
 	gs.Total++
 }
@@ -155,4 +183,6 @@ func (gs *GameStats) Average() {
 	for k, v := range gs.GameEndMaterialDiff {
 		gs.GameEndMaterialDiff[k] = v / gs.GameLengths[k]
 	}
+
+	gs.UniquePositions = len(gs.Positions)
 }
