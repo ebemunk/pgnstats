@@ -21,7 +21,10 @@ help: `pgnstats -h`
 - game length histogram
 - material count histogram (using standard values)
 - material difference histogram
+- end game material count histogram (using standard values)
+- end game material difference histogram
 - castling (black/white, same/opposite)
 - min/max ELO
 - min/max year
 - branching factor per ply
+- piece tracking
