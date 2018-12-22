@@ -7,17 +7,6 @@ import (
 
 type PosMap map[string]int
 
-// func (m PosMap) MarshalJSON() ([]byte, error) {
-// 	out := make(map[string]int)
-// 	for k, v := range m {
-// 		if v > 10000 {
-// 			out[k] = v
-// 		}
-// 	}
-
-// 	return json.Marshal(out)
-// }
-
 //PlyMap is a map[int]float64
 type PlyMap map[int]float64
 
