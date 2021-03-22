@@ -1,0 +1,6 @@
+github.com/dylhunn/dragontoothmg v0.0.0-20170905201839-b0146de1e275 h1:PDfC81w74XKfP1qDVvKrcL+isYNi7FBunA4zU+eMlME=
+github.com/dylhunn/dragontoothmg v0.0.0-20170905201839-b0146de1e275/go.mod h1:L6ZI7rasNVYqjj/tpfqYRowKPuSQO71UCBBhPxamiDQ=
+github.com/malbrecht/chess v0.0.0-20190911134141-3465f589170a h1:rBi/ZFqgPqo3aPxj3y3ZbwED9ssvBhlla+nHCVc8KFk=
+github.com/malbrecht/chess v0.0.0-20190911134141-3465f589170a/go.mod h1:M3dArO2gsCCqXeS5WcgCemKJEDmzOK+5y01UNH2nRHU=
+github.com/pkg/profile v1.5.0 h1:042Buzk+NhDI+DeSAA62RwJL8VAuZUMQZUjCsRz1Mug=
+github.com/pkg/profile v1.5.0/go.mod h1:qBsxPvzyUincmltOk6iyRVxHYg4adc0OFOv72ZdLa18=
