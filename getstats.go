@@ -10,7 +10,7 @@ import (
 )
 
 //GetStats collects statistics from a game
-func GetStats(c <-chan *pgn.Game, gs chan<- *GameStats, openingsPtr *OpeningMove) {
+func GetStats(c <-chan *pgn.Game, gs chan<- *GameStats, openingsPtr *OpeningMove, filterPlayer string) {
 	for Game := range c {
 		oPtr := openingsPtr
 
@@ -19,8 +19,37 @@ func GetStats(c <-chan *pgn.Game, gs chan<- *GameStats, openingsPtr *OpeningMove
 		ply := -1
 		var firstCapture = false
 
+		if Game.Tags["White"] == filterPlayer {
+			stats.Color = "w"
+		} else if Game.Tags["Black"] == filterPlayer {
+			stats.Color = "b"
+		} else if filterPlayer != "" {
+			continue
+		}
+
 		for gamePtr := Game.Root; gamePtr != nil; gamePtr = gamePtr.Next {
 			ply++
+
+			if ply == 0 {
+				// log.Printf("start fen: %v\n", gamePtr.Board.Fen())
+				// log.Printf("move %v\n", gamePtr.Move)
+				// log.Println("")
+				// start position does not have a valid Move
+				continue
+			}
+
+			var isFilteredPlayersMove bool
+			if filterPlayer == "" {
+				isFilteredPlayersMove = true
+			} else if Game.Tags["White"] == filterPlayer && gamePtr.Board.SideToMove == chess.Black {
+				// SideToMove is the side *after* the move has been played
+				isFilteredPlayersMove = true
+			} else if Game.Tags["Black"] == filterPlayer && gamePtr.Board.SideToMove == chess.White {
+				// SideToMove is the side *after* the move has been played
+				isFilteredPlayersMove = true
+			} else {
+				isFilteredPlayersMove = false
+			}
 
 			move := gamePtr.Move
 			isLastMove := gamePtr.Next == nil
@@ -37,13 +66,6 @@ func GetStats(c <-chan *pgn.Game, gs chan<- *GameStats, openingsPtr *OpeningMove
 			branchingFactor := float64(len(board.GenerateLegalMoves()))
 			stats.BranchingFactor[ply] += branchingFactor
 
-			//Heatmaps
-			HeatmapStats(stats, gamePtr, isLastMove)
-
-			if ply > 0 && !firstCapture {
-				firstCapture = FirstBlood(&stats.Heatmaps.FirstBlood, gamePtr)
-			}
-
 			//MaterialCount
 			count, diff := MaterialCount(gamePtr.Board)
 			stats.MaterialCount[ply] = float64(count)
@@ -51,6 +73,17 @@ func GetStats(c <-chan *pgn.Game, gs chan<- *GameStats, openingsPtr *OpeningMove
 			if isLastMove {
 				stats.GameEndMaterialCount[ply] = float64(count)
 				stats.GameEndMaterialDiff[ply] = float64(diff)
+			}
+
+			if !isFilteredPlayersMove {
+				continue
+			}
+
+			//Heatmaps
+			HeatmapStats(stats, gamePtr, isLastMove)
+
+			if ply > 0 && !firstCapture {
+				firstCapture = FirstBlood(&stats.Heatmaps.FirstBlood, gamePtr)
 			}
 
 			//PromotionSquares

@@ -19,6 +19,7 @@ var outputPath = flag.String("o", "./data/data.json", "output path for JSON file
 var perf = flag.Bool("p", false, "write profile to ./prof/")
 var verbose = flag.Bool("v", false, "verbose mode")
 var indent = flag.Bool("i", false, "indent json output")
+var filterPlayer = flag.String("fp", "Carlsen,M", "filter by player")
 
 func main() {
 	flag.Parse()
@@ -65,7 +66,7 @@ func main() {
 	wg2.Add(*concurrencyLevel)
 	for i := 0; i < *concurrencyLevel; i++ {
 		go func() {
-			GetStats(parsedC, gsC, Openings)
+			GetStats(parsedC, gsC, Openings, *filterPlayer)
 			wg2.Done()
 		}()
 	}
@@ -83,13 +84,24 @@ func main() {
 	var wg3 sync.WaitGroup
 	wg3.Add(1)
 	go func() {
+		if *filterPlayer != "" {
+		}
+
+		// totals or White when -fp
 		fgs := NewGameStats()
+		// Black when -fc
+		bgs := NewGameStats()
 
 		for gamst := range gsC {
-			fgs.Add(gamst)
+			if gamst.Color == "b" {
+				bgs.Add(gamst)
+			} else {
+				fgs.Add(gamst)
+			}
 		}
 
 		fgs.Average()
+		bgs.Average()
 
 		log.Printf("analyzed %d games\n", fgs.Total)
 
@@ -99,7 +111,7 @@ func main() {
 		}
 
 		Openings.Prune(pruneThreshold)
-		fgs.Openings = Openings
+		// fgs.Openings = Openings
 
 		prunedPos := make(PosMap)
 
@@ -110,7 +122,18 @@ func main() {
 		}
 		fgs.Positions = prunedPos
 
-		writeJSON(fgs)
+		for k, v := range bgs.Positions {
+			if v > pruneThreshold {
+				prunedPos[k] = v
+			}
+		}
+		bgs.Positions = prunedPos
+
+		writeJSON(fgs, "w")
+
+		if *filterPlayer != "" {
+			writeJSON(bgs, "b")
+		}
 
 		wg3.Done()
 	}()
@@ -118,7 +141,7 @@ func main() {
 	wg3.Wait()
 }
 
-func writeJSON(gs *GameStats) {
+func writeJSON(gs *GameStats, suffix string) {
 	var js []byte
 	var err error
 
@@ -131,7 +154,7 @@ func writeJSON(gs *GameStats) {
 		log.Fatalf("error converting to json: %s\n", err)
 	}
 
-	err = ioutil.WriteFile(*outputPath, js, 0644)
+	err = ioutil.WriteFile(*outputPath+"-"+suffix+".json", js, 0644)
 	if err != nil {
 		log.Fatalf("error writing file: %s\n", err)
 	}

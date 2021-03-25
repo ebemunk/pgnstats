@@ -48,6 +48,7 @@ type Heatmaps struct {
 
 //GameStats is the statistics for games
 type GameStats struct {
+	Color                string
 	Total                uint64
 	GameLengths          PlyMap
 	BranchingFactor      PlyMap
@@ -68,6 +69,7 @@ type GameStats struct {
 //NewGameStats creates new GameStats
 func NewGameStats() *GameStats {
 	return &GameStats{
+		Color:                "", // "" or "w" or "b"
 		Total:                0,
 		GameLengths:          make(map[int]float64),
 		BranchingFactor:      make(map[int]float64),

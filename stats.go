@@ -28,8 +28,8 @@ func HeatmapStats(data *GameStats, node *pgn.Node, lastmove bool) {
 	move := node.Move
 	piece := node.Board.Piece[node.Move.To]
 
-	king := chess.Piece(node.Board.SideToMove | chess.King)
-	rook := chess.Piece(node.Board.SideToMove | chess.Rook)
+	king := chess.Piece(1 - node.Board.SideToMove | chess.King)
+	rook := chess.Piece(1 - node.Board.SideToMove | chess.Rook)
 
 	if move.From == chess.E1 && move.To == chess.A1 ||
 		move.From == chess.E1 && move.To == chess.H1 ||
