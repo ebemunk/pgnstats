@@ -27,9 +27,10 @@ func FirstBlood(hm *Heatmap, node *pgn.Node) bool {
 func HeatmapStats(data *GameStats, node *pgn.Node, lastmove bool) {
 	move := node.Move
 	piece := node.Board.Piece[node.Move.To]
+	sideThatMoved := 1 - node.Board.SideToMove
 
-	king := chess.Piece(1 - node.Board.SideToMove | chess.King)
-	rook := chess.Piece(1 - node.Board.SideToMove | chess.Rook)
+	king := chess.Piece(sideThatMoved | chess.King)
+	rook := chess.Piece(sideThatMoved | chess.Rook)
 
 	if move.From == chess.E1 && move.To == chess.A1 ||
 		move.From == chess.E1 && move.To == chess.H1 ||
@@ -92,7 +93,7 @@ func HeatmapStats(data *GameStats, node *pgn.Node, lastmove bool) {
 				data.Heatmaps.MateDeliverySquares.Count(piece, move.To)
 			}
 
-			enemyKing := chess.Piece(1 - node.Board.SideToMove | chess.King)
+			enemyKing := chess.Piece(sideThatMoved | chess.King)
 			//locate enemy king on the board
 			for i := 0; i < 64; i++ {
 				if node.Board.Piece[i] == enemyKing {
@@ -103,7 +104,7 @@ func HeatmapStats(data *GameStats, node *pgn.Node, lastmove bool) {
 
 		//stalemate
 		if !check && mate {
-			enemyKing := chess.Piece(1 - node.Board.SideToMove | chess.King)
+			enemyKing := chess.Piece(sideThatMoved | chess.King)
 			//locate enemy king on the board
 			for i := 0; i < 64; i++ {
 				if node.Board.Piece[i] == enemyKing {

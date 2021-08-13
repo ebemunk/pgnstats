@@ -60,6 +60,7 @@ func main() {
 	}()
 
 	Openings := &OpeningMove{}
+	Openings.San = "start"
 
 	//collect stats
 	var wg2 sync.WaitGroup
@@ -84,43 +85,46 @@ func main() {
 	var wg3 sync.WaitGroup
 	wg3.Add(1)
 	go func() {
-		if *filterPlayer != "" {
-		}
-
 		// totals or White when -fp
-		fgs := NewGameStats()
-		// Black when -fc
+		wgs := NewGameStats()
+		wgs.Color = "W"
+		// Black when -fp
 		bgs := NewGameStats()
+		bgs.Color = "B"
 
 		for gamst := range gsC {
 			if gamst.Color == "b" {
 				bgs.Add(gamst)
 			} else {
-				fgs.Add(gamst)
+				wgs.Add(gamst)
 			}
 		}
 
-		fgs.Average()
+		wgs.Average()
 		bgs.Average()
 
-		log.Printf("analyzed %d games\n", fgs.Total)
+		if *filterPlayer != "" {
+			log.Printf("analyzed %d games (%d white, %d black)\n", wgs.Total+bgs.Total, wgs.Total, bgs.Total)
+		} else {
+			log.Printf("analyzed %d games\n", wgs.Total)
+		}
 
-		pruneThreshold := int(float32(fgs.Total) * 0.0001)
+		pruneThreshold := int(float32(wgs.Total) * 0.0001)
 		if *verbose {
 			log.Printf("prune param %d\n", pruneThreshold)
 		}
 
 		Openings.Prune(pruneThreshold)
-		// fgs.Openings = Openings
+		wgs.Openings = Openings
 
 		prunedPos := make(PosMap)
 
-		for k, v := range fgs.Positions {
+		for k, v := range wgs.Positions {
 			if v > pruneThreshold {
 				prunedPos[k] = v
 			}
 		}
-		fgs.Positions = prunedPos
+		wgs.Positions = prunedPos
 
 		for k, v := range bgs.Positions {
 			if v > pruneThreshold {
@@ -129,7 +133,11 @@ func main() {
 		}
 		bgs.Positions = prunedPos
 
-		writeJSON(fgs, "w")
+		if *filterPlayer == "" {
+			writeJSON(wgs, "all")
+		} else {
+			writeJSON(wgs, "w")
+		}
 
 		if *filterPlayer != "" {
 			writeJSON(bgs, "b")
@@ -139,6 +147,8 @@ func main() {
 	}()
 
 	wg3.Wait()
+
+	log.Printf("done!")
 }
 
 func writeJSON(gs *GameStats, suffix string) {
@@ -154,10 +164,10 @@ func writeJSON(gs *GameStats, suffix string) {
 		log.Fatalf("error converting to json: %s\n", err)
 	}
 
-	err = ioutil.WriteFile(*outputPath+"-"+suffix+".json", js, 0644)
+	filePath := *outputPath + "-" + suffix + ".json"
+	err = ioutil.WriteFile(filePath, js, 0644)
 	if err != nil {
 		log.Fatalf("error writing file: %s\n", err)
 	}
-
-	log.Printf("done!")
+	log.Printf("wrote to %v", filePath)
 }

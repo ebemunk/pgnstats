@@ -2,9 +2,9 @@ package main
 
 //OpeningMove is a node that represents a move
 type OpeningMove struct {
-	Count    uint32         `json:"size"`
-	San      string         `json:"title"`
-	Children []*OpeningMove `json:"children"`
+	Count    uint32
+	San      string
+	Children []*OpeningMove
 }
 
 //Find returns the child OpeningMove that matches the san

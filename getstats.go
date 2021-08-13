@@ -31,9 +31,6 @@ func GetStats(c <-chan *pgn.Game, gs chan<- *GameStats, openingsPtr *OpeningMove
 			ply++
 
 			if ply == 0 {
-				// log.Printf("start fen: %v\n", gamePtr.Board.Fen())
-				// log.Printf("move %v\n", gamePtr.Move)
-				// log.Println("")
 				// start position does not have a valid Move
 				continue
 			}

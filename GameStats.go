@@ -69,7 +69,8 @@ type GameStats struct {
 //NewGameStats creates new GameStats
 func NewGameStats() *GameStats {
 	return &GameStats{
-		Color:                "", // "" or "w" or "b"
+		// "" or "w" or "b"
+		Color:                "",
 		Total:                0,
 		GameLengths:          make(map[int]float64),
 		BranchingFactor:      make(map[int]float64),
