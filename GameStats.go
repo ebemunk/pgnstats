@@ -135,8 +135,10 @@ func (gs *GameStats) Add(ad *GameStats) {
 
 	for k, v := range ad.Positions {
 		gs.Positions[k] += v
-		gs.TotalPositions += v
 	}
+
+	gs.TotalPositions += ad.TotalPositions
+	gs.UniquePositions += len(ad.Positions)
 
 	gs.Heatmaps.SquareUtilization.Add(&ad.Heatmaps.SquareUtilization)
 	gs.Heatmaps.MoveSquares.Add(&ad.Heatmaps.MoveSquares)
@@ -175,6 +177,4 @@ func (gs *GameStats) Average() {
 	for k, v := range gs.GameEndMaterialDiff {
 		gs.GameEndMaterialDiff[k] = v / gs.GameLengths[k]
 	}
-
-	gs.UniquePositions = len(gs.Positions)
 }

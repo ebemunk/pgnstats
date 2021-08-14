@@ -67,7 +67,13 @@ func main() {
 	wg2.Add(*concurrencyLevel)
 	for i := 0; i < *concurrencyLevel; i++ {
 		go func() {
-			GetStats(parsedC, gsC, Openings, *filterPlayer)
+			for Game := range parsedC {
+				stats := GetStats(Game, Openings, *filterPlayer)
+
+				if stats != nil {
+					gsC <- stats
+				}
+			}
 			wg2.Done()
 		}()
 	}
