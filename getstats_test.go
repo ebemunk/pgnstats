@@ -9,7 +9,7 @@ import (
 	"github.com/malbrecht/chess/pgn"
 )
 
-func GetGame(file string) *pgn.Game {
+func LoadGames(file string) []*pgn.Game {
 	dat, err := ioutil.ReadFile(file)
 	if err != nil {
 		log.Fatalf("cannot read test file %s\n", file)
@@ -17,12 +17,25 @@ func GetGame(file string) *pgn.Game {
 
 	db := pgn.DB{}
 	db.Parse(string(dat))
-	err = db.ParseMoves(db.Games[0])
-	if err != nil {
-		log.Fatalf("cannot parse game in %s\n", file)
+
+	for i := range db.Games {
+		err = db.ParseMoves(db.Games[i])
+		if err != nil {
+			log.Fatalf("cannot parse game in %s\n", err)
+		}
 	}
 
-	return db.Games[0]
+	return db.Games
+}
+
+func findGame(games []*pgn.Game, name string) *pgn.Game {
+	for _, game := range games {
+		if game.Tags["Event"] == name {
+			return game
+		}
+	}
+
+	return nil
 }
 
 func writeTestJSON(stats *GameStats, path string) {
@@ -38,9 +51,21 @@ func writeTestJSON(stats *GameStats, path string) {
 }
 
 func TestGetStats(t *testing.T) {
-	game := GetGame("./testdata/fools_mate.pgn")
+	games := LoadGames("./testdata/pgn/fools_mate.pgn")
 	op := OpeningMove{}
-	stats := GetStats(game, &op, "")
-	log.Printf("%+v\n", stats)
-	writeTestJSON(stats, "./testdata/fools_mate.json")
+
+	t.Run("fools", func(t *testing.T) {
+		stats := GetStats(findGame(games, "Fool's Mate"), &op, "")
+		writeTestJSON(stats, "./testdata/results/fools_mate.json")
+	})
+
+	t.Run("scholars", func(t *testing.T) {
+		stats := GetStats(findGame(games, "Scholar's Mate"), &op, "")
+		writeTestJSON(stats, "./testdata/results/scholars_mate.json")
+	})
+
+	t.Run("repetition", func(t *testing.T) {
+		stats := GetStats(findGame(games, "Repetition"), &op, "")
+		writeTestJSON(stats, "./testdata/results/repetition.json")
+	})
 }

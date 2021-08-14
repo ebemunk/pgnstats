@@ -6,23 +6,31 @@
     0,
     0,
     0,
+    0,
+    0,
     1
   ],
   "BranchingFactor": [
     0,
     20,
-    19,
-    30,
-    0
+    29,
+    29,
+    23,
+    23,
+    29
   ],
   "MaterialCount": [
     0,
     78,
     78,
     78,
+    78,
+    78,
     78
   ],
   "MaterialDiff": [
+    0,
+    0,
     0,
     0,
     0,
@@ -34,6 +42,8 @@
     0,
     0,
     0,
+    0,
+    0,
     78
   ],
   "GameEndMaterialDiff": [
@@ -41,17 +51,36 @@
     0,
     0,
     0,
+    0,
+    0,
     0
   ],
-  "Years": {},
-  "Ratings": {},
+  "Years": {
+    "2021": 1
+  },
+  "Ratings": {
+    "1": 1,
+    "2": 1
+  },
   "Heatmaps": {
     "SquareUtilization": [
       {},
       {},
       {},
       {},
+      {
+        "k": 1
+      },
       {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "k": 1
+      },
       {},
       {},
       {},
@@ -77,27 +106,6 @@
       {},
       {},
       {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {
-        "P": 1
-      },
-      {
-        "q": 1
-      },
-      {},
-      {},
-      {},
-      {},
-      {},
       {
         "P": 1
       },
@@ -116,6 +124,19 @@
       {},
       {},
       {},
+      {
+        "K": 1
+      },
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {
+        "K": 1
+      },
       {},
       {},
       {}
@@ -124,8 +145,9 @@
       {},
       {},
       {},
+      {},
       {
-        "q": 1
+        "k": 1
       },
       {},
       {},
@@ -134,8 +156,8 @@
       {},
       {},
       {},
-      {},
       {
+        "k": 1,
         "p": 1
       },
       {},
@@ -177,11 +199,8 @@
       {},
       {},
       {},
-      {},
       {
-        "P": 1
-      },
-      {
+        "K": 1,
         "P": 1
       },
       {},
@@ -190,6 +209,10 @@
       {},
       {},
       {},
+      {},
+      {
+        "K": 1
+      },
       {},
       {},
       {}
@@ -300,9 +323,7 @@
       {},
       {},
       {},
-      {
-        "q": 1
-      },
+      {},
       {},
       {},
       {},
@@ -481,9 +502,9 @@
       {},
       {},
       {},
-      {},
-      {},
-      {},
+      {
+        "p": 1
+      },
       {},
       {},
       {},
@@ -526,6 +547,8 @@
       {},
       {},
       {},
+      {},
+      {},
       {}
     ],
     "MateSquares": [
@@ -533,9 +556,7 @@
       {},
       {},
       {},
-      {
-        "k": 1
-      },
+      {},
       {},
       {},
       {},
@@ -636,9 +657,7 @@
       {},
       {},
       {},
-      {
-        "q": 1
-      },
+      {},
       {},
       {},
       {},
@@ -733,25 +752,29 @@
   },
   "Openings": null,
   "Trax": {
-    "d8": {
-      "d8-h4": 1
+    "e1": {
+      "e1-e2": 1,
+      "e2-e1": 1
+    },
+    "e2": {
+      "e2-e4": 1
     },
     "e7": {
-      "e7-e6": 1
+      "e7-e5": 1
     },
-    "f2": {
-      "f2-f3": 1
-    },
-    "g2": {
-      "g2-g4": 1
+    "e8": {
+      "e7-e8": 1,
+      "e8-e7": 1
     }
   },
   "Positions": {
-    "rnb1kbnr/pppp1ppp/4p3/8/6Pq/5P2/PPPPP2P/RNBQKBNR w KQkq - 1 3": 1,
-    "rnbqkbnr/pppp1ppp/4p3/8/6P1/5P2/PPPPP2P/RNBQKBNR b KQkq g3 0 2": 1,
-    "rnbqkbnr/pppp1ppp/4p3/8/8/5P2/PPPPP1PP/RNBQKBNR w KQkq - 0 2": 1,
-    "rnbqkbnr/pppppppp/8/8/8/5P2/PPPPP1PP/RNBQKBNR b KQkq - 0 1": 1
+    "rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR b - - 3 3": 1,
+    "rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 2 3": 1,
+    "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w - - 4 4": 1,
+    "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2": 1,
+    "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR b kq - 1 2": 1,
+    "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1": 1
   },
-  "TotalPositions": 4,
-  "UniquePositions": 4
+  "TotalPositions": 6,
+  "UniquePositions": 6
 }

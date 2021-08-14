@@ -102,7 +102,7 @@ func GetStats(Game *pgn.Game, openingsPtr *OpeningMove, filterPlayer string) *Ga
 	for _, v := range stats.Positions {
 		stats.TotalPositions += v
 	}
-	stats.UniquePositions = len(stats.Positions)
+	// stats.UniquePositions = len(stats.Positions)
 
 	//Ratings
 	if elo, ok := Game.Tags["WhiteElo"]; ok {

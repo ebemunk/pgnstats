@@ -63,7 +63,8 @@ type GameStats struct {
 	Trax                 PieceTracker
 	Positions            PosMap
 	TotalPositions       int
-	UniquePositions      int
+	UniquePositions      PosMap
+	TotalUniquePositions int
 }
 
 //NewGameStats creates new GameStats
@@ -92,10 +93,11 @@ func NewGameStats() *GameStats {
 			MateDeliverySquares: *NewHeatmap(),
 			StalemateSquares:    *NewHeatmap(),
 		},
-		Trax:            *NewPieceTracker(),
-		Positions:       make(PosMap),
-		TotalPositions:  0,
-		UniquePositions: 0,
+		Trax:                 *NewPieceTracker(),
+		Positions:            make(PosMap),
+		TotalPositions:       0,
+		UniquePositions:      make(PosMap),
+		TotalUniquePositions: 0,
 	}
 }
 
@@ -138,7 +140,7 @@ func (gs *GameStats) Add(ad *GameStats) {
 	}
 
 	gs.TotalPositions += ad.TotalPositions
-	gs.UniquePositions += len(ad.Positions)
+	gs.TotalUniquePositions += ad.TotalUniquePositions
 
 	gs.Heatmaps.SquareUtilization.Add(&ad.Heatmaps.SquareUtilization)
 	gs.Heatmaps.MoveSquares.Add(&ad.Heatmaps.MoveSquares)
