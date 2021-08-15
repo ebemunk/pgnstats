@@ -95,8 +95,7 @@ func GetStats(Game *pgn.Game, openingsPtr *OpeningMove, filterPlayer string) *Ga
 			stats.Heatmaps.EnPassantSquares.Count(gamePtr.Parent.Board.Piece[move.From], gamePtr.Board.EpSquare)
 		}
 
-		//TrackMoves
-		stats.Trax.Track(gamePtr)
+		stats.PiecePaths.Track(gamePtr)
 
 		stats.Positions[fen]++
 		boardEqualityRegexp, _ := regexp.Compile(`.+ [bw] (-|[KQkq]+) (-|[a-h]\d)`)

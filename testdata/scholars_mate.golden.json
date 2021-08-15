@@ -9,19 +9,17 @@
     0,
     0,
     0,
-    0,
     1
   ],
   "BranchingFactor": [
     0,
     20,
     29,
-    29,
-    23,
-    23,
-    29,
-    29,
-    23
+    26,
+    39,
+    28,
+    43,
+    0
   ],
   "MaterialCount": [
     0,
@@ -31,8 +29,7 @@
     78,
     78,
     78,
-    78,
-    78
+    77
   ],
   "MaterialDiff": [
     0,
@@ -42,8 +39,7 @@
     0,
     0,
     0,
-    0,
-    0
+    1
   ],
   "GameEndMaterialCount": [
     0,
@@ -53,8 +49,7 @@
     0,
     0,
     0,
-    0,
-    78
+    77
   ],
   "GameEndMaterialDiff": [
     0,
@@ -64,15 +59,14 @@
     0,
     0,
     0,
-    0,
-    0
+    1
   ],
   "Years": {
-    "2021": 1
+    "1656": 1
   },
   "Ratings": {
-    "1": 1,
-    "2": 1
+    "3": 1,
+    "4": 1
   },
   "Heatmaps": {
     "SquareUtilization": [
@@ -80,28 +74,30 @@
       {},
       {},
       {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
       {
-        "k": 1
+        "Q": 1
       },
       {},
       {},
       {},
       {},
-      {},
-      {},
-      {},
       {
-        "k": 2
+        "n": 1
       },
       {},
       {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
-      {},
+      {
+        "n": 1
+      },
       {},
       {},
       {},
@@ -113,10 +109,14 @@
       },
       {},
       {},
+      {
+        "Q": 1
+      },
       {},
       {},
-      {},
-      {},
+      {
+        "B": 1
+      },
       {},
       {
         "P": 1
@@ -136,9 +136,6 @@
       {},
       {},
       {},
-      {
-        "K": 2
-      },
       {},
       {},
       {},
@@ -146,30 +143,30 @@
       {},
       {},
       {},
-      {
-        "K": 1
-      },
+      {},
+      {},
       {},
       {},
       {}
     ],
     "MoveSquares": [
       {},
+      {
+        "n": 1
+      },
+      {},
       {},
       {},
       {},
       {
-        "k": 2
+        "n": 1
       },
       {},
       {},
       {},
       {},
       {},
-      {},
-      {},
       {
-        "k": 1,
         "p": 1
       },
       {},
@@ -190,7 +187,9 @@
       {},
       {},
       {},
-      {},
+      {
+        "Q": 1
+      },
       {},
       {},
       {},
@@ -212,7 +211,6 @@
       {},
       {},
       {
-        "K": 1,
         "P": 1
       },
       {},
@@ -221,11 +219,13 @@
       {},
       {},
       {},
-      {},
       {
-        "K": 2
+        "Q": 1
       },
       {},
+      {
+        "B": 1
+      },
       {},
       {}
     ],
@@ -243,7 +243,9 @@
       {},
       {},
       {},
-      {},
+      {
+        "Q": 1
+      },
       {},
       {},
       {},
@@ -309,7 +311,9 @@
       {},
       {},
       {},
-      {},
+      {
+        "Q": 1
+      },
       {},
       {},
       {},
@@ -375,7 +379,9 @@
       {},
       {},
       {},
-      {},
+      {
+        "Q": 1
+      },
       {},
       {},
       {},
@@ -624,7 +630,9 @@
       {},
       {},
       {},
-      {},
+      {
+        "K": 1
+      },
       {},
       {},
       {}
@@ -643,7 +651,9 @@
       {},
       {},
       {},
-      {},
+      {
+        "Q": 1
+      },
       {},
       {},
       {},
@@ -763,10 +773,13 @@
     ]
   },
   "Openings": null,
-  "Trax": {
-    "e1": {
-      "e1-e2": 2,
-      "e2-e1": 1
+  "PiecePaths": {
+    "b8": {
+      "b8-c6": 1
+    },
+    "d1": {
+      "d1-h5": 1,
+      "h5-f7": 1
     },
     "e2": {
       "e2-e4": 1
@@ -774,29 +787,30 @@
     "e7": {
       "e7-e5": 1
     },
-    "e8": {
-      "e7-e8": 1,
-      "e8-e7": 2
+    "f1": {
+      "f1-c4": 1
+    },
+    "g8": {
+      "g8-f6": 1
     }
   },
   "Positions": {
-    "rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR b - - 3 3": 1,
-    "rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 2 3": 1,
-    "rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 6 5": 1,
-    "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w - - 4 4": 1,
+    "r1bqkb1r/pppp1Qpp/2n2n2/4p3/2B1P3/8/PPPP1PPP/RNB1K1NR b KQkq - 0 4": 1,
+    "r1bqkb1r/pppp1ppp/2n2n2/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq - 4 4": 1,
+    "r1bqkbnr/pppp1ppp/2n5/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR b KQkq - 3 3": 1,
+    "r1bqkbnr/pppp1ppp/2n5/4p2Q/4P3/8/PPPP1PPP/RNB1KBNR w KQkq - 2 3": 1,
+    "rnbqkbnr/pppp1ppp/8/4p2Q/4P3/8/PPPP1PPP/RNB1KBNR b KQkq - 1 2": 1,
     "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2": 1,
-    "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR b - - 5 4": 1,
-    "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR b kq - 1 2": 1,
     "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1": 1
   },
-  "TotalPositions": 8,
+  "TotalPositions": 7,
   "UniquePositions": {
-    "rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR b - -": 1,
-    "rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - -": 2,
-    "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w - -": 1,
+    "r1bqkb1r/pppp1Qpp/2n2n2/4p3/2B1P3/8/PPPP1PPP/RNB1K1NR b KQkq -": 1,
+    "r1bqkb1r/pppp1ppp/2n2n2/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq -": 1,
+    "r1bqkbnr/pppp1ppp/2n5/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR b KQkq -": 1,
+    "r1bqkbnr/pppp1ppp/2n5/4p2Q/4P3/8/PPPP1PPP/RNB1KBNR w KQkq -": 1,
+    "rnbqkbnr/pppp1ppp/8/4p2Q/4P3/8/PPPP1PPP/RNB1KBNR b KQkq -": 1,
     "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6": 1,
-    "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR b - -": 1,
-    "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR b kq -": 1,
     "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3": 1
   },
   "TotalUniquePositions": 7

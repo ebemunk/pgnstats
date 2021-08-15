@@ -60,7 +60,7 @@ type GameStats struct {
 	Ratings              map[string]int
 	Heatmaps             Heatmaps
 	Openings             *OpeningMove
-	Trax                 PieceTracker
+	PiecePaths           PieceTracker
 	Positions            PosMap
 	TotalPositions       int
 	UniquePositions      PosMap
@@ -98,7 +98,7 @@ func NewGameStats() *GameStats {
 			MateDeliverySquares: *NewHeatmap(),
 			StalemateSquares:    *NewHeatmap(),
 		},
-		Trax:                 *NewPieceTracker(),
+		PiecePaths:           *NewPieceTracker(),
 		Positions:            make(PosMap),
 		TotalPositions:       0,
 		UniquePositions:      make(PosMap),
@@ -162,7 +162,7 @@ func (gs *GameStats) Add(ad *GameStats) {
 	gs.Heatmaps.MateDeliverySquares.Add(&ad.Heatmaps.MateDeliverySquares)
 	gs.Heatmaps.StalemateSquares.Add(&ad.Heatmaps.StalemateSquares)
 
-	gs.Trax.Add(&ad.Trax)
+	gs.PiecePaths.Add(&ad.PiecePaths)
 
 	gs.Total++
 }
