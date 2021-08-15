@@ -8,6 +8,8 @@
     0,
     0,
     0,
+    0,
+    0,
     1
   ],
   "BranchingFactor": [
@@ -17,7 +19,9 @@
     29,
     23,
     23,
-    29
+    29,
+    29,
+    23
   ],
   "MaterialCount": [
     0,
@@ -26,9 +30,13 @@
     78,
     78,
     78,
+    78,
+    78,
     78
   ],
   "MaterialDiff": [
+    0,
+    0,
     0,
     0,
     0,
@@ -44,9 +52,13 @@
     0,
     0,
     0,
+    0,
+    0,
     78
   ],
   "GameEndMaterialDiff": [
+    0,
+    0,
     0,
     0,
     0,
@@ -79,7 +91,7 @@
       {},
       {},
       {
-        "k": 1
+        "k": 2
       },
       {},
       {},
@@ -125,7 +137,7 @@
       {},
       {},
       {
-        "K": 1
+        "K": 2
       },
       {},
       {},
@@ -147,7 +159,7 @@
       {},
       {},
       {
-        "k": 1
+        "k": 2
       },
       {},
       {},
@@ -211,7 +223,7 @@
       {},
       {},
       {
-        "K": 1
+        "K": 2
       },
       {},
       {},
@@ -753,7 +765,7 @@
   "Openings": null,
   "Trax": {
     "e1": {
-      "e1-e2": 1,
+      "e1-e2": 2,
       "e2-e1": 1
     },
     "e2": {
@@ -764,17 +776,28 @@
     },
     "e8": {
       "e7-e8": 1,
-      "e8-e7": 1
+      "e8-e7": 2
     }
   },
   "Positions": {
     "rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR b - - 3 3": 1,
     "rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 2 3": 1,
+    "rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - - 6 5": 1,
     "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w - - 4 4": 1,
     "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2": 1,
+    "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR b - - 5 4": 1,
     "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR b kq - 1 2": 1,
     "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1": 1
   },
-  "TotalPositions": 6,
-  "UniquePositions": 6
+  "TotalPositions": 8,
+  "UniquePositions": {
+    "rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR b - -": 1,
+    "rnbq1bnr/ppppkppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR w - -": 2,
+    "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w - -": 1,
+    "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6": 1,
+    "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR b - -": 1,
+    "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPPKPPP/RNBQ1BNR b kq -": 1,
+    "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3": 1
+  },
+  "TotalUniquePositions": 7
 }

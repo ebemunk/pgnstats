@@ -67,6 +67,11 @@ type GameStats struct {
 	TotalUniquePositions int
 }
 
+type PlayerStats struct {
+	White GameStats
+	Black GameStats
+}
+
 //NewGameStats creates new GameStats
 func NewGameStats() *GameStats {
 	return &GameStats{
@@ -137,6 +142,10 @@ func (gs *GameStats) Add(ad *GameStats) {
 
 	for k, v := range ad.Positions {
 		gs.Positions[k] += v
+	}
+
+	for k, v := range ad.UniquePositions {
+		gs.UniquePositions[k] += v
 	}
 
 	gs.TotalPositions += ad.TotalPositions

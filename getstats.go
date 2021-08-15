@@ -1,7 +1,9 @@
 package main
 
 import (
+	"regexp"
 	"strconv"
+	"strings"
 	"sync/atomic"
 
 	"github.com/dylhunn/dragontoothmg"
@@ -97,12 +99,15 @@ func GetStats(Game *pgn.Game, openingsPtr *OpeningMove, filterPlayer string) *Ga
 		stats.Trax.Track(gamePtr)
 
 		stats.Positions[fen]++
+		boardEqualityRegexp, _ := regexp.Compile(`.+ [bw] (-|[KQkq]+) (-|[a-h]\d)`)
+		uniquePos := strings.Join(boardEqualityRegexp.FindAllString(fen, -1), "")
+		stats.UniquePositions[uniquePos]++
 	}
 
 	for _, v := range stats.Positions {
 		stats.TotalPositions += v
 	}
-	// stats.UniquePositions = len(stats.Positions)
+	stats.TotalUniquePositions = len(stats.UniquePositions)
 
 	//Ratings
 	if elo, ok := Game.Tags["WhiteElo"]; ok {
