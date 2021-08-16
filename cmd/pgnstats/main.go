@@ -59,8 +59,8 @@ func main() {
 		}
 	}()
 
-	Openings := &core.OpeningMove{}
-	Openings.San = "start"
+	// Openings := &core.OpeningMove{}
+	// Openings.San = "start"
 
 	//collect stats
 	var wg2 sync.WaitGroup
@@ -120,8 +120,8 @@ func main() {
 			log.Printf("prune param %d\n", pruneThreshold)
 		}
 
-		Openings.Prune(pruneThreshold)
-		wgs.Openings = Openings
+		// Openings.Prune(pruneThreshold)
+		// wgs.Openings = Openings
 
 		prunedPos := make(core.PosMap)
 
