@@ -1,4 +1,4 @@
-package main
+package core
 
 //OpeningMove is a node that represents a move
 type OpeningMove struct {

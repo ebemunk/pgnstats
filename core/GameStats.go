@@ -1,4 +1,4 @@
-package main
+package core
 
 import (
 	"encoding/json"
@@ -40,13 +40,12 @@ func (m PlyMap) MarshalJSON() ([]byte, error) {
 
 //Heatmaps are all the Heatmaps we return
 type Heatmaps struct {
-	SquareUtilization Heatmap
-	MoveSquares       Heatmap
-	CaptureSquares    Heatmap
-	CheckSquares      Heatmap
-	FirstBlood        Heatmap
-	PromotionSquares  Heatmap
-	// EnPassantSquares    Heatmap
+	SquareUtilization   Heatmap
+	MoveSquares         Heatmap
+	CaptureSquares      Heatmap
+	CheckSquares        Heatmap
+	FirstBlood          Heatmap
+	PromotionSquares    Heatmap
 	MateSquares         Heatmap
 	MateDeliverySquares Heatmap
 	StalemateSquares    Heatmap
@@ -91,13 +90,12 @@ func NewGameStats() *GameStats {
 		// Years:                make(map[string]int),
 		Ratings: make(map[string]int),
 		Heatmaps: Heatmaps{
-			SquareUtilization: *NewHeatmap(),
-			MoveSquares:       *NewHeatmap(),
-			CaptureSquares:    *NewHeatmap(),
-			CheckSquares:      *NewHeatmap(),
-			FirstBlood:        *NewHeatmap(),
-			PromotionSquares:  *NewHeatmap(),
-			// EnPassantSquares:    *NewHeatmap(),
+			SquareUtilization:   *NewHeatmap(),
+			MoveSquares:         *NewHeatmap(),
+			CaptureSquares:      *NewHeatmap(),
+			CheckSquares:        *NewHeatmap(),
+			FirstBlood:          *NewHeatmap(),
+			PromotionSquares:    *NewHeatmap(),
 			MateSquares:         *NewHeatmap(),
 			MateDeliverySquares: *NewHeatmap(),
 			StalemateSquares:    *NewHeatmap(),
@@ -121,12 +119,33 @@ func NewGameStatsFromGame(game *pgn.Game, filterPlayer string) *GameStats {
 	// boolean to track when first capture happens
 	var firstCapture = false
 
+	if game.Tags["White"] == filterPlayer {
+		gs.Color = "w"
+	} else if game.Tags["Black"] == filterPlayer {
+		gs.Color = "b"
+	} else if filterPlayer != "" {
+		return nil
+	}
+
 	for gamePtr := game.Root; gamePtr != nil; gamePtr = gamePtr.Next {
 		ply++
 
 		// start position does not have a valid Move
 		if ply == 0 {
 			continue
+		}
+
+		var isFilteredPlayersMove bool
+		if filterPlayer == "" {
+			isFilteredPlayersMove = true
+		} else if game.Tags["White"] == filterPlayer && gamePtr.Board.SideToMove == chess.Black {
+			// SideToMove is the side *after* the move has been played
+			isFilteredPlayersMove = true
+		} else if game.Tags["Black"] == filterPlayer && gamePtr.Board.SideToMove == chess.White {
+			// SideToMove is the side *after* the move has been played
+			isFilteredPlayersMove = true
+		} else {
+			isFilteredPlayersMove = false
 		}
 
 		// move made to reach this position
@@ -151,9 +170,9 @@ func NewGameStatsFromGame(game *pgn.Game, filterPlayer string) *GameStats {
 
 		// all metrics up until this point is shared
 		// the rest of the metrics need to be player-specific, if specified
-		// if !isFilteredPlayersMove {
-		// 	continue
-		// }
+		if !isFilteredPlayersMove {
+			continue
+		}
 
 		//Heatmaps
 		HeatmapStats(gs, gamePtr, isLastMove)
@@ -166,11 +185,6 @@ func NewGameStatsFromGame(game *pgn.Game, filterPlayer string) *GameStats {
 		if move.Promotion != chess.NoPiece {
 			gs.Heatmaps.PromotionSquares.Count(move.Promotion, move.To)
 		}
-
-		// //EnPassantSquares
-		// if gamePtr.Board.EpSquare != chess.NoSquare {
-		// 	gs.Heatmaps.EnPassantSquares.Count(gamePtr.Parent.Board.Piece[move.From], gamePtr.Board.EpSquare)
-		// }
 
 		gs.PiecePaths.Track(gamePtr)
 

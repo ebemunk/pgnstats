@@ -10,6 +10,8 @@ import (
 
 	"github.com/malbrecht/chess/pgn"
 	"github.com/pkg/profile"
+
+	"github.com/ebemunk/pgnstats/core"
 )
 
 //flags
@@ -38,7 +40,7 @@ func main() {
 
 	readC := Read(f)
 	parsedC := make(chan *pgn.Game)
-	gsC := make(chan *GameStats)
+	gsC := make(chan *core.GameStats)
 
 	//read the file & parse
 	var wg sync.WaitGroup
@@ -59,7 +61,7 @@ func main() {
 		}
 	}()
 
-	Openings := &OpeningMove{}
+	Openings := &core.OpeningMove{}
 	Openings.San = "start"
 
 	//collect stats
@@ -68,7 +70,7 @@ func main() {
 	for i := 0; i < *concurrencyLevel; i++ {
 		go func() {
 			for Game := range parsedC {
-				stats := NewGameStatsFromGame(Game, *filterPlayer)
+				stats := core.NewGameStatsFromGame(Game, *filterPlayer)
 
 				if stats != nil {
 					gsC <- stats
@@ -92,10 +94,10 @@ func main() {
 	wg3.Add(1)
 	go func() {
 		// totals or White when -fp
-		wgs := NewGameStats()
+		wgs := core.NewGameStats()
 		wgs.Color = "W"
 		// Black when -fp
-		bgs := NewGameStats()
+		bgs := core.NewGameStats()
 		bgs.Color = "B"
 
 		for gamst := range gsC {
@@ -123,7 +125,7 @@ func main() {
 		Openings.Prune(pruneThreshold)
 		wgs.Openings = Openings
 
-		prunedPos := make(PosMap)
+		prunedPos := make(core.PosMap)
 
 		for k, v := range wgs.Positions {
 			if v > pruneThreshold {
@@ -157,7 +159,7 @@ func main() {
 	log.Printf("done!")
 }
 
-func writeJSON(gs *GameStats, suffix string) {
+func writeJSON(gs *core.GameStats, suffix string) {
 	var js []byte
 	var err error
 

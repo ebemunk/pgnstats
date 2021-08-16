@@ -1,6 +1,5 @@
-pgnstats
 pgn/
 prof/
-data.json
 data/
 .vscode/
+bin/*
