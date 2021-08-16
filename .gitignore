@@ -1,5 +1,6 @@
-pgn/
+./pgn/
+.vscode/
+
 prof/
 data/
-.vscode/
 bin/*
