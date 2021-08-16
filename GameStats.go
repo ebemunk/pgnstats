@@ -2,7 +2,13 @@ package main
 
 import (
 	"encoding/json"
+	"regexp"
 	"sort"
+	"strings"
+
+	"github.com/dylhunn/dragontoothmg"
+	"github.com/malbrecht/chess"
+	"github.com/malbrecht/chess/pgn"
 )
 
 type PosMap map[string]int
@@ -34,13 +40,13 @@ func (m PlyMap) MarshalJSON() ([]byte, error) {
 
 //Heatmaps are all the Heatmaps we return
 type Heatmaps struct {
-	SquareUtilization   Heatmap
-	MoveSquares         Heatmap
-	CaptureSquares      Heatmap
-	CheckSquares        Heatmap
-	FirstBlood          Heatmap
-	PromotionSquares    Heatmap
-	EnPassantSquares    Heatmap
+	SquareUtilization Heatmap
+	MoveSquares       Heatmap
+	CaptureSquares    Heatmap
+	CheckSquares      Heatmap
+	FirstBlood        Heatmap
+	PromotionSquares  Heatmap
+	// EnPassantSquares    Heatmap
 	MateSquares         Heatmap
 	MateDeliverySquares Heatmap
 	StalemateSquares    Heatmap
@@ -56,7 +62,7 @@ type GameStats struct {
 	MaterialDiff         PlyMap
 	GameEndMaterialCount PlyMap
 	GameEndMaterialDiff  PlyMap
-	Years                map[string]int
+	// Years                map[string]int
 	Ratings              map[string]int
 	Heatmaps             Heatmaps
 	Openings             *OpeningMove
@@ -75,8 +81,6 @@ type PlayerStats struct {
 //NewGameStats creates new GameStats
 func NewGameStats() *GameStats {
 	return &GameStats{
-		// "" or "w" or "b"
-		Color:                "",
 		Total:                0,
 		GameLengths:          make(map[int]float64),
 		BranchingFactor:      make(map[int]float64),
@@ -84,16 +88,16 @@ func NewGameStats() *GameStats {
 		MaterialDiff:         make(map[int]float64),
 		GameEndMaterialCount: make(map[int]float64),
 		GameEndMaterialDiff:  make(map[int]float64),
-		Years:                make(map[string]int),
-		Ratings:              make(map[string]int),
+		// Years:                make(map[string]int),
+		Ratings: make(map[string]int),
 		Heatmaps: Heatmaps{
-			SquareUtilization:   *NewHeatmap(),
-			MoveSquares:         *NewHeatmap(),
-			CaptureSquares:      *NewHeatmap(),
-			CheckSquares:        *NewHeatmap(),
-			FirstBlood:          *NewHeatmap(),
-			PromotionSquares:    *NewHeatmap(),
-			EnPassantSquares:    *NewHeatmap(),
+			SquareUtilization: *NewHeatmap(),
+			MoveSquares:       *NewHeatmap(),
+			CaptureSquares:    *NewHeatmap(),
+			CheckSquares:      *NewHeatmap(),
+			FirstBlood:        *NewHeatmap(),
+			PromotionSquares:  *NewHeatmap(),
+			// EnPassantSquares:    *NewHeatmap(),
 			MateSquares:         *NewHeatmap(),
 			MateDeliverySquares: *NewHeatmap(),
 			StalemateSquares:    *NewHeatmap(),
@@ -104,6 +108,101 @@ func NewGameStats() *GameStats {
 		UniquePositions:      make(PosMap),
 		TotalUniquePositions: 0,
 	}
+}
+
+//GetStatsFromGame returns GameStats from a single game
+func NewGameStatsFromGame(game *pgn.Game, filterPlayer string) *GameStats {
+	gs := NewGameStats()
+	// 1 because this is for a single game
+	gs.Total = 1
+
+	// counter for plies of the game
+	ply := -1
+	// boolean to track when first capture happens
+	var firstCapture = false
+
+	for gamePtr := game.Root; gamePtr != nil; gamePtr = gamePtr.Next {
+		ply++
+
+		// start position does not have a valid Move
+		if ply == 0 {
+			continue
+		}
+
+		// move made to reach this position
+		move := gamePtr.Move
+		isLastMove := gamePtr.Next == nil
+		fen := gamePtr.Board.Fen()
+
+		// branching factor is the number of legal moves from a position
+		board := dragontoothmg.ParseFen(fen)
+		branchingFactor := float64(len(board.GenerateLegalMoves()))
+		gs.BranchingFactor[ply] += branchingFactor
+
+		// count material on the board
+		count, diff := MaterialCount(gamePtr.Board)
+		gs.MaterialCount[ply] = float64(count)
+		gs.MaterialDiff[ply] = float64(diff)
+		// if last move of a game, also save it in GameEndMaterial
+		if isLastMove {
+			gs.GameEndMaterialCount[ply] = float64(count)
+			gs.GameEndMaterialDiff[ply] = float64(diff)
+		}
+
+		// all metrics up until this point is shared
+		// the rest of the metrics need to be player-specific, if specified
+		// if !isFilteredPlayersMove {
+		// 	continue
+		// }
+
+		//Heatmaps
+		HeatmapStats(gs, gamePtr, isLastMove)
+
+		if ply > 0 && !firstCapture {
+			firstCapture = FirstBlood(&gs.Heatmaps.FirstBlood, gamePtr)
+		}
+
+		//PromotionSquares
+		if move.Promotion != chess.NoPiece {
+			gs.Heatmaps.PromotionSquares.Count(move.Promotion, move.To)
+		}
+
+		// //EnPassantSquares
+		// if gamePtr.Board.EpSquare != chess.NoSquare {
+		// 	gs.Heatmaps.EnPassantSquares.Count(gamePtr.Parent.Board.Piece[move.From], gamePtr.Board.EpSquare)
+		// }
+
+		gs.PiecePaths.Track(gamePtr)
+
+		// keep track of all positions by FEN
+		gs.Positions[fen]++
+		// unique positions, where game board state is reached regardless of
+		// halfmove clock or fullmove counter, which are stipped from the FEN
+		// with the regexp below
+		boardEqualityRegexp, _ := regexp.Compile(`.+ [bw] (-|[KQkq]+) (-|[a-h]\d)`)
+		uniquePos := strings.Join(boardEqualityRegexp.FindAllString(fen, -1), "")
+		gs.UniquePositions[uniquePos]++
+
+	}
+
+	// count number of positions encountered
+	for _, v := range gs.Positions {
+		gs.TotalPositions += v
+	}
+	// count number of unique positions
+	gs.TotalUniquePositions = len(gs.UniquePositions)
+
+	// save the elo ratings for both players
+	if elo, ok := game.Tags["WhiteElo"]; ok {
+		gs.Ratings[elo] = 1
+	}
+	if elo, ok := game.Tags["BlackElo"]; ok {
+		gs.Ratings[elo] = 1
+	}
+
+	gs.GameLengths[ply] = 1
+
+	return gs
 }
 
 //Add adds GameStats together
@@ -132,9 +231,9 @@ func (gs *GameStats) Add(ad *GameStats) {
 		gs.GameEndMaterialDiff[k] += v
 	}
 
-	for k, v := range ad.Years {
-		gs.Years[k] += v
-	}
+	// for k, v := range ad.Years {
+	// 	gs.Years[k] += v
+	// }
 
 	for k, v := range ad.Ratings {
 		gs.Ratings[k] += v
@@ -157,7 +256,7 @@ func (gs *GameStats) Add(ad *GameStats) {
 	gs.Heatmaps.CheckSquares.Add(&ad.Heatmaps.CheckSquares)
 	gs.Heatmaps.FirstBlood.Add(&ad.Heatmaps.FirstBlood)
 	gs.Heatmaps.PromotionSquares.Add(&ad.Heatmaps.PromotionSquares)
-	gs.Heatmaps.EnPassantSquares.Add(&ad.Heatmaps.EnPassantSquares)
+	// gs.Heatmaps.EnPassantSquares.Add(&ad.Heatmaps.EnPassantSquares)
 	gs.Heatmaps.MateSquares.Add(&ad.Heatmaps.MateSquares)
 	gs.Heatmaps.MateDeliverySquares.Add(&ad.Heatmaps.MateDeliverySquares)
 	gs.Heatmaps.StalemateSquares.Add(&ad.Heatmaps.StalemateSquares)

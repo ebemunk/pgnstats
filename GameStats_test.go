@@ -9,7 +9,7 @@ import (
 	"github.com/sebdah/goldie/v2"
 )
 
-func LoadGames(file string) []*pgn.Game {
+func loadGames(file string) []*pgn.Game {
 	dat, err := ioutil.ReadFile(file)
 	if err != nil {
 		log.Fatalf("cannot read test file %s\n", file)
@@ -38,23 +38,22 @@ func findGame(games []*pgn.Game, name string) *pgn.Game {
 	return nil
 }
 
-func TestGetStats(t *testing.T) {
-	games := LoadGames("./testdata/pgn/games.pgn")
-	op := OpeningMove{}
+func TestNewGameStatsFromGame(t *testing.T) {
+	games := loadGames("./testdata/pgn/games.pgn")
 	g := goldie.New(t, goldie.WithNameSuffix(".golden.json"))
 
 	t.Run("fools", func(t *testing.T) {
-		stats := GetStats(findGame(games, "Fool's Mate"), &op, "")
+		stats := NewGameStatsFromGame(findGame(games, "Fool's Mate"), "")
 		g.AssertJson(t, "fools_mate", stats)
 	})
 
 	t.Run("scholars", func(t *testing.T) {
-		stats := GetStats(findGame(games, "Scholar's Mate"), &op, "")
+		stats := NewGameStatsFromGame(findGame(games, "Scholar's Mate"), "")
 		g.AssertJson(t, "scholars_mate", stats)
 	})
 
 	t.Run("repetition", func(t *testing.T) {
-		stats := GetStats(findGame(games, "Repetition"), &op, "")
+		stats := NewGameStatsFromGame(findGame(games, "Repetition"), "")
 		g.AssertJson(t, "repetition", stats)
 	})
 }

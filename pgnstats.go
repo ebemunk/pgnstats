@@ -68,7 +68,7 @@ func main() {
 	for i := 0; i < *concurrencyLevel; i++ {
 		go func() {
 			for Game := range parsedC {
-				stats := GetStats(Game, Openings, *filterPlayer)
+				stats := NewGameStatsFromGame(Game, *filterPlayer)
 
 				if stats != nil {
 					gsC <- stats
