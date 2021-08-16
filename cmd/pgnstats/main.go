@@ -1,9 +1,7 @@
 package main
 
 import (
-	"encoding/json"
 	"flag"
-	"io/ioutil"
 	"log"
 	"os"
 	"sync"
@@ -142,13 +140,13 @@ func main() {
 		bgs.Positions = prunedPos
 
 		if *filterPlayer == "" {
-			writeJSON(wgs, "all")
+			WriteJSON(wgs, "all")
 		} else {
-			writeJSON(wgs, "w")
+			WriteJSON(wgs, "w")
 		}
 
 		if *filterPlayer != "" {
-			writeJSON(bgs, "b")
+			WriteJSON(bgs, "b")
 		}
 
 		wg3.Done()
@@ -157,25 +155,4 @@ func main() {
 	wg3.Wait()
 
 	log.Printf("done!")
-}
-
-func writeJSON(gs *core.GameStats, suffix string) {
-	var js []byte
-	var err error
-
-	if *indent {
-		js, err = json.MarshalIndent(gs, "", "  ")
-	} else {
-		js, err = json.Marshal(gs)
-	}
-	if err != nil {
-		log.Fatalf("error converting to json: %s\n", err)
-	}
-
-	filePath := *outputPath + "-" + suffix + ".json"
-	err = ioutil.WriteFile(filePath, js, 0644)
-	if err != nil {
-		log.Fatalf("error writing file: %s\n", err)
-	}
-	log.Printf("wrote to %v", filePath)
 }

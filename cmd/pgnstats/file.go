@@ -2,10 +2,13 @@ package main
 
 import (
 	"bufio"
+	"encoding/json"
+	"io/ioutil"
 	"log"
 	"os"
 	"strings"
 
+	"github.com/ebemunk/pgnstats/core"
 	"github.com/malbrecht/chess/pgn"
 )
 
@@ -73,4 +76,25 @@ func Parse(r <-chan []byte, s chan<- *pgn.Game) {
 
 		s <- db.Games[0]
 	}
+}
+
+func WriteJSON(gs *core.GameStats, suffix string) {
+	var js []byte
+	var err error
+
+	if *indent {
+		js, err = json.MarshalIndent(gs, "", "  ")
+	} else {
+		js, err = json.Marshal(gs)
+	}
+	if err != nil {
+		log.Fatalf("error converting to json: %s\n", err)
+	}
+
+	filePath := *outputPath + "-" + suffix + ".json"
+	err = ioutil.WriteFile(filePath, js, 0644)
+	if err != nil {
+		log.Fatalf("error writing file: %s\n", err)
+	}
+	log.Printf("wrote to %v", filePath)
 }
