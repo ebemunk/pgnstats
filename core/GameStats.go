@@ -22,7 +22,7 @@ func (pm *PosMap) Prune(threshold int) {
 		}
 	}
 
-	pm = &pruned
+	*pm = pruned
 }
 
 //PlyMap is a map[int]float64

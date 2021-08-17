@@ -118,7 +118,7 @@ func main() {
 			log.Printf("analyzed %d games\n", wgs.Total)
 		}
 
-		pruneThreshold := int(float32(wgs.Total) * 0.0001)
+		pruneThreshold := int(float32(wgs.Total) * 0.01)
 		if *verbose {
 			log.Printf("prune param %d\n", pruneThreshold)
 		}
@@ -128,6 +128,8 @@ func main() {
 
 		wgs.Positions.Prune(pruneThreshold)
 		bgs.Positions.Prune(pruneThreshold)
+		wgs.UniquePositions.Prune(pruneThreshold)
+		bgs.UniquePositions.Prune(pruneThreshold)
 
 		if *filterPlayer == "" {
 			WriteJSON(wgs, "all")
