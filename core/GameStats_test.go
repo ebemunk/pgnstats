@@ -49,6 +49,7 @@ func TestNewGameStatsFromGame(t *testing.T) {
 
 	t.Run("scholars", func(t *testing.T) {
 		stats := NewGameStatsFromGame(findGame(games, "Scholar's Mate"), "")
+		stats.Positions.Prune(0)
 		g.AssertJson(t, "scholars_mate", stats)
 	})
 

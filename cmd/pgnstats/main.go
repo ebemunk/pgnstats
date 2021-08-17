@@ -91,6 +91,7 @@ func main() {
 	var wg3 sync.WaitGroup
 	wg3.Add(1)
 	go func() {
+		log.Println("starting combination")
 		// totals or White when -fp
 		wgs := core.NewGameStats()
 		wgs.Color = "W"
@@ -105,6 +106,8 @@ func main() {
 				wgs.Add(gamst)
 			}
 		}
+
+		log.Println("starting additions")
 
 		wgs.Average()
 		bgs.Average()
@@ -123,21 +126,23 @@ func main() {
 		// Openings.Prune(pruneThreshold)
 		// wgs.Openings = Openings
 
-		prunedPos := make(core.PosMap)
+		// prunedPos := make(core.PosMap)
 
-		for k, v := range wgs.Positions {
-			if v > pruneThreshold {
-				prunedPos[k] = v
-			}
-		}
-		wgs.Positions = prunedPos
+		// for k, v := range wgs.Positions {
+		// 	if v > pruneThreshold {
+		// 		prunedPos[k] = v
+		// 	}
+		// }
+		// wgs.Positions = prunedPos
 
-		for k, v := range bgs.Positions {
-			if v > pruneThreshold {
-				prunedPos[k] = v
-			}
-		}
-		bgs.Positions = prunedPos
+		// for k, v := range bgs.Positions {
+		// 	if v > pruneThreshold {
+		// 		prunedPos[k] = v
+		// 	}
+		// }
+		// bgs.Positions = prunedPos
+		wgs.Positions.Prune(pruneThreshold)
+		bgs.Positions.Prune(pruneThreshold)
 
 		if *filterPlayer == "" {
 			WriteJSON(wgs, "all")

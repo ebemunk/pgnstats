@@ -13,6 +13,18 @@ import (
 
 type PosMap map[string]int
 
+func (pm *PosMap) Prune(threshold int) {
+	pruned := make(PosMap)
+
+	for k, v := range *pm {
+		if v > threshold {
+			pruned[k] = v
+		}
+	}
+
+	pm = &pruned
+}
+
 //PlyMap is a map[int]float64
 type PlyMap map[int]float64
 
@@ -152,6 +164,12 @@ func NewGameStatsFromGame(game *pgn.Game, filterPlayer string) *GameStats {
 		move := gamePtr.Move
 		isLastMove := gamePtr.Next == nil
 		fen := gamePtr.Board.Fen()
+
+		// //Openings
+		// if ply > 0 && ply < 10 {
+		// 	atomic.AddUint32(&oPtr.Count, 1)
+		// 	oPtr = OpeningStats(oPtr, gamePtr.Move.San(gamePtr.Parent.Board))
+		// }
 
 		// branching factor is the number of legal moves from a position
 		board := dragontoothmg.ParseFen(fen)
