@@ -126,21 +126,6 @@ func main() {
 		// Openings.Prune(pruneThreshold)
 		// wgs.Openings = Openings
 
-		// prunedPos := make(core.PosMap)
-
-		// for k, v := range wgs.Positions {
-		// 	if v > pruneThreshold {
-		// 		prunedPos[k] = v
-		// 	}
-		// }
-		// wgs.Positions = prunedPos
-
-		// for k, v := range bgs.Positions {
-		// 	if v > pruneThreshold {
-		// 		prunedPos[k] = v
-		// 	}
-		// }
-		// bgs.Positions = prunedPos
 		wgs.Positions.Prune(pruneThreshold)
 		bgs.Positions.Prune(pruneThreshold)
 

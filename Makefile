@@ -6,5 +6,5 @@ build:
 	done
 
 test:
-	go run ./cmd/pgnstats/. -f ./cmd/pgnstats/testdata/pgn/carlsen.pgn -v -fp '' -o ./cmd/pgnstats/testdata/prune.json -i
-	go run ./cmd/pgnstats/. -f ./cmd/pgnstats/testdata/pgn/carlsen.pgn -v -fp 'Carlsen,M' -o ./cmd/pgnstats/testdata/prune.json -i
+	go run ./cmd/pgnstats/. -f ./cmd/pgnstats/testdata/pgn/carlsen.pgn -v -fp '' -o ./cmd/pgnstats/testdata/carlsen.json -i
+	go run ./cmd/pgnstats/. -f ./cmd/pgnstats/testdata/pgn/carlsen.pgn -v -fp 'Carlsen,M' -o ./cmd/pgnstats/testdata/carlsen.json -i
