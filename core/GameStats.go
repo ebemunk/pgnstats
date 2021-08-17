@@ -13,6 +13,7 @@ import (
 
 type PosMap map[string]int
 
+// Prune removes any keys from PosMap that have value below threshold
 func (pm *PosMap) Prune(threshold int) {
 	pruned := make(PosMap)
 
