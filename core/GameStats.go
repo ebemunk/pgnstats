@@ -92,6 +92,14 @@ type PlayerStats struct {
 	Black GameStats
 }
 
+func NewPlayerStats() *PlayerStats {
+	return &PlayerStats{
+		All:   *NewGameStats(),
+		White: *NewGameStats(),
+		Black: *NewGameStats(),
+	}
+}
+
 //NewGameStats creates new GameStats
 func NewGameStats() *GameStats {
 	return &GameStats{
@@ -185,7 +193,7 @@ func NewGameStatsFromGame(game *pgn.Game, filterPlayer string, openings []*Openi
 			openingsPtrs[0] = RecordOpening(openingsPtrs[0], moveSan)
 			if filterPlayer != "" {
 				// if filtering by player, we record white and black game separately as well
-				if gs.Color == "white" {
+				if gs.Color == "w" {
 					openingsPtrs[1] = RecordOpening(openingsPtrs[1], moveSan)
 				} else {
 					openingsPtrs[2] = RecordOpening(openingsPtrs[2], moveSan)

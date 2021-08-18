@@ -8,7 +8,6 @@ import (
 	"os"
 	"strings"
 
-	"github.com/ebemunk/pgnstats/core"
 	"github.com/malbrecht/chess/pgn"
 )
 
@@ -78,14 +77,14 @@ func Parse(r <-chan []byte, s chan<- *pgn.Game) {
 	}
 }
 
-func WriteJSON(gs *core.GameStats, suffix string) {
+func WriteJSON(ps interface{}, suffix string) {
 	var js []byte
 	var err error
 
 	if *indent {
-		js, err = json.MarshalIndent(gs, "", "  ")
+		js, err = json.MarshalIndent(ps, "", "  ")
 	} else {
-		js, err = json.Marshal(gs)
+		js, err = json.Marshal(ps)
 	}
 	if err != nil {
 		log.Fatalf("error converting to json: %s\n", err)
