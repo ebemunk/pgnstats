@@ -141,9 +141,12 @@ func NewGameStatsFromGame(game *pgn.Game, filterPlayer string, openings []*Openi
 		return nil
 	}
 
+	// make a copy of the opening pointer to modify
+	// as we step through the moves and construct/add to the tree
 	openingsPtrs := make([]*OpeningMove, len(openings))
 	copy(openingsPtrs, openings)
 	for i := range openingsPtrs {
+		// add to start position count
 		atomic.AddUint32(&openingsPtrs[i].Count, 1)
 	}
 
@@ -174,12 +177,16 @@ func NewGameStatsFromGame(game *pgn.Game, filterPlayer string, openings []*Openi
 		isLastMove := gamePtr.Next == nil
 		fen := gamePtr.Board.Fen()
 
+		// record opening moves
 		if ply > 0 && ply < 10 {
+			// all games
 			openingsPtrs[0] = RecordOpening(openingsPtrs[0], moveSan)
 			if filterPlayer != "" {
 				if game.Tags["White"] == filterPlayer && gamePtr.Board.SideToMove == chess.Black {
+					// games for white
 					openingsPtrs[1] = RecordOpening(openingsPtrs[1], moveSan)
 				} else {
+					// games for black
 					openingsPtrs[2] = RecordOpening(openingsPtrs[2], moveSan)
 				}
 			}

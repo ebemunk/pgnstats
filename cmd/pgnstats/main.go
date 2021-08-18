@@ -59,11 +59,11 @@ func main() {
 		}
 	}()
 
-	var Openings []*core.OpeningMove = make([]*core.OpeningMove, 3)
-	Openings[0] = &core.OpeningMove{San: "start"}
+	var Openings []*core.OpeningMove = make([]*core.OpeningMove, 0)
+	Openings = append(Openings, &core.OpeningMove{San: "start"})
 	if *filterPlayer != "" {
-		Openings[1] = &core.OpeningMove{San: "start"}
-		Openings[2] = &core.OpeningMove{San: "start"}
+		Openings = append(Openings, &core.OpeningMove{San: "start"})
+		Openings = append(Openings, &core.OpeningMove{San: "start"})
 	}
 
 	//collect stats
@@ -130,7 +130,7 @@ func main() {
 		// Openings.Prune(pruneThreshold)
 		// wgs.Openings = &Openings[0]
 		wgs.Openings = Openings[0]
-		bgs.Openings = Openings[1]
+		// bgs.Openings = Openings[1]
 
 		wgs.Positions.Prune(pruneThreshold)
 		bgs.Positions.Prune(pruneThreshold)

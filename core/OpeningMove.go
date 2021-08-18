@@ -41,7 +41,6 @@ func (om *OpeningMove) Prune(threshold int) {
 }
 
 func RecordOpening(ptr *OpeningMove, san string) *OpeningMove {
-	// atomic.AddUint32(&ptr.Count, 1)
 	openingMove := ptr.Find(san)
 	if openingMove != nil {
 		atomic.AddUint32(&openingMove.Count, 1)
