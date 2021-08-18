@@ -2,14 +2,14 @@ package core
 
 import "sync/atomic"
 
-//OpeningMove is a node that represents a move
+// OpeningMove is a node that represents a move
 type OpeningMove struct {
 	Count    uint32
 	San      string
 	Children []*OpeningMove
 }
 
-//Find returns the child OpeningMove that matches the san
+// Find returns the child OpeningMove that matches the san
 func (om *OpeningMove) Find(san string) *OpeningMove {
 	for _, m := range om.Children {
 		if m.San == san {
@@ -20,7 +20,7 @@ func (om *OpeningMove) Find(san string) *OpeningMove {
 	return nil
 }
 
-//Prune recursively prunes OpeningMove trees depending on threshold count
+// Prune recursively prunes OpeningMove trees depending on threshold count
 func (om *OpeningMove) Prune(threshold int) {
 	var toRemove []int
 
@@ -40,6 +40,8 @@ func (om *OpeningMove) Prune(threshold int) {
 	}
 }
 
+// RecordOpening records the move in the OpeningMove tree and returns the pointer to the
+// newly added OpeningMove
 func RecordOpening(ptr *OpeningMove, san string) *OpeningMove {
 	openingMove := ptr.Find(san)
 	if openingMove != nil {

@@ -65,8 +65,7 @@ func TestNewGameStatsFromGame(t *testing.T) {
 		Openings[0] = &OpeningMove{San: "start"}
 		Openings[1] = &OpeningMove{San: "start"}
 		Openings[2] = &OpeningMove{San: "start"}
-		stats := NewGameStatsFromGame(findGame(games, "Repetition"), "White", Openings)
-		stats.Openings = Openings[0]
+		NewGameStatsFromGame(findGame(games, "Repetition"), "White", Openings)
 		g.AssertJson(t, "repetition-opening", Openings)
 	})
 }

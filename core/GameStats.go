@@ -87,6 +87,7 @@ type GameStats struct {
 }
 
 type PlayerStats struct {
+	All   GameStats
 	White GameStats
 	Black GameStats
 }
@@ -158,6 +159,7 @@ func NewGameStatsFromGame(game *pgn.Game, filterPlayer string, openings []*Openi
 			continue
 		}
 
+		// this is true if there is no player filter, or it's the filtered player's move
 		var isFilteredPlayersMove bool
 		if filterPlayer == "" {
 			isFilteredPlayersMove = true
@@ -182,11 +184,10 @@ func NewGameStatsFromGame(game *pgn.Game, filterPlayer string, openings []*Openi
 			// all games
 			openingsPtrs[0] = RecordOpening(openingsPtrs[0], moveSan)
 			if filterPlayer != "" {
-				if game.Tags["White"] == filterPlayer && gamePtr.Board.SideToMove == chess.Black {
-					// games for white
+				// if filtering by player, we record white and black game separately as well
+				if gs.Color == "white" {
 					openingsPtrs[1] = RecordOpening(openingsPtrs[1], moveSan)
 				} else {
-					// games for black
 					openingsPtrs[2] = RecordOpening(openingsPtrs[2], moveSan)
 				}
 			}
