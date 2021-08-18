@@ -42,18 +42,31 @@ func TestNewGameStatsFromGame(t *testing.T) {
 	games := loadGames("./testdata/pgn/games.pgn")
 	g := goldie.New(t, goldie.WithNameSuffix(".golden.json"))
 
+	var Openings []*OpeningMove = make([]*OpeningMove, 1)
+	Openings[0] = &OpeningMove{San: "start"}
+
 	t.Run("fools", func(t *testing.T) {
-		stats := NewGameStatsFromGame(findGame(games, "Fool's Mate"), "")
+		stats := NewGameStatsFromGame(findGame(games, "Fool's Mate"), "", Openings)
 		g.AssertJson(t, "fools_mate", stats)
 	})
 
 	t.Run("scholars", func(t *testing.T) {
-		stats := NewGameStatsFromGame(findGame(games, "Scholar's Mate"), "")
+		stats := NewGameStatsFromGame(findGame(games, "Scholar's Mate"), "", Openings)
 		g.AssertJson(t, "scholars_mate", stats)
 	})
 
 	t.Run("repetition", func(t *testing.T) {
-		stats := NewGameStatsFromGame(findGame(games, "Repetition"), "")
+		stats := NewGameStatsFromGame(findGame(games, "Repetition"), "", Openings)
 		g.AssertJson(t, "repetition", stats)
+	})
+
+	t.Run("repetition-opening", func(t *testing.T) {
+		var Openings []*OpeningMove = make([]*OpeningMove, 3)
+		Openings[0] = &OpeningMove{San: "start"}
+		Openings[1] = &OpeningMove{San: "start"}
+		Openings[2] = &OpeningMove{San: "start"}
+		stats := NewGameStatsFromGame(findGame(games, "Repetition"), "White", Openings)
+		stats.Openings = Openings[0]
+		g.AssertJson(t, "repetition-opening", Openings)
 	})
 }

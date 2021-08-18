@@ -1,0 +1,113 @@
+[
+  {
+    "Count": 1,
+    "San": "start",
+    "Children": [
+      {
+        "Count": 1,
+        "San": "e4",
+        "Children": [
+          {
+            "Count": 1,
+            "San": "e5",
+            "Children": [
+              {
+                "Count": 1,
+                "San": "Ke2",
+                "Children": [
+                  {
+                    "Count": 1,
+                    "San": "Ke7",
+                    "Children": [
+                      {
+                        "Count": 1,
+                        "San": "Ke1",
+                        "Children": [
+                          {
+                            "Count": 1,
+                            "San": "Ke8",
+                            "Children": [
+                              {
+                                "Count": 1,
+                                "San": "Ke2",
+                                "Children": [
+                                  {
+                                    "Count": 1,
+                                    "San": "Ke7",
+                                    "Children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Count": 1,
+    "San": "start",
+    "Children": [
+      {
+        "Count": 1,
+        "San": "e4",
+        "Children": [
+          {
+            "Count": 1,
+            "San": "Ke2",
+            "Children": [
+              {
+                "Count": 1,
+                "San": "Ke1",
+                "Children": [
+                  {
+                    "Count": 1,
+                    "San": "Ke2",
+                    "Children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "Count": 1,
+    "San": "start",
+    "Children": [
+      {
+        "Count": 1,
+        "San": "e5",
+        "Children": [
+          {
+            "Count": 1,
+            "San": "Ke7",
+            "Children": [
+              {
+                "Count": 1,
+                "San": "Ke8",
+                "Children": [
+                  {
+                    "Count": 1,
+                    "San": "Ke7",
+                    "Children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -5,6 +5,7 @@ import (
 	"regexp"
 	"sort"
 	"strings"
+	"sync/atomic"
 
 	"github.com/dylhunn/dragontoothmg"
 	"github.com/malbrecht/chess"
@@ -122,7 +123,7 @@ func NewGameStats() *GameStats {
 }
 
 //GetStatsFromGame returns GameStats from a single game
-func NewGameStatsFromGame(game *pgn.Game, filterPlayer string) *GameStats {
+func NewGameStatsFromGame(game *pgn.Game, filterPlayer string, openings []*OpeningMove) *GameStats {
 	gs := NewGameStats()
 	// 1 because this is for a single game
 	gs.Total = 1
@@ -138,6 +139,12 @@ func NewGameStatsFromGame(game *pgn.Game, filterPlayer string) *GameStats {
 		gs.Color = "b"
 	} else if filterPlayer != "" {
 		return nil
+	}
+
+	openingsPtrs := make([]*OpeningMove, len(openings))
+	copy(openingsPtrs, openings)
+	for i := range openingsPtrs {
+		atomic.AddUint32(&openingsPtrs[i].Count, 1)
 	}
 
 	for gamePtr := game.Root; gamePtr != nil; gamePtr = gamePtr.Next {
@@ -163,14 +170,20 @@ func NewGameStatsFromGame(game *pgn.Game, filterPlayer string) *GameStats {
 
 		// move made to reach this position
 		move := gamePtr.Move
+		moveSan := move.San(gamePtr.Parent.Board)
 		isLastMove := gamePtr.Next == nil
 		fen := gamePtr.Board.Fen()
 
-		// //Openings
-		// if ply > 0 && ply < 10 {
-		// 	atomic.AddUint32(&oPtr.Count, 1)
-		// 	oPtr = OpeningStats(oPtr, gamePtr.Move.San(gamePtr.Parent.Board))
-		// }
+		if ply > 0 && ply < 10 {
+			openingsPtrs[0] = RecordOpening(openingsPtrs[0], moveSan)
+			if filterPlayer != "" {
+				if game.Tags["White"] == filterPlayer && gamePtr.Board.SideToMove == chess.Black {
+					openingsPtrs[1] = RecordOpening(openingsPtrs[1], moveSan)
+				} else {
+					openingsPtrs[2] = RecordOpening(openingsPtrs[2], moveSan)
+				}
+			}
+		}
 
 		// branching factor is the number of legal moves from a position
 		board := dragontoothmg.ParseFen(fen)

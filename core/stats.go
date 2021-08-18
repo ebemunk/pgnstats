@@ -1,8 +1,6 @@
 package core
 
 import (
-	"sync/atomic"
-
 	"github.com/malbrecht/chess"
 	"github.com/malbrecht/chess/pgn"
 )
@@ -117,23 +115,6 @@ func HeatmapStats(data *GameStats, node *pgn.Node, lastmove bool) {
 	if node.Board.Piece[node.Move.To] != chess.NoPiece && node.Parent != nil && node.Parent.Board.Piece[node.Move.To] != chess.NoPiece {
 		data.Heatmaps.CaptureSquares.Count(piece, move.To)
 	}
-}
-
-//OpeningStats collects stats for OpeningMoves
-func OpeningStats(ptr *OpeningMove, san string) *OpeningMove {
-	openingMove := ptr.Find(san)
-	if openingMove != nil {
-		atomic.AddUint32(&openingMove.Count, 1)
-		ptr = openingMove
-	} else {
-		openingMove = &OpeningMove{
-			1, san, make([]*OpeningMove, 0),
-		}
-		ptr.Children = append(ptr.Children, openingMove)
-		ptr = ptr.Children[len(ptr.Children)-1]
-	}
-
-	return ptr
 }
 
 //MaterialCount returns sum of material and difference (white - black)

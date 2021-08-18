@@ -59,8 +59,12 @@ func main() {
 		}
 	}()
 
-	// Openings := &core.OpeningMove{}
-	// Openings.San = "start"
+	var Openings []*core.OpeningMove = make([]*core.OpeningMove, 3)
+	Openings[0] = &core.OpeningMove{San: "start"}
+	if *filterPlayer != "" {
+		Openings[1] = &core.OpeningMove{San: "start"}
+		Openings[2] = &core.OpeningMove{San: "start"}
+	}
 
 	//collect stats
 	var wg2 sync.WaitGroup
@@ -68,7 +72,7 @@ func main() {
 	for i := 0; i < *concurrencyLevel; i++ {
 		go func() {
 			for Game := range parsedC {
-				stats := core.NewGameStatsFromGame(Game, *filterPlayer)
+				stats := core.NewGameStatsFromGame(Game, *filterPlayer, Openings)
 
 				if stats != nil {
 					gsC <- stats
@@ -124,7 +128,9 @@ func main() {
 		}
 
 		// Openings.Prune(pruneThreshold)
-		// wgs.Openings = Openings
+		// wgs.Openings = &Openings[0]
+		wgs.Openings = Openings[0]
+		bgs.Openings = Openings[1]
 
 		wgs.Positions.Prune(pruneThreshold)
 		bgs.Positions.Prune(pruneThreshold)
