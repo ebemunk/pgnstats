@@ -115,7 +115,7 @@ func main() {
 			log.Printf("analyzed %d games\n", playerStats.All.Total)
 		}
 
-		pruneThreshold := int(float32(playerStats.All.Total) * 0.01)
+		pruneThreshold := int(float32(playerStats.All.Total) * 0.005)
 		if *verbose {
 			log.Printf("prune param %d\n", pruneThreshold)
 		}

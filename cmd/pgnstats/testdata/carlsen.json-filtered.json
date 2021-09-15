@@ -6361,114 +6361,6 @@
           "San": "e4",
           "Children": [
             {
-              "Count": 676,
-              "San": "e5",
-              "Children": [
-                {
-                  "Count": 642,
-                  "San": "Nf3",
-                  "Children": [
-                    {
-                      "Count": 43,
-                      "San": "Nf6",
-                      "Children": []
-                    },
-                    {
-                      "Count": 592,
-                      "San": "Nc6",
-                      "Children": [
-                        {
-                          "Count": 439,
-                          "San": "Bb5",
-                          "Children": [
-                            {
-                              "Count": 168,
-                              "San": "Nf6",
-                              "Children": [
-                                {
-                                  "Count": 82,
-                                  "San": "d3",
-                                  "Children": [
-                                    {
-                                      "Count": 66,
-                                      "San": "Bc5",
-                                      "Children": []
-                                    }
-                                  ]
-                                },
-                                {
-                                  "Count": 75,
-                                  "San": "O-O",
-                                  "Children": [
-                                    {
-                                      "Count": 75,
-                                      "San": "Nxe4",
-                                      "Children": [
-                                        {
-                                          "Count": 45,
-                                          "San": "d4",
-                                          "Children": []
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "Count": 246,
-                              "San": "a6",
-                              "Children": [
-                                {
-                                  "Count": 232,
-                                  "San": "Ba4",
-                                  "Children": [
-                                    {
-                                      "Count": 225,
-                                      "San": "Nf6",
-                                      "Children": [
-                                        {
-                                          "Count": 199,
-                                          "San": "O-O",
-                                          "Children": []
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "Count": 92,
-                          "San": "Bc4",
-                          "Children": [
-                            {
-                              "Count": 72,
-                              "San": "Bc5",
-                              "Children": []
-                            }
-                          ]
-                        },
-                        {
-                          "Count": 35,
-                          "San": "d4",
-                          "Children": [
-                            {
-                              "Count": 35,
-                              "San": "exd4",
-                              "Children": []
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "Count": 620,
               "San": "c5",
               "Children": [
@@ -6476,29 +6368,6 @@
                   "Count": 557,
                   "San": "Nf3",
                   "Children": [
-                    {
-                      "Count": 92,
-                      "San": "e6",
-                      "Children": [
-                        {
-                          "Count": 60,
-                          "San": "d4",
-                          "Children": [
-                            {
-                              "Count": 60,
-                              "San": "cxd4",
-                              "Children": [
-                                {
-                                  "Count": 60,
-                                  "San": "Nxd4",
-                                  "Children": []
-                                }
-                              ]
-                            }
-                          ]
-                        }
-                      ]
-                    },
                     {
                       "Count": 242,
                       "San": "d6",
@@ -6535,7 +6404,58 @@
                         {
                           "Count": 43,
                           "San": "Bb5+",
-                          "Children": []
+                          "Children": [
+                            {
+                              "Count": 18,
+                              "San": "Bd7",
+                              "Children": []
+                            },
+                            {
+                              "Count": 24,
+                              "San": "Nd7",
+                              "Children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Count": 92,
+                      "San": "e6",
+                      "Children": [
+                        {
+                          "Count": 60,
+                          "San": "d4",
+                          "Children": [
+                            {
+                              "Count": 60,
+                              "San": "cxd4",
+                              "Children": [
+                                {
+                                  "Count": 60,
+                                  "San": "Nxd4",
+                                  "Children": [
+                                    {
+                                      "Count": 30,
+                                      "San": "a6",
+                                      "Children": []
+                                    },
+                                    {
+                                      "Count": 19,
+                                      "San": "Nc6",
+                                      "Children": [
+                                        {
+                                          "Count": 19,
+                                          "San": "Nc3",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ]
                     },
@@ -6577,9 +6497,43 @@
                           "San": "Bb5",
                           "Children": [
                             {
+                              "Count": 25,
+                              "San": "e6",
+                              "Children": []
+                            },
+                            {
                               "Count": 41,
                               "San": "g6",
-                              "Children": []
+                              "Children": [
+                                {
+                                  "Count": 20,
+                                  "San": "Bxc6",
+                                  "Children": [
+                                    {
+                                      "Count": 17,
+                                      "San": "dxc6",
+                                      "Children": [
+                                        {
+                                          "Count": 17,
+                                          "San": "d3",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Count": 18,
+                                  "San": "O-O",
+                                  "Children": [
+                                    {
+                                      "Count": 18,
+                                      "San": "Bg7",
+                                      "Children": []
+                                    }
+                                  ]
+                                }
+                              ]
                             }
                           ]
                         },
@@ -6587,6 +6541,280 @@
                           "Count": 34,
                           "San": "Nc3",
                           "Children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Count": 27,
+                  "San": "Nc3",
+                  "Children": []
+                }
+              ]
+            },
+            {
+              "Count": 676,
+              "San": "e5",
+              "Children": [
+                {
+                  "Count": 642,
+                  "San": "Nf3",
+                  "Children": [
+                    {
+                      "Count": 43,
+                      "San": "Nf6",
+                      "Children": [
+                        {
+                          "Count": 33,
+                          "San": "Nxe5",
+                          "Children": [
+                            {
+                              "Count": 33,
+                              "San": "d6",
+                              "Children": [
+                                {
+                                  "Count": 29,
+                                  "San": "Nf3",
+                                  "Children": [
+                                    {
+                                      "Count": 29,
+                                      "San": "Nxe4",
+                                      "Children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Count": 592,
+                      "San": "Nc6",
+                      "Children": [
+                        {
+                          "Count": 439,
+                          "San": "Bb5",
+                          "Children": [
+                            {
+                              "Count": 168,
+                              "San": "Nf6",
+                              "Children": [
+                                {
+                                  "Count": 82,
+                                  "San": "d3",
+                                  "Children": [
+                                    {
+                                      "Count": 66,
+                                      "San": "Bc5",
+                                      "Children": [
+                                        {
+                                          "Count": 31,
+                                          "San": "Bxc6",
+                                          "Children": []
+                                        },
+                                        {
+                                          "Count": 19,
+                                          "San": "c3",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Count": 75,
+                                  "San": "O-O",
+                                  "Children": [
+                                    {
+                                      "Count": 75,
+                                      "San": "Nxe4",
+                                      "Children": [
+                                        {
+                                          "Count": 45,
+                                          "San": "d4",
+                                          "Children": []
+                                        },
+                                        {
+                                          "Count": 30,
+                                          "San": "Re1",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Count": 246,
+                              "San": "a6",
+                              "Children": [
+                                {
+                                  "Count": 232,
+                                  "San": "Ba4",
+                                  "Children": [
+                                    {
+                                      "Count": 225,
+                                      "San": "Nf6",
+                                      "Children": [
+                                        {
+                                          "Count": 199,
+                                          "San": "O-O",
+                                          "Children": []
+                                        },
+                                        {
+                                          "Count": 23,
+                                          "San": "d3",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Count": 92,
+                          "San": "Bc4",
+                          "Children": [
+                            {
+                              "Count": 19,
+                              "San": "Nf6",
+                              "Children": [
+                                {
+                                  "Count": 17,
+                                  "San": "d3",
+                                  "Children": []
+                                }
+                              ]
+                            },
+                            {
+                              "Count": 72,
+                              "San": "Bc5",
+                              "Children": [
+                                {
+                                  "Count": 29,
+                                  "San": "c3",
+                                  "Children": [
+                                    {
+                                      "Count": 28,
+                                      "San": "Nf6",
+                                      "Children": [
+                                        {
+                                          "Count": 23,
+                                          "San": "d3",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Count": 33,
+                                  "San": "O-O",
+                                  "Children": [
+                                    {
+                                      "Count": 28,
+                                      "San": "Nf6",
+                                      "Children": [
+                                        {
+                                          "Count": 28,
+                                          "San": "d3",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Count": 20,
+                          "San": "Nc3",
+                          "Children": [
+                            {
+                              "Count": 20,
+                              "San": "Nf6",
+                              "Children": []
+                            }
+                          ]
+                        },
+                        {
+                          "Count": 35,
+                          "San": "d4",
+                          "Children": [
+                            {
+                              "Count": 35,
+                              "San": "exd4",
+                              "Children": [
+                                {
+                                  "Count": 33,
+                                  "San": "Nxd4",
+                                  "Children": [
+                                    {
+                                      "Count": 21,
+                                      "San": "Bc5",
+                                      "Children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Count": 32,
+              "San": "Nf6",
+              "Children": [
+                {
+                  "Count": 29,
+                  "San": "e5",
+                  "Children": [
+                    {
+                      "Count": 28,
+                      "San": "Nd5",
+                      "Children": [
+                        {
+                          "Count": 26,
+                          "San": "d4",
+                          "Children": [
+                            {
+                              "Count": 25,
+                              "San": "d6",
+                              "Children": [
+                                {
+                                  "Count": 20,
+                                  "San": "Nf3",
+                                  "Children": [
+                                    {
+                                      "Count": 19,
+                                      "San": "dxe5",
+                                      "Children": [
+                                        {
+                                          "Count": 19,
+                                          "San": "Nxe5",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ]
                     }
@@ -6605,7 +6833,30 @@
                     {
                       "Count": 66,
                       "San": "d5",
-                      "Children": []
+                      "Children": [
+                        {
+                          "Count": 28,
+                          "San": "e5",
+                          "Children": [
+                            {
+                              "Count": 23,
+                              "San": "Bf5",
+                              "Children": []
+                            }
+                          ]
+                        },
+                        {
+                          "Count": 19,
+                          "San": "exd5",
+                          "Children": [
+                            {
+                              "Count": 19,
+                              "San": "cxd5",
+                              "Children": []
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ]
                 }
@@ -6622,7 +6873,76 @@
                     {
                       "Count": 63,
                       "San": "d5",
+                      "Children": [
+                        {
+                          "Count": 32,
+                          "San": "Nc3",
+                          "Children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Count": 30,
+              "San": "g6",
+              "Children": [
+                {
+                  "Count": 27,
+                  "San": "d4",
+                  "Children": [
+                    {
+                      "Count": 17,
+                      "San": "Bg7",
                       "Children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Count": 25,
+              "San": "d6",
+              "Children": [
+                {
+                  "Count": 25,
+                  "San": "d4",
+                  "Children": [
+                    {
+                      "Count": 22,
+                      "San": "Nf6",
+                      "Children": [
+                        {
+                          "Count": 21,
+                          "San": "Nc3",
+                          "Children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Count": 26,
+              "San": "d5",
+              "Children": [
+                {
+                  "Count": 24,
+                  "San": "exd5",
+                  "Children": [
+                    {
+                      "Count": 21,
+                      "San": "Qxd5",
+                      "Children": [
+                        {
+                          "Count": 21,
+                          "San": "Nc3",
+                          "Children": []
+                        }
+                      ]
                     }
                   ]
                 }
@@ -6635,6 +6955,23 @@
           "San": "c4",
           "Children": [
             {
+              "Count": 74,
+              "San": "Nf6",
+              "Children": [
+                {
+                  "Count": 53,
+                  "San": "Nc3",
+                  "Children": [
+                    {
+                      "Count": 28,
+                      "San": "e5",
+                      "Children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
               "Count": 72,
               "San": "e5",
               "Children": [
@@ -6645,6 +6982,29 @@
                     {
                       "Count": 35,
                       "San": "Nf6",
+                      "Children": [
+                        {
+                          "Count": 28,
+                          "San": "Nf3",
+                          "Children": [
+                            {
+                              "Count": 28,
+                              "San": "Nc6",
+                              "Children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "Count": 24,
+                  "San": "g3",
+                  "Children": [
+                    {
+                      "Count": 18,
+                      "San": "Nf6",
                       "Children": []
                     }
                   ]
@@ -6652,19 +7012,24 @@
               ]
             },
             {
-              "Count": 74,
-              "San": "Nf6",
+              "Count": 37,
+              "San": "c5",
               "Children": [
                 {
-                  "Count": 53,
-                  "San": "Nc3",
+                  "Count": 24,
+                  "San": "Nf3",
                   "Children": []
                 }
               ]
             },
             {
-              "Count": 37,
-              "San": "c5",
+              "Count": 21,
+              "San": "g6",
+              "Children": []
+            },
+            {
+              "Count": 23,
+              "San": "e6",
               "Children": []
             }
           ]
@@ -6684,12 +7049,29 @@
                     {
                       "Count": 36,
                       "San": "e6",
-                      "Children": []
+                      "Children": [
+                        {
+                          "Count": 21,
+                          "San": "c4",
+                          "Children": []
+                        }
+                      ]
                     },
                     {
                       "Count": 52,
                       "San": "d5",
-                      "Children": []
+                      "Children": [
+                        {
+                          "Count": 19,
+                          "San": "c4",
+                          "Children": []
+                        },
+                        {
+                          "Count": 27,
+                          "San": "Bf4",
+                          "Children": []
+                        }
+                      ]
                     },
                     {
                       "Count": 40,
@@ -6702,6 +7084,35 @@
                   "Count": 690,
                   "San": "c4",
                   "Children": [
+                    {
+                      "Count": 31,
+                      "San": "c5",
+                      "Children": [
+                        {
+                          "Count": 27,
+                          "San": "d5",
+                          "Children": [
+                            {
+                              "Count": 18,
+                              "San": "b5",
+                              "Children": [
+                                {
+                                  "Count": 17,
+                                  "San": "cxb5",
+                                  "Children": [
+                                    {
+                                      "Count": 17,
+                                      "San": "a6",
+                                      "Children": []
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
                     {
                       "Count": 478,
                       "San": "e6",
@@ -6717,7 +7128,35 @@
                                 {
                                   "Count": 49,
                                   "San": "Qc2",
-                                  "Children": []
+                                  "Children": [
+                                    {
+                                      "Count": 22,
+                                      "San": "O-O",
+                                      "Children": []
+                                    },
+                                    {
+                                      "Count": 21,
+                                      "San": "d5",
+                                      "Children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Count": 31,
+                                  "San": "e3",
+                                  "Children": [
+                                    {
+                                      "Count": 28,
+                                      "San": "O-O",
+                                      "Children": [
+                                        {
+                                          "Count": 18,
+                                          "San": "Bd3",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
                                 },
                                 {
                                   "Count": 38,
@@ -6725,6 +7164,17 @@
                                   "Children": []
                                 }
                               ]
+                            }
+                          ]
+                        },
+                        {
+                          "Count": 30,
+                          "San": "g3",
+                          "Children": [
+                            {
+                              "Count": 23,
+                              "San": "d5",
+                              "Children": []
                             }
                           ]
                         },
@@ -6743,7 +7193,13 @@
                                     {
                                       "Count": 43,
                                       "San": "Be7",
-                                      "Children": []
+                                      "Children": [
+                                        {
+                                          "Count": 27,
+                                          "San": "Bf4",
+                                          "Children": []
+                                        }
+                                      ]
                                     },
                                     {
                                       "Count": 40,
@@ -6751,8 +7207,18 @@
                                       "Children": []
                                     }
                                   ]
+                                },
+                                {
+                                  "Count": 20,
+                                  "San": "g3",
+                                  "Children": []
                                 }
                               ]
+                            },
+                            {
+                              "Count": 19,
+                              "San": "Bb4+",
+                              "Children": []
                             },
                             {
                               "Count": 92,
@@ -6765,7 +7231,13 @@
                                     {
                                       "Count": 52,
                                       "San": "Ba6",
-                                      "Children": []
+                                      "Children": [
+                                        {
+                                          "Count": 26,
+                                          "San": "b3",
+                                          "Children": []
+                                        }
+                                      ]
                                     }
                                   ]
                                 }
@@ -6803,19 +7275,58 @@
                                       ]
                                     }
                                   ]
+                                },
+                                {
+                                  "Count": 24,
+                                  "San": "Nf3",
+                                  "Children": [
+                                    {
+                                      "Count": 24,
+                                      "San": "Bg7",
+                                      "Children": []
+                                    }
+                                  ]
                                 }
                               ]
                             },
                             {
                               "Count": 37,
                               "San": "Bg7",
-                              "Children": []
+                              "Children": [
+                                {
+                                  "Count": 31,
+                                  "San": "e4",
+                                  "Children": [
+                                    {
+                                      "Count": 26,
+                                      "San": "d6",
+                                      "Children": [
+                                        {
+                                          "Count": 20,
+                                          "San": "Nf3",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
                             }
                           ]
+                        },
+                        {
+                          "Count": 20,
+                          "San": "g3",
+                          "Children": []
                         }
                       ]
                     }
                   ]
+                },
+                {
+                  "Count": 27,
+                  "San": "Bg5",
+                  "Children": []
                 },
                 {
                   "Count": 35,
@@ -6835,7 +7346,24 @@
                     {
                       "Count": 62,
                       "San": "e6",
-                      "Children": []
+                      "Children": [
+                        {
+                          "Count": 31,
+                          "San": "Nf3",
+                          "Children": [
+                            {
+                              "Count": 19,
+                              "San": "Nf6",
+                              "Children": []
+                            }
+                          ]
+                        },
+                        {
+                          "Count": 31,
+                          "San": "Nc3",
+                          "Children": []
+                        }
+                      ]
                     },
                     {
                       "Count": 142,
@@ -6844,7 +7372,19 @@
                         {
                           "Count": 35,
                           "San": "Nc3",
-                          "Children": []
+                          "Children": [
+                            {
+                              "Count": 33,
+                              "San": "Nf6",
+                              "Children": [
+                                {
+                                  "Count": 26,
+                                  "San": "e3",
+                                  "Children": []
+                                }
+                              ]
+                            }
+                          ]
                         },
                         {
                           "Count": 100,
@@ -6857,6 +7397,28 @@
                                 {
                                   "Count": 62,
                                   "San": "Nc3",
+                                  "Children": [
+                                    {
+                                      "Count": 23,
+                                      "San": "dxc4",
+                                      "Children": [
+                                        {
+                                          "Count": 21,
+                                          "San": "a4",
+                                          "Children": []
+                                        }
+                                      ]
+                                    },
+                                    {
+                                      "Count": 27,
+                                      "San": "e6",
+                                      "Children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Count": 28,
+                                  "San": "e3",
                                   "Children": []
                                 }
                               ]
@@ -6866,8 +7428,18 @@
                       ]
                     }
                   ]
+                },
+                {
+                  "Count": 19,
+                  "San": "Nf3",
+                  "Children": []
                 }
               ]
+            },
+            {
+              "Count": 24,
+              "San": "e6",
+              "Children": []
             }
           ]
         },
@@ -6882,7 +7454,13 @@
                 {
                   "Count": 44,
                   "San": "g3",
-                  "Children": []
+                  "Children": [
+                    {
+                      "Count": 19,
+                      "San": "g6",
+                      "Children": []
+                    }
+                  ]
                 },
                 {
                   "Count": 104,
@@ -6891,6 +7469,17 @@
                     {
                       "Count": 45,
                       "San": "e6",
+                      "Children": [
+                        {
+                          "Count": 25,
+                          "San": "Nc3",
+                          "Children": []
+                        }
+                      ]
+                    },
+                    {
+                      "Count": 22,
+                      "San": "c5",
                       "Children": []
                     }
                   ]
@@ -6902,13 +7491,51 @@
               "San": "d5",
               "Children": [
                 {
+                  "Count": 33,
+                  "San": "d4",
+                  "Children": [
+                    {
+                      "Count": 28,
+                      "San": "Nf6",
+                      "Children": [
+                        {
+                          "Count": 25,
+                          "San": "c4",
+                          "Children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
                   "Count": 40,
                   "San": "g3",
-                  "Children": []
+                  "Children": [
+                    {
+                      "Count": 19,
+                      "San": "g6",
+                      "Children": []
+                    }
+                  ]
                 }
               ]
+            },
+            {
+              "Count": 31,
+              "San": "c5",
+              "Children": []
+            },
+            {
+              "Count": 17,
+              "San": "g6",
+              "Children": []
             }
           ]
+        },
+        {
+          "Count": 28,
+          "San": "b3",
+          "Children": []
         }
       ]
     },
@@ -18415,63 +19042,152 @@
       }
     },
     "Positions": {
+      "r1bk1b1r/ppp2ppp/2p5/4Pn2/8/5N2/PPP2PPP/RNB2RK1 w - - 0 9": 29,
+      "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 1 9": 24,
+      "r1bq1rk1/2pnbppp/p2p1n2/1p2p3/3PP3/1BP2N1P/PP3PP1/RNBQR1K1 w - - 1 11": 22,
+      "r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w - - 2 8": 30,
+      "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 3 9": 20,
+      "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 5 4": 18,
       "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4": 44,
+      "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq - 0 6": 32,
       "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 4 6": 77,
+      "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 b kq - 5 6": 32,
+      "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w kq - 0 8": 24,
+      "r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1B1P1N2/PPP2PPP/RNBQ1RK1 b kq - 1 7": 24,
+      "r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 b kq - 1 7": 32,
       "r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 w kq b6 0 7": 54,
+      "r1bqk2r/4bppp/p1np1n2/1p1Np1B1/4P3/N7/PPP2PPP/R2QKB1R w KQkq - 2 10": 28,
+      "r1bqk2r/5ppp/p1np1b2/1p1Np3/4P3/N7/PPP2PPP/R2QKB1R w KQkq - 0 11": 26,
+      "r1bqk2r/ppp2ppp/2p2n2/2b1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq - 0 6": 18,
+      "r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq - 1 5": 30,
+      "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq - 1 5": 23,
+      "r1bqk2r/ppppbppp/2nn4/4N3/8/8/PPPP1PPP/RNBQRBK1 b kq - 2 7": 18,
       "r1bqkb1r/1p3ppp/p1np1n2/1N2p1B1/4P3/2N5/PPP2PPP/R2QKB1R w KQkq - 0 8": 39,
+      "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/3P1N2/PPP2PPP/RNBQK2R b KQkq - 0 5": 18,
       "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 3 5": 88,
       "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 2 5": 118,
       "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R w KQkq b6 0 9": 39,
       "r1bqkb1r/pp1p1ppp/2n2n2/4p3/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq e6 0 6": 54,
       "r1bqkb1r/pp1ppppp/2n2n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 1 5": 55,
       "r1bqkb1r/pp3ppp/2np1n2/1N2p3/4P3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 7": 53,
+      "r1bqkb1r/ppp2ppp/2p5/4Pn2/8/5N2/PPP2PPP/RNBQ1RK1 w kq - 1 8": 29,
+      "r1bqkb1r/ppp2ppp/2pn4/4p3/3P4/5N2/PPP2PPP/RNBQ1RK1 w kq - 0 7": 29,
       "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R b KQkq - 0 4": 40,
+      "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 5 4": 30,
       "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4": 93,
       "r1bqkb1r/pppp1ppp/2n5/1B2p3/4n3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 5": 45,
+      "r1bqkb1r/pppp1ppp/2n5/1B2p3/4n3/5N2/PPPP1PPP/RNBQR1K1 b kq - 1 5": 19,
+      "r1bqkb1r/pppp1ppp/2nn4/1B2N3/8/8/PPPP1PPP/RNBQR1K1 b kq - 0 6": 18,
+      "r1bqkb1r/pppp1ppp/2nn4/1B2p3/3P4/5N2/PPP2PPP/RNBQ1RK1 w kq - 1 6": 31,
       "r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4": 134,
       "r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 1 4": 112,
+      "r1bqkbnr/pp1p1ppp/2n1p3/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4": 19,
+      "r1bqkbnr/pp1p1ppp/2n1p3/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 2 5": 21,
+      "r1bqkbnr/pp1ppp1p/2n3p1/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4": 29,
+      "r1bqkbnr/pp1ppppp/2n5/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3": 19,
+      "r1bqkbnr/pp1ppppp/2n5/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3 0 3": 25,
       "r1bqkbnr/pp1ppppp/2n5/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3": 151,
+      "r1bqkbnr/pp1ppppp/2n5/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4": 27,
       "r1bqkbnr/pp1ppppp/2n5/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4": 63,
       "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3": 196,
+      "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3": 30,
       "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3": 335,
+      "r1bqkbnr/pppp1ppp/2n5/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4": 18,
+      "r1bqkbnr/pppp1ppp/2n5/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4": 19,
+      "r2q1rk1/1bpnbppp/p2p1n2/1p2p3/3PP3/1BP2N1P/PP1N1PP1/R1BQR1K1 w - - 3 12": 19,
+      "r2qr1k1/1bpnbppp/p2p1n2/1p2p3/3PP3/2P2N1P/PPBN1PP1/R1BQR1K1 w - - 5 13": 18,
       "rn1qkb1r/p1pp1ppp/bp2pn2/8/2PP4/5NP1/PP2PP1P/RNBQKB1R w KQkq - 1 5": 46,
+      "rnbq1rk1/2p1bppp/p2p1n2/1p2p3/4P3/1BP2N1P/PP1P1PP1/RNBQR1K1 w - - 1 10": 22,
+      "rnbq1rk1/ppp1bppp/4pn2/3p4/2PP1B2/2N1PN2/PP3PPP/R2QKB1R b KQ - 0 6": 22,
+      "rnbqk2r/pp2ppbp/3p1np1/8/3NP3/2N1B3/PPP2PPP/R2QKB1R w KQkq - 2 7": 21,
+      "rnbqk2r/ppp1bppp/4pn2/3p4/2PP1B2/2N2N2/PP2PPPP/R2QKB1R b KQkq - 3 5": 19,
+      "rnbqk2r/ppp1bppp/4pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 2 5": 24,
+      "rnbqk2r/ppp2ppp/4pn2/3p4/1bPP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 2 5": 22,
+      "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 3 4": 24,
       "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4": 65,
+      "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PPQ1PPPP/R1B1KBNR b KQkq - 3 4": 26,
+      "rnbqk2r/ppppppbp/5np1/8/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4": 19,
+      "rnbqk2r/ppppppbp/5np1/8/2PPP3/2N5/PP3PPP/R1BQKBNR b KQkq e3 0 4": 18,
+      "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N1B3/PPP2PPP/R2QKB1R b KQkq - 1 6": 23,
       "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6": 44,
       "rnbqkb1r/p1pp1ppp/1p2pn2/8/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq - 0 4": 82,
+      "rnbqkb1r/p1pp1ppp/1p2pn2/8/2PP4/5NP1/PP2PP1P/RNBQKB1R b KQkq - 0 4": 25,
+      "rnbqkb1r/pp1ppppp/5n2/2p5/2PP4/8/PP2PPPP/RNBQKBNR w KQkq c6 0 3": 22,
+      "rnbqkb1r/pp2pp1p/3p1np1/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6": 26,
       "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 3 4": 56,
+      "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/4PN2/PP3PPP/RNBQKB1R b KQkq - 0 4": 19,
+      "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq - 2 4": 32,
+      "rnbqkb1r/pp2pppp/2p2n2/8/P1pP4/2N2N2/1P2PPPP/R1BQKB1R b KQkq a3 0 5": 20,
       "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 2 5": 84,
       "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 1 5": 80,
+      "rnbqkb1r/pp3ppp/2p1pn2/3p2B1/2PP4/2N2N2/PP2PPPP/R2QKB1R b KQkq - 1 5": 18,
+      "rnbqkb1r/pp3ppp/2p1pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 5": 22,
+      "rnbqkb1r/ppp1pp1p/5np1/3P4/3P4/2N5/PP2PPPP/R1BQKBNR b KQkq - 0 4": 25,
       "rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq d6 0 4": 39,
+      "rnbqkb1r/ppp1pp1p/6p1/3n4/3PP3/2N5/PP3PPP/R1BQKBNR b KQkq e3 0 5": 25,
+      "rnbqkb1r/ppp1pp1p/6p1/8/3PP3/2P5/P4PPP/R1BQKBNR b KQkq - 0 6": 25,
+      "rnbqkb1r/ppp1pppp/3p4/3nP3/3P4/8/PPP2PPP/RNBQKBNR w KQkq - 0 4": 23,
+      "rnbqkb1r/ppp1pppp/5n2/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq c3 0 3": 23,
+      "rnbqkb1r/ppp1pppp/5n2/3p4/3P1B2/5N2/PPP1PPPP/RN1QKB1R b KQkq - 1 3": 26,
+      "rnbqkb1r/ppp1pppp/8/3np3/3P4/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 5": 18,
+      "rnbqkb1r/ppp2ppp/3p1n2/8/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 4": 20,
+      "rnbqkb1r/ppp2ppp/4pn2/3P4/3P4/2N5/PP2PPPP/R1BQKBNR b KQkq - 0 4": 20,
       "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 1 4": 95,
       "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq d6 0 4": 91,
+      "rnbqkb1r/pppp1ppp/4pn2/8/2P5/5N2/PP1PPPPP/RNBQKB1R w KQkq - 0 3": 32,
       "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 3": 88,
       "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq - 1 3": 129,
       "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3": 254,
+      "rnbqkb1r/pppp1ppp/4pn2/8/3P4/5N2/PPP1PPPP/RNBQKB1R w KQkq - 0 3": 26,
+      "rnbqkb1r/pppp1ppp/5n2/4N3/4P3/8/PPPP1PPP/RNBQKB1R b KQkq - 0 3": 24,
+      "rnbqkb1r/pppp1ppp/5n2/4p3/2P5/2N2N2/PP1PPPPP/R1BQKB1R b KQkq - 3 3": 19,
       "rnbqkb1r/pppppp1p/5np1/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 3": 62,
       "rnbqkb1r/pppppp1p/5np1/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3": 80,
+      "rnbqkb1r/pppppppp/5n2/6B1/3P4/8/PPP1PPPP/RN1QKBNR b KQkq - 2 2": 18,
+      "rnbqkb1r/pppppppp/5n2/8/2P5/2N5/PP1PPPPP/R1BQKBNR b KQkq - 2 2": 32,
       "rnbqkb1r/pppppppp/5n2/8/2P5/5N2/PP1PPPPP/RNBQKB1R b KQkq c3 0 2": 42,
+      "rnbqkb1r/pppppppp/5n2/8/2P5/8/PP1PPPPP/RNBQKBNR w KQkq - 1 2": 32,
       "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 2": 330,
+      "rnbqkb1r/pppppppp/5n2/8/3P1B2/8/PPP1PPPP/RN1QKBNR b KQkq - 2 2": 29,
       "rnbqkb1r/pppppppp/5n2/8/3P4/5N2/PPP1PPPP/RNBQKB1R b KQkq - 2 2": 88,
       "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 1 2": 426,
+      "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 1 2": 27,
       "rnbqkb1r/pppppppp/5n2/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 2 2": 87,
+      "rnbqkb1r/pppppppp/5n2/8/8/5NP1/PPPPPP1P/RNBQKB1R b KQkq - 0 2": 24,
+      "rnbqkb1r/pppppppp/8/3nP3/8/8/PPPP1PPP/RNBQKBNR w KQkq - 1 3": 25,
       "rnbqkbnr/pp1p1ppp/4p3/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3 0 3": 43,
+      "rnbqkbnr/pp1p1ppp/4p3/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3": 25,
       "rnbqkbnr/pp1p1ppp/4p3/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4": 45,
+      "rnbqkbnr/pp1p1ppp/4p3/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4": 19,
       "rnbqkbnr/pp1ppppp/2p5/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 2": 48,
+      "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2": 29,
       "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2": 278,
       "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2": 308,
+      "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 3": 19,
       "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq - 1 3": 73,
       "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3": 50,
+      "rnbqkbnr/pp2pppp/2p5/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq d6 0 3": 18,
+      "rnbqkbnr/pp2pppp/3p4/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 1 3": 34,
       "rnbqkbnr/pp2pppp/3p4/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3 0 3": 102,
       "rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3": 103,
       "rnbqkbnr/pp2pppp/3p4/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4": 88,
       "rnbqkbnr/pp2pppp/3p4/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4": 85,
       "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 2": 127,
       "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2": 107,
+      "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 2": 19,
       "rnbqkbnr/ppp1pppp/8/3p4/8/5N2/PPPPPPPP/RNBQKB1R w KQkq d6 0 2": 55,
+      "rnbqkbnr/ppp1pppp/8/3p4/8/5NP1/PPPPPP1P/RNBQKB1R b KQkq - 0 2": 18,
+      "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 3": 20,
       "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3": 35,
+      "rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/2N5/PPP2PPP/R1BQKBNR b KQkq - 1 3": 20,
+      "rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq d6 0 3": 20,
+      "rnbqkbnr/pppp1ppp/4p3/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2": 18,
       "rnbqkbnr/pppp1ppp/4p3/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 2": 46,
+      "rnbqkbnr/pppp1ppp/8/4p3/2P5/2N5/PP1PPPPP/R1BQKBNR b KQkq - 1 2": 29,
+      "rnbqkbnr/pppp1ppp/8/4p3/2P5/8/PP1PPPPP/RNBQKBNR w KQkq e6 0 2": 27,
       "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2": 292,
       "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2": 363,
+      "rnbqkbnr/pppppp1p/6p1/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2": 20,
       "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq c3 0 1": 147,
       "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1": 631,
       "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3 0 1": 778,
@@ -18479,64 +19195,161 @@
     },
     "TotalPositions": 156039,
     "UniquePositions": {
+      "r1bk1b1r/ppp2ppp/2p5/4Pn2/8/5N2/PPP2PPP/RNB2RK1 w - -": 29,
+      "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - -": 30,
+      "r1bq1rk1/2pnbppp/p2p1n2/1p2p3/3PP3/1BP2N1P/PP3PP1/RNBQR1K1 w - -": 22,
+      "r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w - -": 31,
+      "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ -": 21,
+      "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -": 18,
       "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq -": 44,
+      "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq -": 32,
       "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -": 77,
+      "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 b kq -": 32,
+      "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w kq -": 24,
+      "r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1B1P1N2/PPP2PPP/RNBQ1RK1 b kq -": 25,
+      "r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 b kq -": 34,
       "r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 w kq b6": 54,
+      "r1bqk2r/4bppp/p1np1n2/1p1Np1B1/4P3/N7/PPP2PPP/R2QKB1R w KQkq -": 30,
+      "r1bqk2r/5ppp/p1np1b2/1p1Np3/4P3/N7/PPP2PPP/R2QKB1R w KQkq -": 28,
+      "r1bqk2r/ppp2ppp/2p2n2/2b1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -": 18,
+      "r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -": 30,
+      "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq -": 23,
+      "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq -": 20,
+      "r1bqk2r/ppppbppp/2nn4/4N3/8/8/PPPP1PPP/RNBQRBK1 b kq -": 18,
       "r1bqkb1r/1p3ppp/p1np1n2/1N2p1B1/4P3/2N5/PPP2PPP/R2QKB1R w KQkq -": 41,
+      "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/3P1N2/PPP2PPP/RNBQK2R b KQkq -": 18,
       "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -": 88,
       "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -": 118,
       "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R w KQkq b6": 41,
+      "r1bqkb1r/pp1n1ppp/2p1pn2/3p4/2PP4/2N1PN2/PP3PPP/R1BQKB1R w KQkq -": 18,
       "r1bqkb1r/pp1p1ppp/2n2n2/4p3/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq e6": 54,
       "r1bqkb1r/pp1ppppp/2n2n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -": 55,
       "r1bqkb1r/pp3ppp/2np1n2/1N2p3/4P3/2N5/PPP2PPP/R1BQKB1R w KQkq -": 53,
+      "r1bqkb1r/ppp2ppp/2p5/4Pn2/8/5N2/PPP2PPP/RNBQ1RK1 w kq -": 29,
+      "r1bqkb1r/ppp2ppp/2pn4/4p3/3P4/5N2/PPP2PPP/RNBQ1RK1 w kq -": 29,
       "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R b KQkq -": 40,
+      "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -": 30,
       "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -": 93,
+      "r1bqkb1r/pppp1ppp/2n2n2/4p3/2P5/2N2N2/PP1PPPPP/R1BQKB1R w KQkq -": 18,
       "r1bqkb1r/pppp1ppp/2n5/1B2p3/4n3/5N2/PPPP1PPP/RNBQ1RK1 w kq -": 45,
+      "r1bqkb1r/pppp1ppp/2n5/1B2p3/4n3/5N2/PPPP1PPP/RNBQR1K1 b kq -": 19,
+      "r1bqkb1r/pppp1ppp/2nn4/1B2N3/8/8/PPPP1PPP/RNBQR1K1 b kq -": 18,
+      "r1bqkb1r/pppp1ppp/2nn4/1B2p3/3P4/5N2/PPP2PPP/RNBQ1RK1 w kq -": 31,
       "r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -": 134,
       "r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq -": 112,
+      "r1bqkbnr/pp1p1ppp/2n1p3/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -": 19,
+      "r1bqkbnr/pp1p1ppp/2n1p3/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq -": 29,
+      "r1bqkbnr/pp1ppp1p/2n3p1/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -": 29,
+      "r1bqkbnr/pp1ppppp/2n5/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -": 19,
+      "r1bqkbnr/pp1ppppp/2n5/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3": 25,
       "r1bqkbnr/pp1ppppp/2n5/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -": 151,
+      "r1bqkbnr/pp1ppppp/2n5/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq -": 27,
       "r1bqkbnr/pp1ppppp/2n5/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq -": 63,
       "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -": 196,
+      "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq -": 30,
       "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -": 335,
+      "r1bqkbnr/pppp1ppp/2n5/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq -": 18,
+      "r1bqkbnr/pppp1ppp/2n5/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq -": 19,
+      "r2q1rk1/1bpnbppp/p2p1n2/1p2p3/3PP3/1BP2N1P/PP1N1PP1/R1BQR1K1 w - -": 19,
+      "r2qr1k1/1bpnbppp/p2p1n2/1p2p3/3PP3/2P2N1P/PPBN1PP1/R1BQR1K1 w - -": 18,
       "rn1qkb1r/p1pp1ppp/bp2pn2/8/2PP4/5NP1/PP2PP1P/RNBQKB1R w KQkq -": 46,
+      "rnbq1rk1/2p1bppp/p2p1n2/1p2p3/4P3/1BP2N1P/PP1P1PP1/RNBQR1K1 w - -": 22,
+      "rnbq1rk1/ppp1bppp/4pn2/3p4/2PP1B2/2N1PN2/PP3PPP/R2QKB1R b KQ -": 22,
+      "rnbq1rk1/ppp1bppp/4pn2/3p4/2PP1B2/2N2N2/PP2PPPP/R2QKB1R w KQ -": 18,
+      "rnbq1rk1/ppp1ppbp/3p1np1/8/2PPP3/2N2N2/PP2BPPP/R1BQK2R b KQ -": 19,
+      "rnbq1rk1/ppp1ppbp/3p1np1/8/2PPP3/2N2N2/PP3PPP/R1BQKB1R w KQ -": 18,
+      "rnbqk2r/pp2ppbp/3p1np1/8/3NP3/2N1B3/PPP2PPP/R2QKB1R w KQkq -": 21,
+      "rnbqk2r/ppp1bppp/4pn2/3p4/2PP1B2/2N2N2/PP2PPPP/R2QKB1R b KQkq -": 24,
+      "rnbqk2r/ppp1bppp/4pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq -": 31,
+      "rnbqk2r/ppp2ppp/4pn2/3p4/1bPP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq -": 26,
+      "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq -": 24,
       "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq -": 67,
+      "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PPQ1PPPP/R1B1KBNR b KQkq -": 26,
+      "rnbqk2r/ppppppbp/5np1/8/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq -": 20,
+      "rnbqk2r/ppppppbp/5np1/8/2PPP3/2N5/PP3PPP/R1BQKBNR b KQkq e3": 18,
+      "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N1B3/PPP2PPP/R2QKB1R b KQkq -": 24,
       "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq -": 46,
       "rnbqkb1r/p1pp1ppp/1p2pn2/8/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq -": 82,
+      "rnbqkb1r/p1pp1ppp/1p2pn2/8/2PP4/5NP1/PP2PP1P/RNBQKB1R b KQkq -": 25,
+      "rnbqkb1r/pp1ppppp/5n2/2p5/2PP4/8/PP2PPPP/RNBQKBNR w KQkq c6": 22,
+      "rnbqkb1r/pp2pp1p/3p1np1/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq -": 26,
       "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq -": 68,
+      "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/4PN2/PP3PPP/RNBQKB1R b KQkq -": 19,
       "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq -": 48,
+      "rnbqkb1r/pp2pppp/2p2n2/8/P1pP4/2N2N2/1P2PPPP/R1BQKB1R b KQkq a3": 20,
       "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq -": 88,
       "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -": 80,
+      "rnbqkb1r/pp3ppp/2p1pn2/3p2B1/2PP4/2N2N2/PP2PPPP/R2QKB1R b KQkq -": 18,
+      "rnbqkb1r/pp3ppp/2p1pn2/3p4/2PP4/2N1PN2/PP3PPP/R1BQKB1R b KQkq -": 19,
+      "rnbqkb1r/pp3ppp/2p1pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq -": 22,
+      "rnbqkb1r/ppp1pp1p/5np1/3P4/3P4/2N5/PP2PPPP/R1BQKBNR b KQkq -": 25,
       "rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq d6": 39,
+      "rnbqkb1r/ppp1pp1p/6p1/3n4/3PP3/2N5/PP3PPP/R1BQKBNR b KQkq e3": 25,
+      "rnbqkb1r/ppp1pp1p/6p1/8/3PP3/2P5/P4PPP/R1BQKBNR b KQkq -": 25,
+      "rnbqkb1r/ppp1pppp/3p4/3nP3/3P4/8/PPP2PPP/RNBQKBNR w KQkq -": 23,
+      "rnbqkb1r/ppp1pppp/5n2/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq c3": 23,
+      "rnbqkb1r/ppp1pppp/5n2/3p4/3P1B2/5N2/PPP1PPPP/RN1QKB1R b KQkq -": 30,
+      "rnbqkb1r/ppp1pppp/5n2/3p4/3P4/5N2/PPP1PPPP/RNBQKB1R w KQkq -": 26,
+      "rnbqkb1r/ppp1pppp/8/3np3/3P4/5N2/PPP2PPP/RNBQKB1R w KQkq -": 18,
+      "rnbqkb1r/ppp2ppp/3p1n2/8/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -": 20,
+      "rnbqkb1r/ppp2ppp/4pn2/3P4/3P4/2N5/PP2PPPP/R1BQKBNR b KQkq -": 20,
       "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq -": 100,
+      "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq -": 30,
       "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq d6": 91,
+      "rnbqkb1r/pppp1ppp/4pn2/8/2P5/5N2/PP1PPPPP/RNBQKB1R w KQkq -": 32,
       "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq -": 89,
       "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq -": 130,
       "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -": 255,
+      "rnbqkb1r/pppp1ppp/4pn2/8/3P4/5N2/PPP1PPPP/RNBQKB1R w KQkq -": 26,
+      "rnbqkb1r/pppp1ppp/5n2/4N3/4P3/8/PPPP1PPP/RNBQKB1R b KQkq -": 24,
+      "rnbqkb1r/pppp1ppp/5n2/4p3/2P5/2N2N2/PP1PPPPP/R1BQKB1R b KQkq -": 28,
       "rnbqkb1r/pppppp1p/5np1/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq -": 63,
       "rnbqkb1r/pppppp1p/5np1/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -": 81,
+      "rnbqkb1r/pppppppp/5n2/6B1/3P4/8/PPP1PPPP/RN1QKBNR b KQkq -": 18,
+      "rnbqkb1r/pppppppp/5n2/8/2P5/2N5/PP1PPPPP/R1BQKBNR b KQkq -": 32,
       "rnbqkb1r/pppppppp/5n2/8/2P5/5N2/PP1PPPPP/RNBQKB1R b KQkq c3": 42,
+      "rnbqkb1r/pppppppp/5n2/8/2P5/8/PP1PPPPP/RNBQKBNR w KQkq -": 32,
       "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3": 330,
+      "rnbqkb1r/pppppppp/5n2/8/3P1B2/8/PPP1PPPP/RN1QKBNR b KQkq -": 29,
       "rnbqkb1r/pppppppp/5n2/8/3P4/5N2/PPP1PPPP/RNBQKB1R b KQkq -": 88,
       "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -": 426,
+      "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -": 27,
       "rnbqkb1r/pppppppp/5n2/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq -": 87,
+      "rnbqkb1r/pppppppp/5n2/8/8/5NP1/PPPPPP1P/RNBQKB1R b KQkq -": 24,
+      "rnbqkb1r/pppppppp/8/3nP3/8/8/PPPP1PPP/RNBQKBNR w KQkq -": 25,
       "rnbqkbnr/pp1p1ppp/4p3/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3": 43,
+      "rnbqkbnr/pp1p1ppp/4p3/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -": 25,
       "rnbqkbnr/pp1p1ppp/4p3/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq -": 45,
+      "rnbqkbnr/pp1p1ppp/4p3/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq -": 19,
       "rnbqkbnr/pp1ppppp/2p5/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3": 48,
+      "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -": 29,
       "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -": 278,
       "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6": 308,
+      "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq -": 19,
       "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq -": 73,
       "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -": 50,
+      "rnbqkbnr/pp2pppp/2p5/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq d6": 18,
+      "rnbqkbnr/pp2pppp/3p4/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -": 34,
       "rnbqkbnr/pp2pppp/3p4/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3": 102,
       "rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -": 103,
       "rnbqkbnr/pp2pppp/3p4/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq -": 88,
       "rnbqkbnr/pp2pppp/3p4/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq -": 85,
       "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3": 127,
       "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6": 107,
+      "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq d6": 19,
       "rnbqkbnr/ppp1pppp/8/3p4/8/5N2/PPPPPPPP/RNBQKB1R w KQkq d6": 55,
+      "rnbqkbnr/ppp1pppp/8/3p4/8/5NP1/PPPPPP1P/RNBQKB1R b KQkq -": 19,
+      "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq -": 20,
       "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -": 35,
+      "rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/2N5/PPP2PPP/R1BQKBNR b KQkq -": 20,
+      "rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq d6": 20,
+      "rnbqkbnr/pppp1ppp/4p3/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -": 18,
       "rnbqkbnr/pppp1ppp/4p3/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3": 46,
+      "rnbqkbnr/pppp1ppp/8/4p3/2P5/2N5/PP1PPPPP/R1BQKBNR b KQkq -": 29,
+      "rnbqkbnr/pppp1ppp/8/4p3/2P5/8/PP1PPPPP/RNBQKBNR w KQkq e6": 27,
       "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -": 292,
       "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6": 363,
+      "rnbqkbnr/pppppp1p/6p1/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -": 20,
       "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq c3": 147,
       "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3": 631,
       "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3": 778,
@@ -22834,6 +23647,11 @@
                                           "Count": 88,
                                           "San": "O-O",
                                           "Children": []
+                                        },
+                                        {
+                                          "Count": 18,
+                                          "San": "d3",
+                                          "Children": []
                                         }
                                       ]
                                     }
@@ -22852,6 +23670,81 @@
                                     {
                                       "Count": 36,
                                       "San": "Bc5",
+                                      "Children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Count": 30,
+                                  "San": "O-O",
+                                  "Children": [
+                                    {
+                                      "Count": 30,
+                                      "San": "Nxe4",
+                                      "Children": [
+                                        {
+                                          "Count": 19,
+                                          "San": "Re1",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Count": 30,
+                          "San": "Bc4",
+                          "Children": [
+                            {
+                              "Count": 28,
+                              "San": "Bc5",
+                              "Children": [
+                                {
+                                  "Count": 18,
+                                  "San": "O-O",
+                                  "Children": [
+                                    {
+                                      "Count": 17,
+                                      "San": "Nf6",
+                                      "Children": [
+                                        {
+                                          "Count": 17,
+                                          "San": "d3",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "Count": 31,
+                      "San": "Nf6",
+                      "Children": [
+                        {
+                          "Count": 24,
+                          "San": "Nxe5",
+                          "Children": [
+                            {
+                              "Count": 24,
+                              "San": "d6",
+                              "Children": [
+                                {
+                                  "Count": 20,
+                                  "San": "Nf3",
+                                  "Children": [
+                                    {
+                                      "Count": 20,
+                                      "San": "Nxe4",
                                       "Children": []
                                     }
                                   ]
@@ -22889,7 +23782,24 @@
                                 {
                                   "Count": 41,
                                   "San": "Nxd4",
-                                  "Children": []
+                                  "Children": [
+                                    {
+                                      "Count": 19,
+                                      "San": "a6",
+                                      "Children": []
+                                    },
+                                    {
+                                      "Count": 19,
+                                      "San": "Nc6",
+                                      "Children": [
+                                        {
+                                          "Count": 19,
+                                          "San": "Nc3",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
                                 }
                               ]
                             }
@@ -22900,7 +23810,30 @@
                     {
                       "Count": 58,
                       "San": "Nc6",
-                      "Children": []
+                      "Children": [
+                        {
+                          "Count": 25,
+                          "San": "d4",
+                          "Children": [
+                            {
+                              "Count": 25,
+                              "San": "cxd4",
+                              "Children": [
+                                {
+                                  "Count": 25,
+                                  "San": "Nxd4",
+                                  "Children": []
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Count": 19,
+                          "San": "Bb5",
+                          "Children": []
+                        }
+                      ]
                     },
                     {
                       "Count": 140,
@@ -22934,6 +23867,17 @@
                               ]
                             }
                           ]
+                        },
+                        {
+                          "Count": 32,
+                          "San": "Bb5+",
+                          "Children": [
+                            {
+                              "Count": 20,
+                              "San": "Nd7",
+                              "Children": []
+                            }
+                          ]
                         }
                       ]
                     }
@@ -22952,7 +23896,19 @@
                     {
                       "Count": 48,
                       "San": "d5",
-                      "Children": []
+                      "Children": [
+                        {
+                          "Count": 17,
+                          "San": "exd5",
+                          "Children": [
+                            {
+                              "Count": 17,
+                              "San": "cxd5",
+                              "Children": []
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ]
                 }
@@ -22969,7 +23925,13 @@
                     {
                       "Count": 46,
                       "San": "d5",
-                      "Children": []
+                      "Children": [
+                        {
+                          "Count": 20,
+                          "San": "Nc3",
+                          "Children": []
+                        }
+                      ]
                     }
                   ]
                 }
@@ -22984,11 +23946,52 @@
             {
               "Count": 45,
               "San": "e5",
-              "Children": []
+              "Children": [
+                {
+                  "Count": 29,
+                  "San": "Nc3",
+                  "Children": [
+                    {
+                      "Count": 25,
+                      "San": "Nf6",
+                      "Children": [
+                        {
+                          "Count": 19,
+                          "San": "Nf3",
+                          "Children": [
+                            {
+                              "Count": 19,
+                              "San": "Nc6",
+                              "Children": []
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             },
             {
               "Count": 42,
               "San": "Nf6",
+              "Children": [
+                {
+                  "Count": 32,
+                  "San": "Nc3",
+                  "Children": [
+                    {
+                      "Count": 18,
+                      "San": "e5",
+                      "Children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Count": 24,
+              "San": "c5",
               "Children": []
             }
           ]
@@ -23014,9 +24017,38 @@
                           "San": "Nc3",
                           "Children": [
                             {
+                              "Count": 18,
+                              "San": "Bg7",
+                              "Children": [
+                                {
+                                  "Count": 17,
+                                  "San": "e4",
+                                  "Children": []
+                                }
+                              ]
+                            },
+                            {
                               "Count": 44,
                               "San": "d5",
-                              "Children": []
+                              "Children": [
+                                {
+                                  "Count": 25,
+                                  "San": "cxd5",
+                                  "Children": [
+                                    {
+                                      "Count": 25,
+                                      "San": "Nxd5",
+                                      "Children": [
+                                        {
+                                          "Count": 24,
+                                          "San": "e4",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
                             }
                           ]
                         }
@@ -23031,13 +24063,35 @@
                           "San": "Nf3",
                           "Children": [
                             {
+                              "Count": 25,
+                              "San": "b6",
+                              "Children": [
+                                {
+                                  "Count": 18,
+                                  "San": "g3",
+                                  "Children": []
+                                }
+                              ]
+                            },
+                            {
                               "Count": 85,
                               "San": "d5",
                               "Children": [
                                 {
                                   "Count": 77,
                                   "San": "Nc3",
-                                  "Children": []
+                                  "Children": [
+                                    {
+                                      "Count": 25,
+                                      "San": "Be7",
+                                      "Children": []
+                                    },
+                                    {
+                                      "Count": 23,
+                                      "San": "Bb4",
+                                      "Children": []
+                                    }
+                                  ]
                                 }
                               ]
                             }
@@ -23050,7 +24104,18 @@
                             {
                               "Count": 77,
                               "San": "Bb4",
-                              "Children": []
+                              "Children": [
+                                {
+                                  "Count": 24,
+                                  "San": "Nf3",
+                                  "Children": []
+                                },
+                                {
+                                  "Count": 26,
+                                  "San": "Qc2",
+                                  "Children": []
+                                }
+                              ]
                             }
                           ]
                         }
@@ -23059,15 +24124,36 @@
                   ]
                 },
                 {
+                  "Count": 18,
+                  "San": "Bg5",
+                  "Children": []
+                },
+                {
                   "Count": 88,
                   "San": "Nf3",
                   "Children": [
                     {
+                      "Count": 32,
+                      "San": "g6",
+                      "Children": []
+                    },
+                    {
                       "Count": 42,
                       "San": "d5",
-                      "Children": []
+                      "Children": [
+                        {
+                          "Count": 26,
+                          "San": "Bf4",
+                          "Children": []
+                        }
+                      ]
                     }
                   ]
+                },
+                {
+                  "Count": 29,
+                  "San": "Bf4",
+                  "Children": []
                 }
               ]
             },
@@ -23084,6 +24170,17 @@
                       "San": "c6",
                       "Children": [
                         {
+                          "Count": 19,
+                          "San": "Nc3",
+                          "Children": [
+                            {
+                              "Count": 17,
+                              "San": "Nf6",
+                              "Children": []
+                            }
+                          ]
+                        },
+                        {
                           "Count": 69,
                           "San": "Nf3",
                           "Children": [
@@ -23094,11 +24191,38 @@
                                 {
                                   "Count": 48,
                                   "San": "Nc3",
+                                  "Children": [
+                                    {
+                                      "Count": 17,
+                                      "San": "dxc4",
+                                      "Children": []
+                                    },
+                                    {
+                                      "Count": 22,
+                                      "San": "e6",
+                                      "Children": []
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Count": 17,
+                                  "San": "e3",
                                   "Children": []
                                 }
                               ]
                             }
                           ]
+                        }
+                      ]
+                    },
+                    {
+                      "Count": 27,
+                      "San": "e6",
+                      "Children": [
+                        {
+                          "Count": 19,
+                          "San": "Nc3",
+                          "Children": []
                         }
                       ]
                     }
@@ -23115,18 +24239,34 @@
             {
               "Count": 35,
               "San": "d5",
-              "Children": []
+              "Children": [
+                {
+                  "Count": 18,
+                  "San": "g3",
+                  "Children": []
+                }
+              ]
             },
             {
               "Count": 72,
               "San": "Nf6",
               "Children": [
                 {
+                  "Count": 24,
+                  "San": "g3",
+                  "Children": []
+                },
+                {
                   "Count": 42,
                   "San": "c4",
                   "Children": []
                 }
               ]
+            },
+            {
+              "Count": 18,
+              "San": "c5",
+              "Children": []
             }
           ]
         }
@@ -29085,28 +30225,73 @@
       }
     },
     "Positions": {
+      "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 5 4": 18,
+      "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq - 0 6": 32,
+      "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 b kq - 5 6": 32,
+      "r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1B1P1N2/PPP2PPP/RNBQ1RK1 b kq - 1 7": 24,
+      "r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 b kq - 1 7": 32,
+      "r1bqk2r/ppppbppp/2nn4/4N3/8/8/PPPP1PPP/RNBQRBK1 b kq - 2 7": 18,
+      "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/3P1N2/PPP2PPP/RNBQK2R b KQkq - 0 5": 18,
       "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 3 5": 88,
       "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R b KQkq - 0 4": 40,
+      "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq - 5 4": 30,
+      "r1bqkb1r/pppp1ppp/2n5/1B2p3/4n3/5N2/PPPP1PPP/RNBQR1K1 b kq - 1 5": 19,
+      "r1bqkb1r/pppp1ppp/2nn4/1B2N3/8/8/PPPP1PPP/RNBQR1K1 b kq - 0 6": 18,
       "r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 1 4": 112,
+      "r1bqkbnr/pp1p1ppp/2n1p3/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 2 5": 21,
+      "r1bqkbnr/pp1ppppp/2n5/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3": 19,
+      "r1bqkbnr/pp1ppppp/2n5/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3 0 3": 25,
+      "r1bqkbnr/pp1ppppp/2n5/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4": 27,
       "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3": 196,
+      "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 3 3": 30,
+      "r1bqkbnr/pppp1ppp/2n5/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4": 18,
+      "rnbq1rk1/ppp1bppp/4pn2/3p4/2PP1B2/2N1PN2/PP3PPP/R2QKB1R b KQ - 0 6": 22,
+      "rnbqk2r/ppp1bppp/4pn2/3p4/2PP1B2/2N2N2/PP2PPPP/R2QKB1R b KQkq - 3 5": 19,
+      "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 3 4": 24,
+      "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PPQ1PPPP/R1B1KBNR b KQkq - 3 4": 26,
+      "rnbqk2r/ppppppbp/5np1/8/2PPP3/2N5/PP3PPP/R1BQKBNR b KQkq e3 0 4": 18,
+      "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N1B3/PPP2PPP/R2QKB1R b KQkq - 1 6": 23,
+      "rnbqkb1r/p1pp1ppp/1p2pn2/8/2PP4/5NP1/PP2PP1P/RNBQKB1R b KQkq - 0 4": 25,
       "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 3 4": 56,
+      "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/4PN2/PP3PPP/RNBQKB1R b KQkq - 0 4": 19,
+      "rnbqkb1r/pp2pppp/2p2n2/8/P1pP4/2N2N2/1P2PPPP/R1BQKB1R b KQkq a3 0 5": 20,
       "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq - 2 5": 84,
+      "rnbqkb1r/pp3ppp/2p1pn2/3p2B1/2PP4/2N2N2/PP2PPPP/R2QKB1R b KQkq - 1 5": 18,
+      "rnbqkb1r/ppp1pp1p/5np1/3P4/3P4/2N5/PP2PPPP/R1BQKBNR b KQkq - 0 4": 25,
+      "rnbqkb1r/ppp1pp1p/6p1/3n4/3PP3/2N5/PP3PPP/R1BQKBNR b KQkq e3 0 5": 25,
+      "rnbqkb1r/ppp1pp1p/6p1/8/3PP3/2P5/P4PPP/R1BQKBNR b KQkq - 0 6": 25,
+      "rnbqkb1r/ppp1pppp/5n2/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq c3 0 3": 23,
+      "rnbqkb1r/ppp1pppp/5n2/3p4/3P1B2/5N2/PPP1PPPP/RN1QKB1R b KQkq - 1 3": 26,
+      "rnbqkb1r/ppp2ppp/3p1n2/8/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 4": 20,
+      "rnbqkb1r/ppp2ppp/4pn2/3P4/3P4/2N5/PP2PPPP/R1BQKBNR b KQkq - 0 4": 20,
       "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq - 1 4": 95,
       "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 3": 88,
       "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq - 1 3": 129,
+      "rnbqkb1r/pppp1ppp/5n2/4N3/4P3/8/PPPP1PPP/RNBQKB1R b KQkq - 0 3": 24,
+      "rnbqkb1r/pppp1ppp/5n2/4p3/2P5/2N2N2/PP1PPPPP/R1BQKB1R b KQkq - 3 3": 19,
       "rnbqkb1r/pppppp1p/5np1/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 3": 62,
+      "rnbqkb1r/pppppppp/5n2/6B1/3P4/8/PPP1PPPP/RN1QKBNR b KQkq - 2 2": 18,
+      "rnbqkb1r/pppppppp/5n2/8/2P5/2N5/PP1PPPPP/R1BQKBNR b KQkq - 2 2": 32,
       "rnbqkb1r/pppppppp/5n2/8/2P5/5N2/PP1PPPPP/RNBQKB1R b KQkq c3 0 2": 42,
       "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 2": 330,
+      "rnbqkb1r/pppppppp/5n2/8/3P1B2/8/PPP1PPPP/RN1QKBNR b KQkq - 2 2": 29,
       "rnbqkb1r/pppppppp/5n2/8/3P4/5N2/PPP1PPPP/RNBQKB1R b KQkq - 2 2": 88,
+      "rnbqkb1r/pppppppp/5n2/8/8/5NP1/PPPPPP1P/RNBQKB1R b KQkq - 0 2": 24,
       "rnbqkbnr/pp1p1ppp/4p3/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3 0 3": 43,
       "rnbqkbnr/pp1p1ppp/4p3/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4": 45,
       "rnbqkbnr/pp1ppppp/2p5/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 2": 48,
       "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2": 278,
+      "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 3": 19,
       "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq - 1 3": 73,
+      "rnbqkbnr/pp2pppp/3p4/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq - 1 3": 34,
       "rnbqkbnr/pp2pppp/3p4/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3 0 3": 102,
       "rnbqkbnr/pp2pppp/3p4/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq - 0 4": 88,
       "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3 0 2": 127,
+      "rnbqkbnr/ppp1pppp/8/3p4/8/5NP1/PPPPPP1P/RNBQKB1R b KQkq - 0 2": 18,
+      "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq - 1 3": 20,
+      "rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/2N5/PPP2PPP/R1BQKBNR b KQkq - 1 3": 20,
       "rnbqkbnr/pppp1ppp/4p3/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3 0 2": 46,
+      "rnbqkbnr/pppp1ppp/8/4p3/2P5/2N5/PP1PPPPP/R1BQKBNR b KQkq - 1 2": 29,
       "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2": 292,
       "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq c3 0 1": 147,
       "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3 0 1": 631,
@@ -29115,28 +30300,76 @@
     },
     "TotalPositions": 80261,
     "UniquePositions": {
+      "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -": 18,
+      "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq -": 32,
+      "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 b kq -": 32,
+      "r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1B1P1N2/PPP2PPP/RNBQ1RK1 b kq -": 25,
+      "r1bqk2r/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 b kq -": 34,
+      "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/3P1N2/PPP2PPP/RNBQ1RK1 b kq -": 20,
+      "r1bqk2r/ppppbppp/2nn4/4N3/8/8/PPPP1PPP/RNBQRBK1 b kq -": 18,
+      "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/3P1N2/PPP2PPP/RNBQK2R b KQkq -": 18,
       "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -": 88,
       "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/3P1N2/PPP2PPP/RNBQK2R b KQkq -": 40,
+      "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQ1RK1 b kq -": 30,
+      "r1bqkb1r/pppp1ppp/2n5/1B2p3/4n3/5N2/PPPP1PPP/RNBQR1K1 b kq -": 19,
+      "r1bqkb1r/pppp1ppp/2nn4/1B2N3/8/8/PPPP1PPP/RNBQR1K1 b kq -": 18,
       "r1bqkbnr/1ppp1ppp/p1n5/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R b KQkq -": 112,
+      "r1bqkbnr/pp1p1ppp/2n1p3/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq -": 29,
+      "r1bqkbnr/pp1ppppp/2n5/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -": 19,
+      "r1bqkbnr/pp1ppppp/2n5/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3": 25,
+      "r1bqkbnr/pp1ppppp/2n5/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq -": 27,
       "r1bqkbnr/pppp1ppp/2n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -": 196,
+      "r1bqkbnr/pppp1ppp/2n5/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R b KQkq -": 30,
+      "r1bqkbnr/pppp1ppp/2n5/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq -": 18,
+      "rnbq1rk1/ppp1bppp/4pn2/3p4/2PP1B2/2N1PN2/PP3PPP/R2QKB1R b KQ -": 22,
+      "rnbq1rk1/ppp1ppbp/3p1np1/8/2PPP3/2N2N2/PP2BPPP/R1BQK2R b KQ -": 19,
+      "rnbqk2r/ppp1bppp/4pn2/3p4/2PP1B2/2N2N2/PP2PPPP/R2QKB1R b KQkq -": 24,
+      "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq -": 24,
+      "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PPQ1PPPP/R1B1KBNR b KQkq -": 26,
+      "rnbqk2r/ppppppbp/5np1/8/2PPP3/2N5/PP3PPP/R1BQKBNR b KQkq e3": 18,
+      "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N1B3/PPP2PPP/R2QKB1R b KQkq -": 24,
+      "rnbqkb1r/p1pp1ppp/1p2pn2/8/2PP4/5NP1/PP2PP1P/RNBQKB1R b KQkq -": 25,
       "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq -": 68,
+      "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/4PN2/PP3PPP/RNBQKB1R b KQkq -": 19,
+      "rnbqkb1r/pp2pppp/2p2n2/8/P1pP4/2N2N2/1P2PPPP/R1BQKB1R b KQkq a3": 20,
       "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq -": 88,
+      "rnbqkb1r/pp3ppp/2p1pn2/3p2B1/2PP4/2N2N2/PP2PPPP/R2QKB1R b KQkq -": 18,
+      "rnbqkb1r/pp3ppp/2p1pn2/3p4/2PP4/2N1PN2/PP3PPP/R1BQKB1R b KQkq -": 19,
+      "rnbqkb1r/ppp1pp1p/5np1/3P4/3P4/2N5/PP2PPPP/R1BQKBNR b KQkq -": 25,
+      "rnbqkb1r/ppp1pp1p/6p1/3n4/3PP3/2N5/PP3PPP/R1BQKBNR b KQkq e3": 25,
+      "rnbqkb1r/ppp1pp1p/6p1/8/3PP3/2P5/P4PPP/R1BQKBNR b KQkq -": 25,
+      "rnbqkb1r/ppp1pppp/5n2/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq c3": 23,
+      "rnbqkb1r/ppp1pppp/5n2/3p4/3P1B2/5N2/PPP1PPPP/RN1QKB1R b KQkq -": 30,
+      "rnbqkb1r/ppp2ppp/3p1n2/8/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -": 20,
+      "rnbqkb1r/ppp2ppp/4pn2/3P4/3P4/2N5/PP2PPPP/R1BQKBNR b KQkq -": 20,
       "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R b KQkq -": 100,
       "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq -": 89,
       "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq -": 130,
+      "rnbqkb1r/pppp1ppp/5n2/4N3/4P3/8/PPPP1PPP/RNBQKB1R b KQkq -": 24,
+      "rnbqkb1r/pppp1ppp/5n2/4p3/2P5/2N2N2/PP1PPPPP/R1BQKB1R b KQkq -": 28,
       "rnbqkb1r/pppppp1p/5np1/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq -": 63,
+      "rnbqkb1r/pppppppp/5n2/6B1/3P4/8/PPP1PPPP/RN1QKBNR b KQkq -": 18,
+      "rnbqkb1r/pppppppp/5n2/8/2P5/2N5/PP1PPPPP/R1BQKBNR b KQkq -": 32,
       "rnbqkb1r/pppppppp/5n2/8/2P5/5N2/PP1PPPPP/RNBQKB1R b KQkq c3": 42,
       "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3": 330,
+      "rnbqkb1r/pppppppp/5n2/8/3P1B2/8/PPP1PPPP/RN1QKBNR b KQkq -": 29,
       "rnbqkb1r/pppppppp/5n2/8/3P4/5N2/PPP1PPPP/RNBQKB1R b KQkq -": 88,
+      "rnbqkb1r/pppppppp/5n2/8/8/5NP1/PPPPPP1P/RNBQKB1R b KQkq -": 24,
       "rnbqkbnr/pp1p1ppp/4p3/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3": 43,
       "rnbqkbnr/pp1p1ppp/4p3/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq -": 45,
       "rnbqkbnr/pp1ppppp/2p5/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3": 48,
       "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -": 278,
+      "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq -": 19,
       "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R b KQkq -": 73,
+      "rnbqkbnr/pp2pppp/3p4/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R b KQkq -": 34,
       "rnbqkbnr/pp2pppp/3p4/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3": 102,
       "rnbqkbnr/pp2pppp/3p4/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq -": 88,
       "rnbqkbnr/ppp1pppp/8/3p4/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3": 127,
+      "rnbqkbnr/ppp1pppp/8/3p4/8/5NP1/PPPPPP1P/RNBQKB1R b KQkq -": 19,
+      "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq -": 20,
+      "rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/2N5/PPP2PPP/R1BQKBNR b KQkq -": 20,
       "rnbqkbnr/pppp1ppp/4p3/8/3PP3/8/PPP2PPP/RNBQKBNR b KQkq d3": 46,
+      "rnbqkbnr/pppp1ppp/8/4p3/2P5/2N5/PP1PPPPP/R1BQKBNR b KQkq -": 29,
       "rnbqkbnr/pppp1ppp/8/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -": 292,
       "rnbqkbnr/pppppppp/8/8/2P5/8/PP1PPPPP/RNBQKBNR b KQkq c3": 147,
       "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3": 631,
@@ -33969,92 +35202,6 @@
           "San": "e4",
           "Children": [
             {
-              "Count": 363,
-              "San": "e5",
-              "Children": [
-                {
-                  "Count": 350,
-                  "San": "Nf3",
-                  "Children": [
-                    {
-                      "Count": 335,
-                      "San": "Nc6",
-                      "Children": [
-                        {
-                          "Count": 243,
-                          "San": "Bb5",
-                          "Children": [
-                            {
-                              "Count": 93,
-                              "San": "Nf6",
-                              "Children": [
-                                {
-                                  "Count": 45,
-                                  "San": "O-O",
-                                  "Children": [
-                                    {
-                                      "Count": 45,
-                                      "San": "Nxe4",
-                                      "Children": [
-                                        {
-                                          "Count": 34,
-                                          "San": "d4",
-                                          "Children": []
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                },
-                                {
-                                  "Count": 42,
-                                  "San": "d3",
-                                  "Children": []
-                                }
-                              ]
-                            },
-                            {
-                              "Count": 134,
-                              "San": "a6",
-                              "Children": [
-                                {
-                                  "Count": 120,
-                                  "San": "Ba4",
-                                  "Children": [
-                                    {
-                                      "Count": 118,
-                                      "San": "Nf6",
-                                      "Children": [
-                                        {
-                                          "Count": 111,
-                                          "San": "O-O",
-                                          "Children": []
-                                        }
-                                      ]
-                                    }
-                                  ]
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "Count": 62,
-                          "San": "Bc4",
-                          "Children": [
-                            {
-                              "Count": 44,
-                              "San": "Bc5",
-                              "Children": []
-                            }
-                          ]
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
               "Count": 308,
               "San": "c5",
               "Children": [
@@ -34098,6 +35245,29 @@
                       ]
                     },
                     {
+                      "Count": 25,
+                      "San": "e6",
+                      "Children": [
+                        {
+                          "Count": 19,
+                          "San": "d4",
+                          "Children": [
+                            {
+                              "Count": 19,
+                              "San": "cxd4",
+                              "Children": [
+                                {
+                                  "Count": 19,
+                                  "San": "Nxd4",
+                                  "Children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
                       "Count": 151,
                       "San": "Nc6",
                       "Children": [
@@ -34133,6 +35303,22 @@
                         {
                           "Count": 59,
                           "San": "Bb5",
+                          "Children": [
+                            {
+                              "Count": 19,
+                              "San": "e6",
+                              "Children": []
+                            },
+                            {
+                              "Count": 29,
+                              "San": "g6",
+                              "Children": []
+                            }
+                          ]
+                        },
+                        {
+                          "Count": 20,
+                          "San": "Nc3",
                           "Children": []
                         }
                       ]
@@ -34140,6 +35326,281 @@
                   ]
                 }
               ]
+            },
+            {
+              "Count": 363,
+              "San": "e5",
+              "Children": [
+                {
+                  "Count": 350,
+                  "San": "Nf3",
+                  "Children": [
+                    {
+                      "Count": 335,
+                      "San": "Nc6",
+                      "Children": [
+                        {
+                          "Count": 243,
+                          "San": "Bb5",
+                          "Children": [
+                            {
+                              "Count": 93,
+                              "San": "Nf6",
+                              "Children": [
+                                {
+                                  "Count": 45,
+                                  "San": "O-O",
+                                  "Children": [
+                                    {
+                                      "Count": 45,
+                                      "San": "Nxe4",
+                                      "Children": [
+                                        {
+                                          "Count": 34,
+                                          "San": "d4",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                },
+                                {
+                                  "Count": 42,
+                                  "San": "d3",
+                                  "Children": [
+                                    {
+                                      "Count": 30,
+                                      "San": "Bc5",
+                                      "Children": [
+                                        {
+                                          "Count": 18,
+                                          "San": "Bxc6",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Count": 134,
+                              "San": "a6",
+                              "Children": [
+                                {
+                                  "Count": 120,
+                                  "San": "Ba4",
+                                  "Children": [
+                                    {
+                                      "Count": 118,
+                                      "San": "Nf6",
+                                      "Children": [
+                                        {
+                                          "Count": 111,
+                                          "San": "O-O",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Count": 62,
+                          "San": "Bc4",
+                          "Children": [
+                            {
+                              "Count": 17,
+                              "San": "Nf6",
+                              "Children": []
+                            },
+                            {
+                              "Count": 44,
+                              "San": "Bc5",
+                              "Children": [
+                                {
+                                  "Count": 24,
+                                  "San": "c3",
+                                  "Children": [
+                                    {
+                                      "Count": 23,
+                                      "San": "Nf6",
+                                      "Children": [
+                                        {
+                                          "Count": 18,
+                                          "San": "d3",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "Count": 19,
+                          "San": "d4",
+                          "Children": [
+                            {
+                              "Count": 19,
+                              "San": "exd4",
+                              "Children": [
+                                {
+                                  "Count": 17,
+                                  "San": "Nxd4",
+                                  "Children": []
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Count": 17,
+              "San": "e6",
+              "Children": [
+                {
+                  "Count": 17,
+                  "San": "d4",
+                  "Children": [
+                    {
+                      "Count": 17,
+                      "San": "d5",
+                      "Children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Count": 27,
+              "San": "Nf6",
+              "Children": [
+                {
+                  "Count": 26,
+                  "San": "e5",
+                  "Children": [
+                    {
+                      "Count": 25,
+                      "San": "Nd5",
+                      "Children": [
+                        {
+                          "Count": 24,
+                          "San": "d4",
+                          "Children": [
+                            {
+                              "Count": 23,
+                              "San": "d6",
+                              "Children": [
+                                {
+                                  "Count": 18,
+                                  "San": "Nf3",
+                                  "Children": [
+                                    {
+                                      "Count": 18,
+                                      "San": "dxe5",
+                                      "Children": [
+                                        {
+                                          "Count": 18,
+                                          "San": "Nxe5",
+                                          "Children": []
+                                        }
+                                      ]
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Count": 29,
+              "San": "c6",
+              "Children": [
+                {
+                  "Count": 19,
+                  "San": "d4",
+                  "Children": [
+                    {
+                      "Count": 18,
+                      "San": "d5",
+                      "Children": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "Count": 20,
+              "San": "g6",
+              "Children": [
+                {
+                  "Count": 18,
+                  "San": "d4",
+                  "Children": []
+                }
+              ]
+            },
+            {
+              "Count": 19,
+              "San": "d5",
+              "Children": [
+                {
+                  "Count": 18,
+                  "San": "exd5",
+                  "Children": [
+                    {
+                      "Count": 17,
+                      "San": "Qxd5",
+                      "Children": [
+                        {
+                          "Count": 17,
+                          "San": "Nc3",
+                          "Children": []
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Count": 96,
+          "San": "c4",
+          "Children": [
+            {
+              "Count": 32,
+              "San": "Nf6",
+              "Children": [
+                {
+                  "Count": 21,
+                  "San": "Nc3",
+                  "Children": []
+                }
+              ]
+            },
+            {
+              "Count": 27,
+              "San": "e5",
+              "Children": []
             }
           ]
         },
@@ -34154,7 +35615,19 @@
                 {
                   "Count": 51,
                   "San": "Nf3",
-                  "Children": []
+                  "Children": [
+                    {
+                      "Count": 26,
+                      "San": "e6",
+                      "Children": [
+                        {
+                          "Count": 17,
+                          "San": "c4",
+                          "Children": []
+                        }
+                      ]
+                    }
+                  ]
                 },
                 {
                   "Count": 360,
@@ -34171,9 +35644,25 @@
                             {
                               "Count": 65,
                               "San": "Bb4",
-                              "Children": []
+                              "Children": [
+                                {
+                                  "Count": 23,
+                                  "San": "Qc2",
+                                  "Children": []
+                                },
+                                {
+                                  "Count": 17,
+                                  "San": "e3",
+                                  "Children": []
+                                }
+                              ]
                             }
                           ]
+                        },
+                        {
+                          "Count": 20,
+                          "San": "g3",
+                          "Children": []
                         },
                         {
                           "Count": 165,
@@ -34186,7 +35675,18 @@
                                 {
                                   "Count": 69,
                                   "San": "Nc3",
-                                  "Children": []
+                                  "Children": [
+                                    {
+                                      "Count": 18,
+                                      "San": "Be7",
+                                      "Children": []
+                                    },
+                                    {
+                                      "Count": 17,
+                                      "San": "Bb4",
+                                      "Children": []
+                                    }
+                                  ]
                                 }
                               ]
                             },
@@ -34201,7 +35701,13 @@
                                     {
                                       "Count": 41,
                                       "San": "Ba6",
-                                      "Children": []
+                                      "Children": [
+                                        {
+                                          "Count": 22,
+                                          "San": "b3",
+                                          "Children": []
+                                        }
+                                      ]
                                     }
                                   ]
                                 }
@@ -34223,8 +35729,24 @@
                               "Count": 38,
                               "San": "d5",
                               "Children": []
+                            },
+                            {
+                              "Count": 19,
+                              "San": "Bg7",
+                              "Children": []
                             }
                           ]
+                        }
+                      ]
+                    },
+                    {
+                      "Count": 22,
+                      "San": "c5",
+                      "Children": [
+                        {
+                          "Count": 20,
+                          "San": "d5",
+                          "Children": []
                         }
                       ]
                     }
@@ -34243,16 +35765,39 @@
                     {
                       "Count": 35,
                       "San": "e6",
-                      "Children": []
+                      "Children": [
+                        {
+                          "Count": 23,
+                          "San": "Nf3",
+                          "Children": []
+                        }
+                      ]
                     },
                     {
                       "Count": 50,
                       "San": "c6",
-                      "Children": []
+                      "Children": [
+                        {
+                          "Count": 31,
+                          "San": "Nf3",
+                          "Children": [
+                            {
+                              "Count": 30,
+                              "San": "Nf6",
+                              "Children": []
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ]
                 }
               ]
+            },
+            {
+              "Count": 18,
+              "San": "e6",
+              "Children": []
             }
           ]
         },
@@ -34265,22 +35810,50 @@
               "San": "Nf6",
               "Children": [
                 {
+                  "Count": 20,
+                  "San": "g3",
+                  "Children": []
+                },
+                {
                   "Count": 62,
                   "San": "c4",
-                  "Children": []
+                  "Children": [
+                    {
+                      "Count": 31,
+                      "San": "e6",
+                      "Children": [
+                        {
+                          "Count": 17,
+                          "San": "Nc3",
+                          "Children": []
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             },
             {
               "Count": 55,
               "San": "d5",
-              "Children": []
+              "Children": [
+                {
+                  "Count": 21,
+                  "San": "d4",
+                  "Children": []
+                },
+                {
+                  "Count": 22,
+                  "San": "g3",
+                  "Children": []
+                }
+              ]
             }
           ]
         },
         {
-          "Count": 96,
-          "San": "c4",
+          "Count": 19,
+          "San": "b3",
           "Children": []
         }
       ]
@@ -39966,78 +41539,171 @@
       }
     },
     "Positions": {
+      "r1bk1b1r/ppp2ppp/2p5/4Pn2/8/5N2/PPP2PPP/RNB2RK1 w - - 0 9": 29,
+      "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - - 1 9": 24,
+      "r1bq1rk1/2pnbppp/p2p1n2/1p2p3/3PP3/1BP2N1P/PP3PP1/RNBQR1K1 w - - 1 11": 22,
+      "r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w - - 2 8": 30,
+      "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ - 3 9": 20,
       "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4": 44,
       "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 4 6": 77,
+      "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w kq - 0 8": 24,
       "r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 w kq b6 0 7": 54,
+      "r1bqk2r/4bppp/p1np1n2/1p1Np1B1/4P3/N7/PPP2PPP/R2QKB1R w KQkq - 2 10": 28,
+      "r1bqk2r/5ppp/p1np1b2/1p1Np3/4P3/N7/PPP2PPP/R2QKB1R w KQkq - 0 11": 26,
+      "r1bqk2r/ppp2ppp/2p2n2/2b1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq - 0 6": 18,
+      "r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq - 1 5": 30,
+      "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq - 1 5": 23,
       "r1bqkb1r/1p3ppp/p1np1n2/1N2p1B1/4P3/2N5/PPP2PPP/R2QKB1R w KQkq - 0 8": 39,
       "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 2 5": 118,
       "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R w KQkq b6 0 9": 39,
       "r1bqkb1r/pp1p1ppp/2n2n2/4p3/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq e6 0 6": 54,
       "r1bqkb1r/pp1ppppp/2n2n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 1 5": 55,
       "r1bqkb1r/pp3ppp/2np1n2/1N2p3/4P3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 7": 53,
+      "r1bqkb1r/ppp2ppp/2p5/4Pn2/8/5N2/PPP2PPP/RNBQ1RK1 w kq - 1 8": 29,
+      "r1bqkb1r/ppp2ppp/2pn4/4p3/3P4/5N2/PPP2PPP/RNBQ1RK1 w kq - 0 7": 29,
       "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 4 4": 93,
       "r1bqkb1r/pppp1ppp/2n5/1B2p3/4n3/5N2/PPPP1PPP/RNBQ1RK1 w kq - 0 5": 45,
+      "r1bqkb1r/pppp1ppp/2nn4/1B2p3/3P4/5N2/PPP2PPP/RNBQ1RK1 w kq - 1 6": 31,
       "r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4": 134,
+      "r1bqkbnr/pp1p1ppp/2n1p3/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4": 19,
+      "r1bqkbnr/pp1ppp1p/2n3p1/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 0 4": 29,
       "r1bqkbnr/pp1ppppp/2n5/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3": 151,
       "r1bqkbnr/pp1ppppp/2n5/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4": 63,
       "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 2 3": 335,
+      "r1bqkbnr/pppp1ppp/2n5/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4": 19,
+      "r2q1rk1/1bpnbppp/p2p1n2/1p2p3/3PP3/1BP2N1P/PP1N1PP1/R1BQR1K1 w - - 3 12": 19,
+      "r2qr1k1/1bpnbppp/p2p1n2/1p2p3/3PP3/2P2N1P/PPBN1PP1/R1BQR1K1 w - - 5 13": 18,
       "rn1qkb1r/p1pp1ppp/bp2pn2/8/2PP4/5NP1/PP2PP1P/RNBQKB1R w KQkq - 1 5": 46,
+      "rnbq1rk1/2p1bppp/p2p1n2/1p2p3/4P3/1BP2N1P/PP1P1PP1/RNBQR1K1 w - - 1 10": 22,
+      "rnbqk2r/pp2ppbp/3p1np1/8/3NP3/2N1B3/PPP2PPP/R2QKB1R w KQkq - 2 7": 21,
+      "rnbqk2r/ppp1bppp/4pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 2 5": 24,
+      "rnbqk2r/ppp2ppp/4pn2/3p4/1bPP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 2 5": 22,
       "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4": 65,
+      "rnbqk2r/ppppppbp/5np1/8/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq - 2 4": 19,
       "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6": 44,
       "rnbqkb1r/p1pp1ppp/1p2pn2/8/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq - 0 4": 82,
+      "rnbqkb1r/pp1ppppp/5n2/2p5/2PP4/8/PP2PPPP/RNBQKBNR w KQkq c6 0 3": 22,
+      "rnbqkb1r/pp2pp1p/3p1np1/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq - 0 6": 26,
+      "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq - 2 4": 32,
       "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq - 1 5": 80,
+      "rnbqkb1r/pp3ppp/2p1pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq - 0 5": 22,
       "rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq d6 0 4": 39,
+      "rnbqkb1r/ppp1pppp/3p4/3nP3/3P4/8/PPP2PPP/RNBQKBNR w KQkq - 0 4": 23,
+      "rnbqkb1r/ppp1pppp/8/3np3/3P4/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 5": 18,
       "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq d6 0 4": 91,
+      "rnbqkb1r/pppp1ppp/4pn2/8/2P5/5N2/PP1PPPPP/RNBQKB1R w KQkq - 0 3": 32,
       "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3": 254,
+      "rnbqkb1r/pppp1ppp/4pn2/8/3P4/5N2/PPP1PPPP/RNBQKB1R w KQkq - 0 3": 26,
       "rnbqkb1r/pppppp1p/5np1/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3": 80,
+      "rnbqkb1r/pppppppp/5n2/8/2P5/8/PP1PPPPP/RNBQKBNR w KQkq - 1 2": 32,
       "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 1 2": 426,
+      "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 1 2": 27,
       "rnbqkb1r/pppppppp/5n2/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq - 2 2": 87,
+      "rnbqkb1r/pppppppp/8/3nP3/8/8/PPPP1PPP/RNBQKBNR w KQkq - 1 3": 25,
+      "rnbqkbnr/pp1p1ppp/4p3/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3": 25,
+      "rnbqkbnr/pp1p1ppp/4p3/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4": 19,
+      "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2": 29,
       "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6 0 2": 308,
       "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3": 50,
+      "rnbqkbnr/pp2pppp/2p5/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq d6 0 3": 18,
       "rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq - 0 3": 103,
       "rnbqkbnr/pp2pppp/3p4/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq - 0 4": 85,
       "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6 0 2": 107,
+      "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq d6 0 2": 19,
       "rnbqkbnr/ppp1pppp/8/3p4/8/5N2/PPPPPPPP/RNBQKB1R w KQkq d6 0 2": 55,
       "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq - 0 3": 35,
-      "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2": 363
+      "rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq d6 0 3": 20,
+      "rnbqkbnr/pppp1ppp/4p3/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq - 0 2": 18,
+      "rnbqkbnr/pppp1ppp/8/4p3/2P5/8/PP1PPPPP/RNBQKBNR w KQkq e6 0 2": 27,
+      "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6 0 2": 363,
+      "rnbqkbnr/pppppp1p/6p1/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq - 0 2": 20
     },
     "TotalPositions": 75778,
     "UniquePositions": {
+      "r1bk1b1r/ppp2ppp/2p5/4Pn2/8/5N2/PPP2PPP/RNB2RK1 w - -": 29,
+      "r1bq1rk1/2p1bppp/p1np1n2/1p2p3/4P3/1BP2N2/PP1P1PPP/RNBQR1K1 w - -": 30,
+      "r1bq1rk1/2pnbppp/p2p1n2/1p2p3/3PP3/1BP2N1P/PP3PP1/RNBQR1K1 w - -": 22,
+      "r1bq1rk1/2ppbppp/p1n2n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w - -": 31,
+      "r1bq1rk1/pp2ppbp/2np1np1/8/3NP3/2N1BP2/PPPQ2PP/R3KB1R w KQ -": 21,
       "r1bqk1nr/pppp1ppp/2n5/2b1p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq -": 44,
       "r1bqk2r/1pppbppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQ1RK1 w kq -": 77,
+      "r1bqk2r/2p1bppp/p1np1n2/1p2p3/4P3/1B3N2/PPPP1PPP/RNBQR1K1 w kq -": 24,
       "r1bqk2r/2ppbppp/p1n2n2/1p2p3/B3P3/5N2/PPPP1PPP/RNBQR1K1 w kq b6": 54,
+      "r1bqk2r/4bppp/p1np1n2/1p1Np1B1/4P3/N7/PPP2PPP/R2QKB1R w KQkq -": 30,
+      "r1bqk2r/5ppp/p1np1b2/1p1Np3/4P3/N7/PPP2PPP/R2QKB1R w KQkq -": 28,
+      "r1bqk2r/ppp2ppp/2p2n2/2b1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -": 18,
+      "r1bqk2r/pppp1ppp/2n2n2/1Bb1p3/4P3/3P1N2/PPP2PPP/RNBQK2R w KQkq -": 30,
+      "r1bqk2r/pppp1ppp/2n2n2/2b1p3/2B1P3/2P2N2/PP1P1PPP/RNBQK2R w KQkq -": 23,
       "r1bqkb1r/1p3ppp/p1np1n2/1N2p1B1/4P3/2N5/PPP2PPP/R2QKB1R w KQkq -": 41,
       "r1bqkb1r/1ppp1ppp/p1n2n2/4p3/B3P3/5N2/PPPP1PPP/RNBQK2R w KQkq -": 118,
       "r1bqkb1r/5ppp/p1np1n2/1p2p1B1/4P3/N1N5/PPP2PPP/R2QKB1R w KQkq b6": 41,
+      "r1bqkb1r/pp1n1ppp/2p1pn2/3p4/2PP4/2N1PN2/PP3PPP/R1BQKB1R w KQkq -": 18,
       "r1bqkb1r/pp1p1ppp/2n2n2/4p3/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq e6": 54,
       "r1bqkb1r/pp1ppppp/2n2n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -": 55,
       "r1bqkb1r/pp3ppp/2np1n2/1N2p3/4P3/2N5/PPP2PPP/R1BQKB1R w KQkq -": 53,
+      "r1bqkb1r/ppp2ppp/2p5/4Pn2/8/5N2/PPP2PPP/RNBQ1RK1 w kq -": 29,
+      "r1bqkb1r/ppp2ppp/2pn4/4p3/3P4/5N2/PPP2PPP/RNBQ1RK1 w kq -": 29,
       "r1bqkb1r/pppp1ppp/2n2n2/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -": 93,
+      "r1bqkb1r/pppp1ppp/2n2n2/4p3/2P5/2N2N2/PP1PPPPP/R1BQKB1R w KQkq -": 18,
       "r1bqkb1r/pppp1ppp/2n5/1B2p3/4n3/5N2/PPPP1PPP/RNBQ1RK1 w kq -": 45,
+      "r1bqkb1r/pppp1ppp/2nn4/1B2p3/3P4/5N2/PPP2PPP/RNBQ1RK1 w kq -": 31,
       "r1bqkbnr/1ppp1ppp/p1n5/1B2p3/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -": 134,
+      "r1bqkbnr/pp1p1ppp/2n1p3/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -": 19,
+      "r1bqkbnr/pp1ppp1p/2n3p1/1Bp5/4P3/5N2/PPPP1PPP/RNBQK2R w KQkq -": 29,
       "r1bqkbnr/pp1ppppp/2n5/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -": 151,
       "r1bqkbnr/pp1ppppp/2n5/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq -": 63,
       "r1bqkbnr/pppp1ppp/2n5/4p3/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -": 335,
+      "r1bqkbnr/pppp1ppp/2n5/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq -": 19,
+      "r2q1rk1/1bpnbppp/p2p1n2/1p2p3/3PP3/1BP2N1P/PP1N1PP1/R1BQR1K1 w - -": 19,
+      "r2qr1k1/1bpnbppp/p2p1n2/1p2p3/3PP3/2P2N1P/PPBN1PP1/R1BQR1K1 w - -": 18,
       "rn1qkb1r/p1pp1ppp/bp2pn2/8/2PP4/5NP1/PP2PP1P/RNBQKB1R w KQkq -": 46,
+      "rnbq1rk1/2p1bppp/p2p1n2/1p2p3/4P3/1BP2N1P/PP1P1PP1/RNBQR1K1 w - -": 22,
+      "rnbq1rk1/ppp1bppp/4pn2/3p4/2PP1B2/2N2N2/PP2PPPP/R2QKB1R w KQ -": 18,
+      "rnbq1rk1/ppp1ppbp/3p1np1/8/2PPP3/2N2N2/PP3PPP/R1BQKB1R w KQ -": 18,
+      "rnbqk2r/pp2ppbp/3p1np1/8/3NP3/2N1B3/PPP2PPP/R2QKB1R w KQkq -": 21,
+      "rnbqk2r/ppp1bppp/4pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq -": 31,
+      "rnbqk2r/ppp2ppp/4pn2/3p4/1bPP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq -": 26,
       "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq -": 67,
+      "rnbqk2r/ppppppbp/5np1/8/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq -": 20,
       "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq -": 46,
       "rnbqkb1r/p1pp1ppp/1p2pn2/8/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq -": 82,
+      "rnbqkb1r/pp1ppppp/5n2/2p5/2PP4/8/PP2PPPP/RNBQKBNR w KQkq c6": 22,
+      "rnbqkb1r/pp2pp1p/3p1np1/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq -": 26,
       "rnbqkb1r/pp2pppp/2p2n2/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq -": 48,
       "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -": 80,
+      "rnbqkb1r/pp3ppp/2p1pn2/3p4/2PP4/2N2N2/PP2PPPP/R1BQKB1R w KQkq -": 22,
       "rnbqkb1r/ppp1pp1p/5np1/3p4/2PP4/2N5/PP2PPPP/R1BQKBNR w KQkq d6": 39,
+      "rnbqkb1r/ppp1pppp/3p4/3nP3/3P4/8/PPP2PPP/RNBQKBNR w KQkq -": 23,
+      "rnbqkb1r/ppp1pppp/5n2/3p4/3P4/5N2/PPP1PPPP/RNBQKB1R w KQkq -": 26,
+      "rnbqkb1r/ppp1pppp/8/3np3/3P4/5N2/PPP2PPP/RNBQKB1R w KQkq -": 18,
+      "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq -": 30,
       "rnbqkb1r/ppp2ppp/4pn2/3p4/2PP4/5N2/PP2PPPP/RNBQKB1R w KQkq d6": 91,
+      "rnbqkb1r/pppp1ppp/4pn2/8/2P5/5N2/PP1PPPPP/RNBQKB1R w KQkq -": 32,
       "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -": 255,
+      "rnbqkb1r/pppp1ppp/4pn2/8/3P4/5N2/PPP1PPPP/RNBQKB1R w KQkq -": 26,
       "rnbqkb1r/pppppp1p/5np1/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -": 81,
+      "rnbqkb1r/pppppppp/5n2/8/2P5/8/PP1PPPPP/RNBQKBNR w KQkq -": 32,
       "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -": 426,
+      "rnbqkb1r/pppppppp/5n2/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -": 27,
       "rnbqkb1r/pppppppp/5n2/8/8/5N2/PPPPPPPP/RNBQKB1R w KQkq -": 87,
+      "rnbqkb1r/pppppppp/8/3nP3/8/8/PPPP1PPP/RNBQKBNR w KQkq -": 25,
+      "rnbqkbnr/pp1p1ppp/4p3/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -": 25,
+      "rnbqkbnr/pp1p1ppp/4p3/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq -": 19,
+      "rnbqkbnr/pp1ppppp/2p5/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -": 29,
       "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6": 308,
       "rnbqkbnr/pp2pppp/2p5/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -": 50,
+      "rnbqkbnr/pp2pppp/2p5/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq d6": 18,
       "rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -": 103,
       "rnbqkbnr/pp2pppp/3p4/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq -": 85,
       "rnbqkbnr/ppp1pppp/8/3p4/3P4/8/PPP1PPPP/RNBQKBNR w KQkq d6": 107,
+      "rnbqkbnr/ppp1pppp/8/3p4/4P3/8/PPPP1PPP/RNBQKBNR w KQkq d6": 19,
       "rnbqkbnr/ppp1pppp/8/3p4/8/5N2/PPPPPPPP/RNBQKB1R w KQkq d6": 55,
       "rnbqkbnr/ppp2ppp/4p3/3p4/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -": 35,
-      "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6": 363
+      "rnbqkbnr/ppp2ppp/4p3/3p4/3PP3/8/PPP2PPP/RNBQKBNR w KQkq d6": 20,
+      "rnbqkbnr/pppp1ppp/4p3/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -": 18,
+      "rnbqkbnr/pppp1ppp/8/4p3/2P5/8/PP1PPPPP/RNBQKBNR w KQkq e6": 27,
+      "rnbqkbnr/pppp1ppp/8/4p3/4P3/8/PPPP1PPP/RNBQKBNR w KQkq e6": 363,
+      "rnbqkbnr/pppppp1p/6p1/8/4P3/8/PPPP1PPP/RNBQKBNR w KQkq -": 20
     },
     "TotalUniquePositions": 74688
   }
